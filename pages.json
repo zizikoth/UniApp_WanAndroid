@@ -1,0 +1,62 @@
+{
+	"pages": [{
+		"path": "pages/home/home",
+		"style": {
+			"navigationBarTitleText": "首页",
+			"enablePullDownRefresh": false
+		}
+	}, {
+		"path": "pages/project/project",
+		"style": {
+			"navigationBarTitleText": "项目",
+			"enablePullDownRefresh": false
+		}
+	}, {
+		"path": "pages/system/system",
+		"style": {
+			"navigationBarTitleText": "体系",
+			"enablePullDownRefresh": false
+		}
+	}, {
+		"path": "pages/mine/mine",
+		"style": {
+			"navigationBarTitleText": "我的",
+			"enablePullDownRefresh": false
+		}
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "玩安卓",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#333333",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/ic_home_normal.png",
+				"selectedIconPath": "static/ic_home_select.png"
+			},
+			{
+				"pagePath": "pages/project/project",
+				"text": "项目",
+				"iconPath": "static/ic_project_normal.png",
+				"selectedIconPath": "static/ic_project_select.png"
+			},
+			{
+				"pagePath": "pages/system/system",
+				"text": "体系",
+				"iconPath": "static/ic_system_normal.png",
+				"selectedIconPath": "static/ic_system_select.png"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的",
+				"iconPath": "static/ic_mine_normal.png",
+				"selectedIconPath": "static/ic_mine_select.png"
+			}
+		]
+	}
+}
