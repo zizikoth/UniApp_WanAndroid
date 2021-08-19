@@ -38,25 +38,24 @@
 <style>
 	.banner-container {
 		display: flex;
-		height: 400rpx;
+		height: 360rpx;
 		width: 100%;
 	}
 
 	.banner-box {
 		display: flex;
 		width: 100%;
-		height: 400rpx;
+		height: 360rpx;
 	}
 
 	.banner-image {
 		display: flex;
-		width: calc(100% - 20rpx);
-		margin: 20rpx;
+		width: calc(100% - 30rpx);
+		margin-right: 15rpx;
+		margin-left: 15rpx;
 		height: 360rpx;
 		border-radius: 20rpx;
 	}
 
-	/deep/ .uni-swiper-dots {
-		bottom: 40rpx !important;
-	}
+
 </style>

@@ -1,15 +1,18 @@
 {
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [{
 		"path": "pages/home/home",
 		"style": {
 			"navigationBarTitleText": "首页",
-			"enablePullDownRefresh": false
+			"enablePullDownRefresh": true
 		}
 	}, {
 		"path": "pages/project/project",
 		"style": {
 			"navigationBarTitleText": "项目",
-			"enablePullDownRefresh": false
+			"enablePullDownRefresh": true
 		}
 	}, {
 		"path": "pages/system/system",
@@ -23,7 +26,79 @@
 			"navigationBarTitleText": "我的",
 			"enablePullDownRefresh": false
 		}
-	}],
+	}    ,{
+            "path" : "pages/mine/todo/todo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "未完清单",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/website/website",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "网址收藏",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/my_share/my_share",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的分享",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/share_square/share_square",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "分享广场",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/about_us/about_us",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关于我们",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/collection/collection",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "收藏",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/coin/coin",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "积分",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/rank/rank",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "排名",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "玩安卓",
@@ -33,6 +108,7 @@
 	"tabBar": {
 		"color": "#999999",
 		"selectedColor": "#333333",
+		"fontSize":"30rpx",
 		"list": [{
 				"pagePath": "pages/home/home",
 				"text": "首页",

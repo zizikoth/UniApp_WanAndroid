@@ -1,0 +1,58 @@
+
+.grid-view-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	width: 100%;
+	height: 375rpx;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.grid-view-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	width: 187.5rpx;
+	height: 187.5rpx;
+}
+.grid-view-item-icon {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 80rpx;
+}
+.grid-view-item-title {
+	display: -webkit-flex;
+	display: flex;
+	font-size: 26rpx;
+	font-weight: bold;
+	margin-top: 20rpx;
+	width: calc(100% - 30rpx);
+	height: 30rpx;
+	text-align: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	color: #333;
+
+	overflow: hidden;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+}
+

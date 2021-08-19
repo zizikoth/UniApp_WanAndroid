@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "项目",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tab": "/components/tab/tab",
+    "article-list": "/components/article-list/article-list"
+  }
+}

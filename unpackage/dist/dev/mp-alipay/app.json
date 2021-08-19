@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/project/project",
+    "pages/system/system",
+    "pages/mine/mine"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "玩安卓",
+    "titleBarColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "textColor": "#999999",
+    "selectedColor": "#333333",
+    "items": [
+      {
+        "pagePath": "pages/home/home",
+        "name": "首页",
+        "icon": "static/ic_home_normal.png",
+        "activeIcon": "static/ic_home_select.png"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "name": "项目",
+        "icon": "static/ic_project_normal.png",
+        "activeIcon": "static/ic_project_select.png"
+      },
+      {
+        "pagePath": "pages/system/system",
+        "name": "体系",
+        "icon": "static/ic_system_normal.png",
+        "activeIcon": "static/ic_system_select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "我的",
+        "icon": "static/ic_mine_normal.png",
+        "activeIcon": "static/ic_mine_select.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

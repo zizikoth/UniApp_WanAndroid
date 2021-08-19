@@ -42,12 +42,24 @@ const request = function(method, path, params, showLoading) {
 	})
 }
 
-const get = function(path, showLoading) {
-	return request('GET', path, {}, showLoading)
+const get = function(path) {
+	return request('GET', path, {}, true)
 }
 
-const post = function(path, params, showLoading) {
-	return request('POST', path, params, showLoading)
+const getParams = function(path, params) {
+	return request('GET', path, params, true)
+}
+
+const getNoLoading = function(path) {
+	return request('GET', path, {}, false)
+}
+
+const post = function(path, params) {
+	return request('POST', path, params, true)
+}
+
+const postNoLoading = function(path, params) {
+	return request('POST', path, params, false)
 }
 
 module.exports = {
@@ -59,9 +71,27 @@ module.exports = {
 	},
 	getHomeData: () => {
 		return Promise.all([
-			get('banner/json', true),
-			get('wxarticle/chapters/json', true),
-			get('article/top/json', true)
+			get('banner/json'),
+			get('wxarticle/chapters/json'),
+			get('article/top/json'),
+			get('article/list/1/json')
+		])
+	},
+	getHomeArticles: (page) => {
+		return get(`article/list/${page}/json`)
+	},
+	getProjectTree: () => {
+		return get('project/tree/json')
+	},
+	getProjectArticle: (page, cid) => {
+		return getParams(`project/list/${page}/json`, {
+			cid: cid
+		})
+	},
+	getSystemAndNaviTree: () => {
+		return Promise.all([
+			get('tree/json'),
+			get('navi/json')
 		])
 	}
 }

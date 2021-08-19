@@ -1,0 +1,48 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/project/project",
+        "pages/system/system",
+        "pages/mine/mine"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "玩安卓",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "backgroundColor": "#FFFFFF"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#333333",
+        "fontSize": "30rpx",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "static/ic_home_normal.png",
+                "selectedIconPath": "static/ic_home_select.png"
+            },
+            {
+                "pagePath": "pages/project/project",
+                "text": "项目",
+                "iconPath": "static/ic_project_normal.png",
+                "selectedIconPath": "static/ic_project_select.png"
+            },
+            {
+                "pagePath": "pages/system/system",
+                "text": "体系",
+                "iconPath": "static/ic_system_normal.png",
+                "selectedIconPath": "static/ic_system_select.png"
+            },
+            {
+                "pagePath": "pages/mine/mine",
+                "text": "我的",
+                "iconPath": "static/ic_mine_normal.png",
+                "selectedIconPath": "static/ic_mine_select.png"
+            }
+        ]
+    },
+    "usingComponents": {},
+    "sitemapLocation": "sitemap.json"
+}

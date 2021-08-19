@@ -56,9 +56,26 @@ const toast = function(message) {
 	}
 }
 
+// 跳转到页面顶部
+const pageScrollToTop = function() {
+	uni.pageScrollTo({
+		scrollTop: 0,
+		duration: 200
+	})
+}
+
 // 是否已经登录
 const isLogined = function() {
 	return DataManager.getUser() != null
+}
+
+// 跳转文章页面
+const openLink = function(link) {
+	if (!isEmpty(link)) {
+		// #ifdef H5
+		window.open(link)
+		// #endif
+	}
 }
 
 module.exports = {
@@ -68,5 +85,7 @@ module.exports = {
 	isEmptyList,
 	orEmpty,
 	toast,
-	isLogined
+	pageScrollToTop,
+	isLogined,
+	openLink
 }

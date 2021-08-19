@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "项目",
+  "pullRefresh": false,
+  "usingComponents": {
+    "u-tabs": "/components/u-tabs/u-tabs"
+  }
+}

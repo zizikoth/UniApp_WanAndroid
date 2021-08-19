@@ -7,15 +7,17 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	@import "uview-ui/index.scss";
+
 	/* 全局页面样式 */
 	.page {
 		display: flex;
 		flex-direction: column;
 	}
-	
+
 	/* 纵向排列 */
-	.vertical{
+	.vertical {
 		display: flex;
 		flex-direction: column;
 	}
@@ -54,5 +56,19 @@
 		width: 100%;
 		height: 10rpx;
 		background: #f5f5f5;
+	}
+
+	.sticky {
+		display: flex;
+		flex-direction: column;
+		position: sticky;
+		top: var(--window-top);
+		z-index: 999;
+	}
+
+	.card {
+		-moz-box-shadow: 0 0 20rpx #999;
+		-webkit-box-shadow: 0 0 20rpx #999;
+		box-shadow: 0 0 20rpx #999;
 	}
 </style>

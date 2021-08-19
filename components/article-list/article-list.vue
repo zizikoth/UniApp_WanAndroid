@@ -1,6 +1,6 @@
 <template>
 	<view class="article-item-container" v-if="data!=undefined&&data!=null&&data.length>0">
-		<view v-for="(item,index) in data" :key="index">
+		<view v-for="(item,index) in data" :key="index" @click="onClick(item)">
 
 			<!-- 文章无图片 -->
 			<view class="article-item-no-pic-box" v-if="!hasPic(item)">
@@ -31,7 +31,7 @@
 
 						<text class="article-item-desc">{{desc(item)}}</text>
 					</view>
-
+					
 					<image class="article-item-pic" :src="item.envelopePic" mode="aspectFill" />
 				</view>
 				<view class="article-item-bottom-box">
@@ -50,18 +50,13 @@
 	import utils from '@/utils/Utils.js'
 	export default {
 		name: "article-list",
-		data() {
-			return {
-				data: []
-			};
+		props: {
+			data: {
+				type: Array,
+				default: () => []
+			}
 		},
 		methods: {
-			setData(data) {
-				this.data = data
-			},
-			addData(data) {
-				this.data = thia.data.concat(data)
-			},
 			hasPic(item) {
 				return !utils.isEmpty(item.envelopePic)
 			},
@@ -80,8 +75,11 @@
 				return utils.formatHtml(item.desc)
 			},
 			chapter(item) {
-				return utils.isEmpty(item.superChapterName) ? item.chapterName :
-					item.superChapterName + ' · ' + item.chapterName
+				return utils.isEmpty(item.superChapterName) ? utils.formatHtml(item.chapterName) :
+					utils.formatHtml(item.superChapterName) + ' · ' + utils.formatHtml(item.chapterName)
+			},
+			onClick(item) {
+				utils.openLink(item.link)
 			}
 		}
 	}

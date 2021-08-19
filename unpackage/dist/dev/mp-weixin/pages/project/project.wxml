@@ -1,0 +1,1 @@
+<view class="page"><tab class="sticky vue-ref" bind:tabChange="__e" vue-id="3b2ec1e8-1" data-ref="tab" data-event-opts="{{[['^tabChange',[['onTabChange']]]]}}" bind:__l="__l"></tab><article-list vue-id="3b2ec1e8-2" data="{{articles}}" bind:__l="__l"></article-list></view>
