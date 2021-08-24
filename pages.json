@@ -26,75 +26,76 @@
 			"navigationBarTitleText": "我的",
 			"enablePullDownRefresh": false
 		}
+	}, {
+		"path": "pages/mine/todo/todo",
+		"style": {
+			"navigationBarTitleText": "未完清单",
+			"enablePullDownRefresh": true,
+			"app-plus": {
+				"titleNView": {
+					"buttons": [{
+						"text":"\ue639",
+						"fontSrc":"/static/font/iconfont.ttf",
+						"color":"#333333",
+						"fontSize":"50rpx"
+					}]
+				}
+			}
+		}
+	}, {
+		"path": "pages/mine/website/website",
+		"style": {
+			"navigationBarTitleText": "网址收藏",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/mine/my_share/my_share",
+		"style": {
+			"navigationBarTitleText": "我的分享",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/mine/share_square/share_square",
+		"style": {
+			"navigationBarTitleText": "分享广场",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/mine/about_us/about_us",
+		"style": {
+			"navigationBarTitleText": "关于我们",
+			"enablePullDownRefresh": false
+		}
+	}, {
+		"path": "pages/mine/collection/collection",
+		"style": {
+			"navigationBarTitleText": "收藏",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/mine/coin/coin",
+		"style": {
+			"navigationBarTitleText": "积分",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/mine/rank/rank",
+		"style": {
+			"navigationBarTitleText": "排名",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/other/login/login",
+		"style": {
+			"navigationBarTitleText": "登录",
+			"enablePullDownRefresh": false
+		}
 	}    ,{
-            "path" : "pages/mine/todo/todo",
+            "path" : "pages/mine/todo_edit/todo_edit",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "未完清单",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/website/website",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "网址收藏",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/my_share/my_share",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "我的分享",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/share_square/share_square",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "分享广场",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/about_us/about_us",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "关于我们",
+                "navigationBarTitleText": "编辑",
                 "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/collection/collection",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "收藏",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/coin/coin",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "积分",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/rank/rank",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "排名",
-                "enablePullDownRefresh": true
             }
             
         }
@@ -108,7 +109,7 @@
 	"tabBar": {
 		"color": "#999999",
 		"selectedColor": "#333333",
-		"fontSize":"30rpx",
+		"fontSize": "30rpx",
 		"list": [{
 				"pagePath": "pages/home/home",
 				"text": "首页",

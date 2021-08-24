@@ -21,7 +21,7 @@
 				// 当前页码
 				page: 0,
 				// 是否继续加载下一页
-				enableLoadMore: true,
+				enableLoadMore: false,
 				// 内容数据
 				articles: [],
 				scrollTop: 0

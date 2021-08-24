@@ -93,5 +93,40 @@ module.exports = {
 			get('tree/json'),
 			get('navi/json')
 		])
+	},
+	todoList: (filter) => {
+		let params = {}
+		if (!utils.isEmpty(filter.status)) params.status = filter.status
+		if (!utils.isEmpty(filter.type)) params.type = filter.type
+		if (!utils.isEmpty(filter.priority)) params.priority = filter.priority
+		if (!utils.isEmpty(filter.orderby)) params.orderby = filter.orderby
+		return getParams(`lg/todo/v2/list/${filter.page}/json`, params)
+	},
+	todoAdd: (title, content, type, priority) => {
+		return post('lg/todo/add/json', {
+			title: title,
+			content: content,
+			date: utils.nowDate().YMD,
+			type: type,
+			priority: priority
+		})
+	},
+	todoUpdate: (id, title, content, status, type, priority) => {
+		return post(`lg/todo/update/${id}/json`, {
+			title: title,
+			content: content,
+			date: utils.nowDate().YMD,
+			status: status,
+			type: type,
+			priority: priority
+		})
+	},
+	todoComplete: (id, complete) => {
+		return post(`lg/todo/done/${id}/json`, {
+			status: complete ? 1 : 0
+		})
+	},
+	todoDelete: (id) => {
+		return post(`lg/todo/delete/${id}/json`)
 	}
 }

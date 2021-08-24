@@ -1,25 +1,26 @@
-const globaData = getApp().globalData
+const globalData = getApp().globalData
 
 // 存储用户信息
 const saveUser = function(user) {
-	globaData.userInfo = user
-	uni.setStorageSync('user',user)
+	globalData.userInfo = user
+	uni.setStorageSync('Core_User', user)
 }
 
 // 获取用户信息
-const getUser = function(){
-	if(globaData.userInfo!=null){
-		return globaData.userInfo
-	}else{
-		return uni.getStorageSync('user')
+const getUser = function() {
+	if (globalData.userInfo != null) {
+		return globalData.userInfo
+	} else {
+		globalData.userInfo = uni.getStorageSync('Core_User')
+		return globalData.userInfo
 	}
 }
 
 // 添加收藏
-const addCollection= function(id){
+const addCollection = function(id) {
 	let user = getUser()
-	if(user!=null){
-		if(user.collectIds.indexof(id)==-1){
+	if (user != null) {
+		if (user.collectIds.indexof(id) == -1) {
 			user.collectIds.push(id)
 			saveUser(user)
 		}
@@ -27,12 +28,12 @@ const addCollection= function(id){
 }
 
 // 移除收藏
-const removeCollection = function(id){
+const removeCollection = function(id) {
 	let user = getUser()
-	if(user!=null){
+	if (user != null) {
 		let index = user.collectIds.indexof(id)
-		if(index!=-1){
-			user.collectIds.splice(index,1)
+		if (index != -1) {
+			user.collectIds.splice(index, 1)
 			saveUser(user)
 		}
 	}

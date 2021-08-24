@@ -1,6 +1,6 @@
 <template>
 	<view class="article-item-container" v-if="data!=undefined&&data!=null&&data.length>0">
-		<view v-for="(item,index) in data" :key="index" @click="onClick(item)">
+		<view v-for="(item,index) in data" :key="item.id" @click="onClick(item)" :style="background(item)">
 
 			<!-- 文章无图片 -->
 			<view class="article-item-no-pic-box" v-if="!hasPic(item)">
@@ -31,7 +31,7 @@
 
 						<text class="article-item-desc">{{desc(item)}}</text>
 					</view>
-					
+
 					<image class="article-item-pic" :src="item.envelopePic" mode="aspectFill" />
 				</view>
 				<view class="article-item-bottom-box">
@@ -57,6 +57,13 @@
 			}
 		},
 		methods: {
+			background(item) {
+				return item.isTop ? {
+					background: '#fff5fd'
+				} : {
+					background: '#ffffff'
+				}
+			},
 			hasPic(item) {
 				return !utils.isEmpty(item.envelopePic)
 			},
@@ -94,7 +101,6 @@
 	.article-item-no-pic-box {
 		display: flex;
 		flex-direction: column;
-		width: calc(100% - 60rpx);
 		padding: 30rpx;
 	}
 

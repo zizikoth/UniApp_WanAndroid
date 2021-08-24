@@ -15,7 +15,7 @@
 			return {
 				page: 1,
 				cid: 0,
-				enableLoadMore: true,
+				enableLoadMore: false,
 				articles: [],
 				scrollTop: 0
 			}
