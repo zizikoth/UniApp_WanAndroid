@@ -91,10 +91,19 @@
 			"enablePullDownRefresh": false
 		}
 	}    ,{
-            "path" : "pages/mine/todo_edit/todo_edit",
+            "path" : "pages/mine/todo/todo_update",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "编辑",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/todo/todo_add",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增",
                 "enablePullDownRefresh": false
             }
             

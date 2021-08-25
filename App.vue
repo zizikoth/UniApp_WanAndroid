@@ -2,7 +2,14 @@
 	export default {
 		globalData: {
 			// 用户信息，不要直接使用，从DataManager中获取
-			userInfo: null
+			userInfo: null,
+			// 判断是否页面需要刷新
+			refresh: {
+				// todo更新
+				todoUpdate: false,
+				// todo新增
+				todoAdd:false
+			}
 		}
 	}
 </script>

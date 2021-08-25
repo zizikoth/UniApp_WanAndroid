@@ -4,6 +4,7 @@
   "usingComponents": {
     "banner": "/components/banner/banner",
     "grid-view": "/components/grid-view/grid-view",
-    "article-list": "/components/article-list/article-list"
+    "article-list": "/components/article-list/article-list",
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top"
   }
 }

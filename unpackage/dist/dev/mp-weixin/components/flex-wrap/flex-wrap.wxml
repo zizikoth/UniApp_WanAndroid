@@ -1,0 +1,1 @@
+<view><view class="wrap-container"><block wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['itemClick',['$0'],[[['data','',index]]]]]]]}}" class="{{[item.isTitle?'wrap-title':'wrap-item']}}" bindtap="__e">{{''+item.title+''}}</view></block></view></view>

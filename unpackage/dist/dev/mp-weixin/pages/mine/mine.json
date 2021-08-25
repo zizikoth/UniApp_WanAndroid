@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "我的",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "item-cell": "/components/item-cell/item-cell"
+  }
 }

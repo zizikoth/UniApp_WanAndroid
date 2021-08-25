@@ -4,8 +4,12 @@
 			@click="click" @content-click="contentClick" @open="open" :options="item.options">
 
 			<view class="todo-box">
-				<view class="todo-container" :style="background(item)">
-
+				<view class="todo-container"
+					:style="
+				item.type == 1 ? 'background:rgba(255,67,101,0.1);-moz-box-shadow: 0 0 20rpx rgba(255,67,101,0.1);-webkit-box-shadow: 0 0 20rpx rgba(255,67,101,0.1);box-shadow: 0 0 20rpx rgba(255,67,101,0.1)':
+				item.type == 2 ? 'background:rgba(245,224,43,0.1);-moz-box-shadow: 0 0 20rpx rgba(245,224,43,0.1);-webkit-box-shadow: 0 0 20rpx rgba(245,224,43,0.1);box-shadow: 0 0 20rpx rgba(245,224,43,0.1)':
+				item.type == 3 ? 'background:rgba(148,226,255,0.1);-moz-box-shadow: 0 0 20rpx rgba(148,226,255,0.1);-webkit-box-shadow: 0 0 20rpx rgba(148,226,255,0.1);box-shadow: 0 0 20rpx rgba(148,226,255,0.1)':
+				'background:rgba(179,135,118,0.1);-moz-box-shadow: 0 0 20rpx rgba(179,135,118,0.1);-webkit-box-shadow: 0 0 20rpx rgba(179,135,118,0.1);box-shadow: 0 0 20rpx rgba(179,135,118,0.1)'">
 					<view class="todo-top">
 						<text class="todo-label">{{label(item)}}</text>
 						<text class="todo-title">{{item.title}}</text>
@@ -34,17 +38,6 @@
 			};
 		},
 		methods: {
-			background(item) {
-				let color = item.type == 1 ? 'rgba(255,67,101,0.1)' :
-					item.type == 2 ? 'rgba(245,224,43,0.1)' :
-					item.type == 3 ? 'rgba(148,226,255,0.1)' : 'rgba(179,135,118,0.1)'
-				return {
-					'background': color,
-					'-moz-box-shadow': `0 0 20rpx ${color}`,
-					'-webkit-box-shadow': `0 0 20rpx ${color}`,
-					'box-shadow': `0 0 20rpx ${color}`
-				}
-			},
 			label(item) {
 				return item.type == 1 ? '工作' : item.type == 2 ? '生活' :
 					item.type == 3 ? '个人' : '其他'

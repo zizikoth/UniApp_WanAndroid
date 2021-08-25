@@ -1,7 +1,8 @@
 <template>
 	<view>
 		<view class="wrap-container">
-			<view v-for="(item,index) in data" :key="index" :class="itemClass(item)" @click="itemClick(item)">
+			<view v-for="(item,index) in data" :key="index" :class="[item.isTitle ? 'wrap-title' : 'wrap-item']"
+				@click="itemClick(item)">
 				{{item.title}}
 			</view>
 		</view>
@@ -20,9 +21,6 @@
 		},
 		data() {
 			return {
-				itemClass(item) {
-					return item.isTitle ? 'wrap-title' : 'wrap-item'
-				},
 				itemClick(item) {
 					this.$emit("itemClick", item)
 				}

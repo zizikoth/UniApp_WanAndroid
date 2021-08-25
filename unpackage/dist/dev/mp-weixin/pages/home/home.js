@@ -94,13 +94,16 @@ var components
 try {
   components = {
     banner: function() {
-      return __webpack_require__.e(/*! import() | components/banner/banner */ "components/banner/banner").then(__webpack_require__.bind(null, /*! @/components/banner/banner.vue */ 82))
+      return __webpack_require__.e(/*! import() | components/banner/banner */ "components/banner/banner").then(__webpack_require__.bind(null, /*! @/components/banner/banner.vue */ 157))
     },
     gridView: function() {
-      return __webpack_require__.e(/*! import() | components/grid-view/grid-view */ "components/grid-view/grid-view").then(__webpack_require__.bind(null, /*! @/components/grid-view/grid-view.vue */ 89))
+      return __webpack_require__.e(/*! import() | components/grid-view/grid-view */ "components/grid-view/grid-view").then(__webpack_require__.bind(null, /*! @/components/grid-view/grid-view.vue */ 164))
     },
     articleList: function() {
-      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 96))
+      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 171))
+    },
+    uBackTop: function() {
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 178))
     }
   }
 } catch (e) {
@@ -166,6 +169,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));
 var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 60));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
@@ -175,13 +179,14 @@ var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 
 //
 //
 //
-var GridView = function GridView() {__webpack_require__.e(/*! require.ensure | components/grid-view/grid-view */ "components/grid-view/grid-view").then((function () {return resolve(__webpack_require__(/*! ../../components/grid-view/grid-view.vue */ 89));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var self;var _default = { components: { GridView: GridView }, data: function data() {return {
-      // 当前页码
+//
+var GridView = function GridView() {__webpack_require__.e(/*! require.ensure | components/grid-view/grid-view */ "components/grid-view/grid-view").then((function () {return resolve(__webpack_require__(/*! ../../components/grid-view/grid-view.vue */ 164));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var self;var _default = { components: { GridView: GridView }, data: function data() {return { // 当前页码
       page: 0,
       // 是否继续加载下一页
-      enableLoadMore: true,
+      enableLoadMore: false,
       // 内容数据
-      articles: [] };
+      articles: [],
+      scrollTop: 0 };
 
   },
   onLoad: function onLoad() {
@@ -194,6 +199,9 @@ var GridView = function GridView() {__webpack_require__.e(/*! require.ensure | c
   },
   onReachBottom: function onReachBottom() {
     if (self.enableLoadMore) self.getHomeArticles();
+  },
+  onPageScroll: function onPageScroll(e) {
+    self.scrollTop = e.scrollTop;
   },
   methods: {
     getHomeData: function getHomeData() {

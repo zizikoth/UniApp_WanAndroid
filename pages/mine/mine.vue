@@ -32,6 +32,7 @@
 
 <script>
 	import utils from '@/utils/Utils.js'
+	import dataManager from '@/manager/DataManager.js'
 	var self
 	export default {
 		data() {
@@ -44,12 +45,12 @@
 		},
 		onLoad() {
 			self = this
+			let name = dataManager.getUser().nickname
+			if (!utils.isEmpty(name)) self.userName = name
 		},
 		methods: {
 			login() {
-				if (utils.isLogined()) {
-
-				}
+				utils.isLogined()
 			},
 			onItemClick(title) {
 				if (utils.isLogined()) {

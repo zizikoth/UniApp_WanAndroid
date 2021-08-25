@@ -26,8 +26,7 @@
 /* 文章场景相关 */
 view.data-v-0de61367,
 scroll-view.data-v-0de61367 {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .data-v-0de61367::-webkit-scrollbar,.data-v-0de61367::-webkit-scrollbar,.data-v-0de61367::-webkit-scrollbar {
   display: none;

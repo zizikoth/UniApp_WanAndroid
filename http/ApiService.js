@@ -111,7 +111,7 @@ module.exports = {
 			priority: priority
 		})
 	},
-	todoUpdate: (id, title, content, status, type, priority) => {
+	todoUpdate: (id, title, content, type, priority, status) => {
 		return post(`lg/todo/update/${id}/json`, {
 			title: title,
 			content: content,

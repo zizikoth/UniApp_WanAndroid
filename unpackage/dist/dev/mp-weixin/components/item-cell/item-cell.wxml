@@ -1,0 +1,1 @@
+<view class="item-cell-box"><view class="item-cell-container" hover-class="item-cell-hover" data-event-opts="{{[['tap',[['onClick',['$event']]]]]}}" bindtap="__e"><text>{{title}}</text><u-icon vue-id="0472d270-1" name="arrow-right" size="28" color="#333333" bind:__l="__l"></u-icon></view><view hidden="{{!(showline)}}" class="line"></view></view>

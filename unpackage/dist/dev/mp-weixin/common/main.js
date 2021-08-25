@@ -95,7 +95,13 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 {
   globalData: {
     // 用户信息，不要直接使用，从DataManager中获取
-    userInfo: null } };exports.default = _default;
+    userInfo: null,
+    // 判断是否页面需要刷新
+    refresh: {
+      // todo更新
+      todoUpdate: false,
+      // todo新增
+      todoAdd: false } } };exports.default = _default;
 
 /***/ }),
 /* 8 */

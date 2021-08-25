@@ -32,7 +32,7 @@ const formatHtml = function(html) {
 
 // 是否是空字符串
 const isEmpty = function(data) {
-	return data == "" || data == undefined || data == null
+	return data == undefined || data == null || data == ""
 }
 
 // 是否是空列表
