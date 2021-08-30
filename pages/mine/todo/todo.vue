@@ -28,7 +28,7 @@
 				self.filter.type = ''
 				self.filter.priority = ''
 				self.filter.status = ''
-				self.filter.orderby = '3'
+				self.filter.orderby = '4'
 				self.todoList()
 			}
 		},
@@ -54,7 +54,7 @@
 					// 0 未完成 1 已完成
 					status: '',
 					// 1 完成时间顺序 2 完成时间倒叙 3 创建时间顺序 4 创建时间倒序
-					orderby: '3'
+					orderby: '4'
 				},
 				showFilter: false,
 				data: [],

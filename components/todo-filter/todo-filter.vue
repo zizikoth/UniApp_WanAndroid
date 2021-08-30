@@ -84,17 +84,17 @@
 					name: '随便'
 				}],
 				orderbyList: [{
-					id: '3',
-					name: '创建时间升序'
-				}, {
 					id: '4',
 					name: '创建时间降序'
 				}, {
-					id: '1',
-					name: '完成时间升序'
+					id: '3',
+					name: '创建时间升序'
 				}, {
 					id: '2',
 					name: '完成时间降序'
+				}, {
+					id: '1',
+					name: '完成时间升序'
 				}]
 			};
 		},
@@ -111,7 +111,7 @@
 			orderbyChange(orderby) {
 				this.filter.orderby = orderby
 			},
-			setFilter(filter){
+			setFilter(filter) {
 				this.filter = filter
 			},
 			submit() {

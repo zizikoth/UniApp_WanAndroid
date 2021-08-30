@@ -10,7 +10,7 @@
 <script>
 	import api from '@/http/ApiService.js'
 	import utils from '@/utils/Utils.js'
-	import GridView from '../../components/grid-view/grid-view.vue'
+	import GridView from '@/components/grid-view/grid-view.vue'
 	var self
 	export default {
 		components: {

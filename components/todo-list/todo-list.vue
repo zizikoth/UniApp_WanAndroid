@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<u-swipe-action :show="item.show" :index="index" v-for="(item,index) in list" :key="item.id" btnWidth="160"
-			@click="click" @content-click="contentClick" @open="open" :options="item.options">
+			@click="optionClick" @content-click="contentClick" @open="open" @close="close" :options="item.options">
 
 			<view class="todo-box">
 				<view class="todo-container"
@@ -88,7 +88,10 @@
 			open(index) {
 				this.list[index].show = true
 			},
-			click(index, position) {
+			close(index) {
+				this.list[index].show = false
+			},
+			optionClick(index, position) {
 				this.list[index].show = false
 				this.$emit("itemOptionClick", this.list[index], this.list[index].options[position])
 			},

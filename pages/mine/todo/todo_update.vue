@@ -59,38 +59,38 @@
 				statusName: '',
 				typeShow: false,
 				typeList: [{
-					id: 1,
+					id: '1',
 					text: '工作'
 				}, {
-					id: 2,
+					id: '2',
 					text: '生活'
 				}, {
-					id: 3,
+					id: '3',
 					text: '个人'
 				}, {
-					id: 4,
+					id: '4',
 					text: '其他'
 				}],
 				priorityShow: false,
 				priorityList: [{
-					id: 1,
+					id: '1',
 					text: '随便'
 				}, {
-					id: 2,
+					id: '2',
 					text: '一般'
 				}, {
-					id: 3,
+					id: '3',
 					text: '重要'
 				}, {
-					id: 4,
+					id: '4',
 					text: '紧急'
 				}],
 				statusShow: false,
 				statusList: [{
-					id: 0,
+					id: '0',
 					text: '未完成'
 				}, {
-					id: 1,
+					id: '1',
 					text: '已完成'
 				}]
 			}
@@ -127,7 +127,7 @@
 				if (checker.checkTodoUpdate(self.title, self.content, self.type, self.priority, self.status)) {
 					api.todoUpdate(self.id, self.title, self.content, self.type, self.priority, self.status)
 						.then(res => {
-							getApp().globalData.refresh.todoRefresh = true
+							getApp().globalData.refresh.todoUpdate = true
 							uni.navigateBack({})
 						})
 				}

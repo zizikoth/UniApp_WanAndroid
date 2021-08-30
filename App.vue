@@ -8,7 +8,9 @@
 				// todo更新
 				todoUpdate: false,
 				// todo新增
-				todoAdd:false
+				todoAdd: false,
+				// 网站更新
+				websiteRefresh: false
 			}
 		}
 	}

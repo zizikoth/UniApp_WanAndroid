@@ -33,9 +33,20 @@ const checkTodoUpdate = function(title, content, type, priority, status) {
 	return msg == undefined
 }
 
+const checkWebsite = function(name, link) {
+	let msg
+	if (utils.isEmpty(name)) {
+		msg = "请输入网址标题"
+	} else if (utils.isEmpty(link)) {
+		msg = "请输入网址链接"
+	}
+	utils.toast(msg)
+	return msg == undefined
+}
 
 
 module.exports = {
 	checkTodoAdd,
-	checkTodoUpdate
+	checkTodoUpdate,
+	checkWebsite
 }

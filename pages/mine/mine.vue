@@ -4,15 +4,15 @@
 			<image class="avatar" src="@/static/avatar.png" @click="login" />
 			<text class="name" @click="login">{{userName}}</text>
 			<view class="info-container">
-				<view class="info-item">
+				<view class="info-item" @click="onItemClick('收藏')">
 					<text class="info-item-num">{{collectNum}}</text>
 					<text class="info-item-name">收藏</text>
 				</view>
-				<view class="info-item">
+				<view class="info-item" @click="onItemClick('积分')">
 					<text class="info-item-num">{{coinNum}}</text>
 					<text class="info-item-name">积分</text>
 				</view>
-				<view class="info-item">
+				<view class="info-item" @click="onItemClick('排名')">
 					<text class="info-item-num">{{rankNum}}</text>
 					<text class="info-item-name">排名</text>
 				</view>
@@ -55,6 +55,21 @@
 			onItemClick(title) {
 				if (utils.isLogined()) {
 					switch (title) {
+						case "收藏":
+							uni.navigateTo({
+								url: 'collection/collection'
+							})
+							break;
+						case "积分":
+							uni.navigateTo({
+								url: 'coin/coin'
+							})
+							break;
+						case "排名":
+							uni.navigateTo({
+								url: 'rank/rank'
+							})
+							break;
 						case "未完清单": {
 							uni.navigateTo({
 								url: 'todo/todo'

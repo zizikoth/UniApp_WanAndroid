@@ -128,5 +128,26 @@ module.exports = {
 	},
 	todoDelete: (id) => {
 		return post(`lg/todo/delete/${id}/json`)
+	},
+	websiteList: () => {
+		return get('lg/collect/usertools/json')
+	},
+	websiteAdd: (name, link) => {
+		return post('lg/collect/addtool/json', {
+			name: name,
+			link: link
+		})
+	},
+	websiteDelete: (id) => {
+		return post('lg/collect/deletetool/json', {
+			id: id
+		})
+	},
+	websiteUpdate: (id, name, link) => {
+		return post('lg/collect/updatetool/json', {
+			id: id,
+			name: name,
+			link: link
+		})
 	}
 }

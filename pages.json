@@ -108,6 +108,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/mine/website/website_edit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "编辑",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
