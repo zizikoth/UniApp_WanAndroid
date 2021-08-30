@@ -17,9 +17,9 @@
 			};
 		},
 		methods: {
-			setTabs(tabs) {
+			setTabsAndIndex(tabs,index){
 				this.tabs = tabs
-				this.position = 0
+				this.position = index
 			},
 			change(index) {
 				this.position = index

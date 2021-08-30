@@ -117,6 +117,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/home/chapter/chapter",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "博客",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

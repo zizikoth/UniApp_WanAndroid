@@ -39,7 +39,7 @@
 					res.forEach((tab) => {
 						tab.name = utils.formatHtml(tab.name)
 					})
-					self.$refs.tab.setTabs(res)
+					self.$refs.tab.setTabsAndIndex(res, 0)
 					if (res.length > 0) {
 						self.cid = res[0].id
 						self.getProjectArticle()

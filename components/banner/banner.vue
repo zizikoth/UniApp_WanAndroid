@@ -11,6 +11,7 @@
 </template>
 
 <script>
+	import utils from '@/utils/Utils.js'
 	export default {
 		name: "banner",
 		data() {
@@ -29,7 +30,7 @@
 				this.position = 0
 			},
 			itemClick(item){
-				this.$emit("itemClick",item.extra)
+				this.$u.throttle(utils.openLink(item.extra), 500)
 			}
 		}
 	}

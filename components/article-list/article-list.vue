@@ -1,6 +1,7 @@
 <template>
 	<view class="article-item-container" v-if="data!=undefined&&data!=null&&data.length>0">
-		<view v-for="(item,index) in data" :key="item.id" @click="onClick(item)" :style="item.isTop?'background: #fff5fd':'background: #ffffff'">
+		<view v-for="(item,index) in data" :key="item.id" @click="onClick(item)"
+			:style="item.isTop?'background: #fff5fd':'background: #ffffff'">
 
 			<!-- 文章无图片 -->
 			<view class="article-item-no-pic-box" v-if="!hasPic(item)">
@@ -79,7 +80,7 @@
 					utils.formatHtml(item.superChapterName) + ' · ' + utils.formatHtml(item.chapterName)
 			},
 			onClick(item) {
-				utils.openLink(item.link)
+				this.$u.throttle(utils.openLink(item.link), 500)
 			}
 		}
 	}

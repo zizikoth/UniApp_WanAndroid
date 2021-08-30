@@ -33,6 +33,7 @@
 <script>
 	import utils from '@/utils/Utils.js'
 	import dataManager from '@/manager/DataManager.js'
+	import bus from '@/manager/BusManager.js'
 	var self
 	export default {
 		data() {
@@ -47,6 +48,13 @@
 			self = this
 			let name = dataManager.getUser().nickname
 			if (!utils.isEmpty(name)) self.userName = name
+			bus.onLogin(function(){
+				let name = dataManager.getUser().nickname
+				if (!utils.isEmpty(name)) self.userName = name
+			})
+		},
+		onUnload() {
+			bus.offLogin()
 		},
 		methods: {
 			login() {

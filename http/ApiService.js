@@ -80,6 +80,11 @@ module.exports = {
 	getHomeArticles: (page) => {
 		return get(`article/list/${page}/json`)
 	},
+	getChapterArticles: (cid, page, search) => {
+		return getParams(`wxarticle/list/${cid}/${page}/json`, {
+			k: search
+		})
+	},
 	getProjectTree: () => {
 		return get('project/tree/json')
 	},

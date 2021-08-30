@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<banner ref="banner" @itemClick="onBannerClick" />
+		<banner ref="banner" />
 		<grid-view ref="grid" @itemClick="onChapterClick" />
 		<article-list :data="articles" />
 		<u-back-top :scrollTop="scrollTop" top="1000" />
@@ -20,6 +20,7 @@
 			return {
 				// 当前页码
 				page: 0,
+				chapters: [],
 				// 是否继续加载下一页
 				enableLoadMore: false,
 				// 内容数据
@@ -66,6 +67,7 @@
 							extra: item.id
 						}
 					})
+					self.chapters = self.chapters.concat(res[1])
 					if (chapters.length < 8) {
 						chapters.push({
 							image: utils.getAvatar(0),
@@ -92,11 +94,10 @@
 					self.page++
 				})
 			},
-			onBannerClick(url) {
-				utils.toast(url)
-			},
 			onChapterClick(id) {
-				utils.toast(id)
+				uni.navigateTo({
+					url: `chapter/chapter?chapters=${JSON.stringify(self.chapters)}&id=${id}`
+				})
 			}
 		}
 	}
