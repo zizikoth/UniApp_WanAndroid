@@ -182,5 +182,25 @@ module.exports = {
 	},
 	userShareList: (id, page) => {
 		return get(`user/${id}/share_articles/${page}/json`)
+	},
+	coinHistory: (page) => {
+		return get(`lg/coin/list/${page}/json`)
+	},
+	coinRank: (page) => {
+		return get(`coin/rank/${page}/json`)
+	},
+	collectionList: (page) => {
+		return get(`lg/collect/list/${page}/json`)
+	},
+	collectInArticle: (id) => {
+		return post(`lg/collect/${id}/json`)
+	},
+	unCollectInList: (id, originId) => {
+		return post(`lg/uncollect/${id}/json`, {
+			originId: originId
+		})
+	},
+	unCollectInArticle: (id) => {
+		return post(`lg/uncollect_originId/${id}/json`)
 	}
 }

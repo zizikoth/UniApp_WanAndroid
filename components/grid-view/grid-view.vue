@@ -32,7 +32,6 @@
 		display: flex;
 		flex-direction: row;
 		width: 100%;
-		height: 375rpx;
 		flex-wrap: wrap;
 	}
 
@@ -58,7 +57,7 @@
 		font-weight: bold;
 		margin-top: 20rpx;
 		width: calc(100% - 30rpx);
-		height: 30rpx;
+		height: 35rpx;
 		text-align: center;
 		justify-content: center;
 		color: #333;

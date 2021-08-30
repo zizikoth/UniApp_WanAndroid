@@ -34,7 +34,7 @@
 			squareShareList() {
 				api.squareShareList(self.page).then(res => {
 					uni.stopPullDownRefresh()
-					res.curPage == 0 ? self.$refs.list.setData(res.datas) :
+					res.curPage == 1 ? self.$refs.list.setData(res.datas) :
 						self.$refs.list.addData(res.datas)
 					self.enableLoadMore = res.over == false
 					self.page++

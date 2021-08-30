@@ -1,53 +1,52 @@
 <template>
 	<view class="article-item-container" v-if="data!=undefined&&data!=null&&data.length>0">
 
-		<u-swipe-action :disabled="disable" :show="item.show" :index="index" v-for="(item,index) in data" :key="item.id"
-			btnWidth="160" @click="optionClick" @content-click="contentClick" @open="open" @close="close"
-			:options="item.options" :bg-color="item.isTop?'#fff5fd':'#ffffff'">
+		<view class="vertical" v-for="(item,index) in data" :key="item.id">
+			<u-swipe-action :disabled="disable" :show="item.show" :index="index" btnWidth="160" :options="item.options"
+				@click="optionClick" @content-click="contentClick" @open="open" @close="close"
+				:bg-color="item.isTop?'#fff5fd':'#ffffff'">
 
-			<!-- 文章无图片 -->
-			<view class="article-item-no-pic-box" v-if="!hasPic(item)">
-				<view class="article-item-no-top-box">
-					<image class="article-item-avatar" :src="avatar(item)" mode="aspectFill" />
-					<text class="article-item-author">{{author(item)}}</text>
-				</view>
-
-				<text class="article-item-title">{{title(item)}}</text>
-
-				<text class="article-item-desc">{{desc(item)}}</text>
-
-				<view class="article-item-bottom-box">
-					<text class="article-item-bottom">{{chapter(item)}}</text>
-					<text class="article-item-bottom">{{item.niceDate}}</text>
-				</view>
-			</view>
-
-			<!-- 文章有图片 -->
-			<view class="article-item-pic-box" v-if="hasPic(item)">
-				<view class="article-item-content-pic-box">
-					<view class="article-item-pic-content-box">
-						<view class="article-item-no-top-box">
-							<image class="article-item-avatar" :src="avatar(item)" mode="aspectFill" />
-							<text class="article-item-author">{{author(item)}}</text>
-						</view>
-						<text class="article-item-title">{{title(item)}}</text>
-
-						<text class="article-item-desc">{{desc(item)}}</text>
+				<!-- 文章无图片 -->
+				<view class="article-item-no-pic-box" v-if="!hasPic(item)">
+					<view class="article-item-no-top-box">
+						<image class="article-item-avatar" :src="avatar(item)" mode="aspectFill" />
+						<text class="article-item-author">{{author(item)}}</text>
 					</view>
 
-					<image class="article-item-pic" :src="item.envelopePic" mode="aspectFill" />
-				</view>
-				<view class="article-item-bottom-box">
-					<text class="article-item-bottom">{{chapter(item)}}</text>
-					<text class="article-item-bottom">{{item.niceDate}}</text>
-				</view>
-			</view>
+					<text class="article-item-title">{{title(item)}}</text>
 
+					<text class="article-item-desc">{{desc(item)}}</text>
+
+					<view class="article-item-bottom-box">
+						<text class="article-item-bottom">{{chapter(item)}}</text>
+						<text class="article-item-bottom">{{item.niceDate}}</text>
+					</view>
+				</view>
+
+				<!-- 文章有图片 -->
+				<view class="article-item-pic-box" v-if="hasPic(item)">
+					<view class="article-item-content-pic-box">
+						<view class="article-item-pic-content-box">
+							<view class="article-item-no-top-box">
+								<image class="article-item-avatar" :src="avatar(item)" mode="aspectFill" />
+								<text class="article-item-author">{{author(item)}}</text>
+							</view>
+							<text class="article-item-title">{{title(item)}}</text>
+
+							<text class="article-item-desc">{{desc(item)}}</text>
+						</view>
+
+						<image class="article-item-pic" :src="item.envelopePic" mode="aspectFill" />
+					</view>
+					<view class="article-item-bottom-box">
+						<text class="article-item-bottom">{{chapter(item)}}</text>
+						<text class="article-item-bottom">{{item.niceDate}}</text>
+					</view>
+				</view>
+
+			</u-swipe-action>
 			<view class="line10" />
-		</u-swipe-action>
-
-
-
+		</view>
 	</view>
 </template>
 
