@@ -49,6 +49,7 @@
 							self.collectionList()
 						}
 						self.$refs.list.itemDelete(item.id)
+						
 					})
 				}
 			},
