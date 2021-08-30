@@ -34,10 +34,10 @@
 			"app-plus": {
 				"titleNView": {
 					"buttons": [{
-						"text":"\ue639",
-						"fontSrc":"/static/font/iconfont.ttf",
-						"color":"#333333",
-						"fontSize":"50rpx"
+						"text": "\ue639",
+						"fontSrc": "/static/font/iconfont.ttf",
+						"color": "#333333",
+						"fontSize": "50rpx"
 					}]
 				}
 			}
@@ -90,43 +90,49 @@
 			"navigationBarTitleText": "登录",
 			"enablePullDownRefresh": false
 		}
-	}    ,{
-            "path" : "pages/mine/todo/todo_update",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "编辑",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/todo/todo_add",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "新增",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/mine/website/website_edit",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "编辑",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/home/chapter/chapter",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "博客",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	}, {
+		"path": "pages/mine/todo/todo_update",
+		"style": {
+			"navigationBarTitleText": "编辑",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/mine/todo/todo_add",
+		"style": {
+			"navigationBarTitleText": "新增",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/mine/website/website_edit",
+		"style": {
+			"navigationBarTitleText": "编辑",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/home/chapter/chapter",
+		"style": {
+			"navigationBarTitleText": "博客",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/mine/my_share/share_add/share_add",
+		"style": {
+			"navigationBarTitleText": "新增",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/mine/share_square/user_share",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "玩安卓",

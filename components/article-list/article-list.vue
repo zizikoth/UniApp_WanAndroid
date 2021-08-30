@@ -1,7 +1,9 @@
 <template>
 	<view class="article-item-container" v-if="data!=undefined&&data!=null&&data.length>0">
-		<view v-for="(item,index) in data" :key="item.id" @click="onClick(item)"
-			:style="item.isTop?'background: #fff5fd':'background: #ffffff'">
+
+		<u-swipe-action :disabled="disable" :show="item.show" :index="index" v-for="(item,index) in data" :key="item.id"
+			btnWidth="160" @click="optionClick" @content-click="contentClick" @open="open" @close="close"
+			:options="item.options" :bg-color="item.isTop?'#fff5fd':'#ffffff'">
 
 			<!-- 文章无图片 -->
 			<view class="article-item-no-pic-box" v-if="!hasPic(item)">
@@ -42,8 +44,10 @@
 			</view>
 
 			<view class="line10" />
+		</u-swipe-action>
 
-		</view>
+
+
 	</view>
 </template>
 
@@ -52,17 +56,53 @@
 	export default {
 		name: "article-list",
 		props: {
-			data: {
-				type: Array,
-				default: () => []
+			disable: {
+				type: Boolean,
+				default: true
+			},
+			type: {
+				// delete 删除 more 更多
+				type: String,
+				default: 'delete'
+			}
+		},
+		data() {
+			return {
+				data: []
 			}
 		},
 		methods: {
+			formatData(articles) {
+				articles.forEach(item => {
+					item.show = false
+					let text = this.type == 'delete' ? '删除' : '更多'
+					let color = this.type == 'delete' ? '#FF4365' : '#94E2FF'
+					item.options = [{
+						text: text,
+						style: {
+							'border-radius': '80rpx',
+							'align-self': 'center',
+							'text-align': 'center',
+							'justify-content': 'center',
+							'font-size': '26rpx',
+							height: '160rpx',
+							backgroundColor: color
+						}
+					}]
+				})
+				return articles
+			},
+			setData(articles) {
+				this.data = this.formatData(articles)
+			},
+			addData(articles) {
+				this.data = this.data.concat(this.formatData(articles))
+			},
 			hasPic(item) {
 				return !utils.isEmpty(item.envelopePic)
 			},
 			avatar(item) {
-				return utils.getAvatar(item.id)
+				return utils.getAvatar(item.userId)
 			},
 			author(item) {
 				return utils.isEmpty(item.author) ?
@@ -79,8 +119,30 @@
 				return utils.isEmpty(item.superChapterName) ? utils.formatHtml(item.chapterName) :
 					utils.formatHtml(item.superChapterName) + ' · ' + utils.formatHtml(item.chapterName)
 			},
-			onClick(item) {
-				this.$u.throttle(utils.openLink(item.link), 500)
+			open(index) {
+				this.data[index].show = true
+			},
+			close(index) {
+				this.data[index].show = false
+			},
+			isLastOne() {
+				return this.data.length == 1
+			},
+			itemDelete(id) {
+				let index = this.data.findIndex(item => {
+					return item.id == id
+				})
+				if (index != -1) {
+					this.data.splice(index, 1)
+				}
+			},
+			contentClick(index) {
+				this.data[index].show = false
+				this.$u.throttle(utils.openLink(this.data[index].link), 500)
+			},
+			optionClick(index, position) {
+				this.data[index].show = false
+				this.$emit("optionClick", this.data[index], this.data[index].options[position])
 			}
 		}
 	}

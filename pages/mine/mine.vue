@@ -32,6 +32,7 @@
 
 <script>
 	import utils from '@/utils/Utils.js'
+	import api from '@/http/ApiService.js'
 	import dataManager from '@/manager/DataManager.js'
 	import bus from '@/manager/BusManager.js'
 	var self
@@ -48,15 +49,24 @@
 			self = this
 			let name = dataManager.getUser().nickname
 			if (!utils.isEmpty(name)) self.userName = name
-			bus.onLogin(function(){
+			self.getCoinInfo()
+			bus.onLogin(function() {
 				let name = dataManager.getUser().nickname
 				if (!utils.isEmpty(name)) self.userName = name
+				self.getCoinInfo()
 			})
 		},
 		onUnload() {
 			bus.offLogin()
 		},
 		methods: {
+			getCoinInfo() {
+				api.getCoinInfo().then(res => {
+					self.collectNum = res[0].total
+					self.coinNum = res[1].coinCount
+					self.rankNum = res[1].rank
+				})
+			},
 			login() {
 				utils.isLogined()
 			},

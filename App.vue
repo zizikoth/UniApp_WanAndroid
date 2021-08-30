@@ -10,7 +10,9 @@
 				// todo新增
 				todoAdd: false,
 				// 网站更新
-				websiteRefresh: false
+				websiteRefresh: false,
+				// 我的分享新增
+				shareAdd: false
 			}
 		}
 	}

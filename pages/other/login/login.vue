@@ -18,7 +18,7 @@
 			login() {
 				api.login('Mr.Memo', 'zhx931024').then(res => {
 					dataManager.saveUser(res)
-					bus.onLogin()
+					bus.emitLogin()()
 				})
 			}
 		}

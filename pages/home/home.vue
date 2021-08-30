@@ -2,7 +2,7 @@
 	<view class="page">
 		<banner ref="banner" />
 		<grid-view ref="grid" @itemClick="onChapterClick" />
-		<article-list :data="articles" />
+		<article-list ref="list" />
 		<u-back-top :scrollTop="scrollTop" top="1000" />
 	</view>
 </template>
@@ -45,8 +45,6 @@
 		methods: {
 			getHomeData() {
 				api.getHomeData().then(res => {
-					// 关闭骨架屏
-					self.firstLoading = false
 					// 重新允许上拉加载加载
 					self.enableLoadMore = true
 					// 关闭下啦刷新
@@ -81,15 +79,14 @@
 					topArticles.forEach((item) => {
 						item.isTop = true
 					})
-					self.articles = topArticles.concat(res[3].datas)
+					self.$refs.list.setData(topArticles.concat(res[3].datas))
 					self.page++
 				})
 			},
 			getHomeArticles() {
 				api.getHomeArticles(self.page).then(res => {
+					res.curPage == self.$refs.list.addData(res.datas)
 					// 判断是否可以继续加载下一页
-					res.curPage == 0 ? self.articles = res.datas :
-						self.articles = self.articles.concat(res.datas)
 					self.enableLoadMore = res.over == false
 					self.page++
 				})

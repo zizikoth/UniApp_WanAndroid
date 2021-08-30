@@ -44,9 +44,21 @@ const checkWebsite = function(name, link) {
 	return msg == undefined
 }
 
+const checkShareAdd = function(title, link) {
+	let msg
+	if (utils.isEmpty(title)) {
+		msg = '请输入标题'
+	} else if (utils.isEmpty(link)) {
+		msg = '请输入链接'
+	}
+	utils.toast(msg)
+	return msg == undefined
+}
+
 
 module.exports = {
 	checkTodoAdd,
 	checkTodoUpdate,
-	checkWebsite
+	checkWebsite,
+	checkShareAdd
 }

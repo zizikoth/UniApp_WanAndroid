@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<view class="share-header">
-			<image class="avatar" src="@/static/avatar.png" @click="login" />
+			<image class="avatar" :src="avatar" @click="login" />
 			<view class="share-info-container">
 				<text class="share-info-text">{{coinInfo}}</text>
 				<text class="share-info-text">{{levelInfo}}</text>
@@ -10,9 +10,8 @@
 			<view class="line10" />
 		</view>
 
-		<article-list ref="list" :disable="false" type="delete" @optionClick="myShareDelete" />
+		<article-list ref="list" />
 		<u-back-top :scrollTop="scrollTop" top="1000" />
-		<u-icon class="share-add" name="plus-circle" color="#333333" size="80" @click="myShareAdd" />
 	</view>
 </template>
 <script>
@@ -22,6 +21,8 @@
 	export default {
 		data() {
 			return {
+				userId: '',
+				avatar: '',
 				coinInfo: '积分：0',
 				levelInfo: '等级：0',
 				rankInfo: '排名：0',
@@ -30,30 +31,28 @@
 				scrollTop: 0
 			}
 		},
-		onLoad() {
+		onLoad(params) {
 			self = this
-			self.myShareList()
-		},
-		onShow() {
-			if (getApp().globalData.refresh.shareAdd) {
-				getApp().globalData.refresh.shareAdd = false
-				self.page = 1
-				self.myShareList()
-			}
+			uni.setNavigationBarTitle({
+				title: params.title
+			})
+			self.userId = params.userId
+			self.avatar = utils.getAvatar(self.userId)
+			self.userShareList()
 		},
 		onPullDownRefresh() {
 			self.page = 1
-			self.myShareList()
+			self.userShareList()
 		},
 		onReachBottom() {
-			if (self.enableLoadMore) self.myShareList()
+			if (self.enableLoadMore) self.userShareList()
 		},
 		onPageScroll(e) {
 			self.scrollTop = e.scrollTop
 		},
 		methods: {
-			myShareList() {
-				api.myShareList(self.page).then(res => {
+			userShareList() {
+				api.userShareList(self.userId, self.page).then(res => {
 					self.coinInfo = '积分：' + res.coinInfo.coinCount
 					self.levelInfo = '等级：' + res.coinInfo.level
 					self.rankInfo = '排名：' + res.coinInfo.rank
@@ -63,22 +62,6 @@
 					self.enableLoadMore = res.shareArticles.over == false
 					self.page++
 				})
-			},
-			myShareAdd() {
-				uni.navigateTo({
-					url: 'share_add/share_add'
-				})
-			},
-			myShareDelete(item, option) {
-				if (option.text == '删除') {
-					api.myShareDelete(item.id).then(res => {
-						if (self.$refs.list.isLastOne()) {
-							self.page = 1
-							self.myShareList()
-						}
-						self.$refs.list.itemDelete(item.id)
-					})
-				}
 			}
 		}
 	}
@@ -98,6 +81,7 @@
 		margin-top: 20rpx;
 		height: 160rpx;
 		border-radius: 160rpx;
+		background-color: #F5f5f5;
 		border: solid 6rpx #eeeeee;
 	}
 

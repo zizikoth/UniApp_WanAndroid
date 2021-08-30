@@ -13,7 +13,7 @@ const http = new Request({
 })
 
 
-const request = function(method, path, params, showLoading) {
+const request = function(method, path, params, showLoading, checkError) {
 	if (showLoading) {
 		uni.showLoading({
 			title: '加载中'
@@ -30,7 +30,7 @@ const request = function(method, path, params, showLoading) {
 				if (res.data.errorCode == 0) {
 					resolve(res.data.data)
 				} else {
-					utils.toast(res.data.errorMsg)
+					if (checkError) utils.toast(res.data.errorMsg)
 				}
 			} else {
 				reject()
@@ -43,23 +43,27 @@ const request = function(method, path, params, showLoading) {
 }
 
 const get = function(path) {
-	return request('GET', path, {}, true)
+	return request('GET', path, {}, true, true)
 }
 
 const getParams = function(path, params) {
-	return request('GET', path, params, true)
+	return request('GET', path, params, true, true)
 }
 
 const getNoLoading = function(path) {
-	return request('GET', path, {}, false)
+	return request('GET', path, {}, false, true)
+}
+
+const getNoCheck = function(path) {
+	return request('GET', pageh, {}, false, false)
 }
 
 const post = function(path, params) {
-	return request('POST', path, params, true)
+	return request('POST', path, params, true, true)
 }
 
 const postNoLoading = function(path, params) {
-	return request('POST', path, params, false)
+	return request('POST', path, params, false, true)
 }
 
 module.exports = {
@@ -74,7 +78,7 @@ module.exports = {
 			get('banner/json'),
 			get('wxarticle/chapters/json'),
 			get('article/top/json'),
-			get('article/list/1/json')
+			get('article/list/0/json')
 		])
 	},
 	getHomeArticles: (page) => {
@@ -97,6 +101,12 @@ module.exports = {
 		return Promise.all([
 			get('tree/json'),
 			get('navi/json')
+		])
+	},
+	getCoinInfo: () => {
+		return Promise.all([
+			getNoLoading('lg/collect/list/0/json'),
+			getNoLoading('lg/coin/userinfo/json')
 		])
 	},
 	todoList: (filter) => {
@@ -154,5 +164,23 @@ module.exports = {
 			name: name,
 			link: link
 		})
+	},
+	myShareList: (page) => {
+		return get(`user/lg/private_articles/${page}/json`)
+	},
+	myShareAdd: (title, link) => {
+		return post('lg/user_article/add/json', {
+			title: title,
+			link: link
+		})
+	},
+	myShareDelete: (id) => {
+		return post(`lg/user_article/delete/${id}/json`)
+	},
+	squareShareList: (page) => {
+		return get(`user_article/list/${page}/json`)
+	},
+	userShareList: (id, page) => {
+		return get(`user/${id}/share_articles/${page}/json`)
 	}
 }
