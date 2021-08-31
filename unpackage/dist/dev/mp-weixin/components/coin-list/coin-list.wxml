@@ -1,0 +1,1 @@
+<view><block wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="id"><view class="coin-container"><text class="coin-text">{{item.userName}}</text><text class="coin-text">{{item.reason}}</text><text class="coin-text">{{item.desc}}</text><view class="line"></view></view></block></view>

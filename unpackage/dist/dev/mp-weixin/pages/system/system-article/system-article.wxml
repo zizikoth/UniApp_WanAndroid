@@ -1,0 +1,1 @@
+<view class="page"><article-list class="vue-ref" vue-id="2174f07e-1" data-ref="list" bind:__l="__l"></article-list><u-back-top vue-id="2174f07e-2" scrollTop="{{scrollTop}}" top="1000" bind:__l="__l"></u-back-top></view>

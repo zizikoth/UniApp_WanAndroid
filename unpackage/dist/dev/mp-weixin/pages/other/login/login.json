@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "登录",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "u-subsection": "/node-modules/uview-ui/components/u-subsection/u-subsection",
+    "u-input": "/node-modules/uview-ui/components/u-input/u-input"
+  }
 }

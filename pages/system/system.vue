@@ -88,10 +88,12 @@
 				if (item.isTitle == undefined) {
 					if (item.cid == undefined) {
 						// 页面导航
-						utils.openLink(item.link)
+						utils.openLink(item.title, item.link)
 					} else {
 						// 体系文章
-						utils.toast(item.cid)
+						uni.navigateTo({
+							url: `system-article/system-article?title=${item.title}&cid=${item.cid}`
+						})
 					}
 				}
 			}

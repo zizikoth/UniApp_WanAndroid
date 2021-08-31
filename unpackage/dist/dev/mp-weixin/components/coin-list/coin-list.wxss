@@ -1,0 +1,23 @@
+
+.coin-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	width: ;
+	margin-left: 30rpx;
+	margin-top: 20rpx;
+	margin-right: 30rpx;
+}
+.coin-text {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-bottom: 20rpx;
+	font-size: 28rpx;
+	color: #666666;
+}
+

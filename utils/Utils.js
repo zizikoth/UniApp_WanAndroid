@@ -1,4 +1,4 @@
-import DataManager from '@/manager/DataManager.js'
+import dataManager from '@/manager/DataManager.js'
 
 const avatars = [
 	"https://pic1.zhimg.com/80/v2-53d98d025e653bcdd18516c66b4e7ded_720w.jpg",
@@ -114,21 +114,23 @@ const nowDate = function() {
 
 // 是否已经登录
 const isLogined = function() {
-	let login = !isEmpty(DataManager.getUser())
+	console.log('isLogin1')
+	let login = !isEmpty(dataManager.getUser()) && !isEmpty(dataManager.getCookie())
+	console.log('isLogin2',dataManager.getUser(), dataManager.getCookie())
 	if (!login) {
 		uni.navigateTo({
-			url: '/pages/other/login/login'
+			url: '/pages/other/login/login.vue'
 		})
 	}
 	return login
 }
 
 // 跳转文章页面
-const openLink = function(link) {
+const openLink = function(title, link) {
 	if (!isEmpty(link)) {
-		// #ifdef H5
-		window.open(link)
-		// #endif
+		uni.navigateTo({
+			url: `/pages/other/article/article?title=${title}&link=${link}`
+		})
 	}
 }
 

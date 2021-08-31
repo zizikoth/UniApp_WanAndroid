@@ -1,6 +1,7 @@
 import Request from 'luch-request'
 
 import utils from '@/utils/Utils.js'
+import dataManager from '@/manager/DataManager.js'
 
 const http = new Request({
 	// #ifdef H5
@@ -19,12 +20,24 @@ const request = function(method, path, params, showLoading, checkError) {
 			title: '加载中'
 		})
 	}
+	let header = {}
+	if (!utils.isEmpty(dataManager.getCookie())) {
+		header = {
+			'cookie': dataManager.getCookie()
+		}
+	}
+
 	return new Promise((resolve, reject) => {
 		http.request({
 			method: method,
+			header: header,
 			url: path,
 			params: params,
 		}).then(res => {
+			let cookie = res.header["Set-Cookie"]
+			if (!utils.isEmpty(cookie)) {
+				dataManager.saveCookie(cookie)
+			}
 			if (showLoading) uni.hideLoading()
 			if (res.statusCode == 200) {
 				if (res.data.errorCode == 0) {
@@ -55,7 +68,7 @@ const getNoLoading = function(path) {
 }
 
 const getNoCheck = function(path) {
-	return request('GET', pageh, {}, false, false)
+	return request('GET', path, {}, false, false)
 }
 
 const post = function(path, params) {
@@ -113,10 +126,15 @@ module.exports = {
 			get('navi/json')
 		])
 	},
+	getSystemArticle: (cid, page) => {
+		return get(`article/list/${page}/json`, {
+			cid: cid
+		})
+	},
 	getCoinInfo: () => {
 		return Promise.all([
-			getNoLoading('lg/collect/list/0/json'),
-			getNoLoading('lg/coin/userinfo/json')
+			getNoCheck('lg/collect/list/0/json'),
+			getNoCheck('lg/coin/userinfo/json')
 		])
 	},
 	todoList: (filter) => {

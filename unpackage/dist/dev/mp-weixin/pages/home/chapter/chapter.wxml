@@ -1,0 +1,1 @@
+<view><tab class="sticky vue-ref" bind:tabChange="__e" vue-id="08fddc9c-1" data-ref="tab" data-event-opts="{{[['^tabChange',[['onTabChange']]]]}}" bind:__l="__l"></tab><article-list class="vue-ref" vue-id="08fddc9c-2" data-ref="list" bind:__l="__l"></article-list><u-back-top vue-id="08fddc9c-3" scrollTop="{{scrollTop}}" top="1000" bind:__l="__l"></u-back-top></view>

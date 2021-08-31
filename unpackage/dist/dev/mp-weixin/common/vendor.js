@@ -2064,9 +2064,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 11:
-/*!***********************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/index.js ***!
-  \***********************************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/index.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2216,9 +2216,9 @@ var install = function install(Vue) {
 /***/ }),
 
 /***/ 12:
-/*!**********************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/mixin/mixin.js ***!
-  \**********************************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/mixin/mixin.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2290,9 +2290,9 @@ var install = function install(Vue) {
 /***/ }),
 
 /***/ 13:
-/*!************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/request/index.js ***!
-  \************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/request/index.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2410,7 +2410,7 @@ Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
       responseType: 'text',
       showLoading: true, // 是否显示请求中的loading
       loadingText: '请求中...',
-      loadingTime: 800, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
+      loadingTime: 500, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
       timer: null, // 定时器
       originalData: false, // 是否在拦截器中返回服务端的原始数据，见文档说明
       loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
@@ -2471,9 +2471,9 @@ new Request();exports.default = _default;
 /***/ }),
 
 /***/ 14:
-/*!*****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/deepMerge.js ***!
-  \*****************************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/deepMerge.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2511,10 +2511,10 @@ deepMerge;exports.default = _default;
 
 /***/ }),
 
-/***/ 146:
-/*!*********************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/utils/Checker.js ***!
-  \*********************************************************************************/
+/***/ 147:
+/*!*****************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/utils/Checker.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2554,18 +2554,82 @@ var checkTodoUpdate = function checkTodoUpdate(title, content, type, priority, s
   return msg == undefined;
 };
 
+var checkWebsite = function checkWebsite(name, link) {
+  var msg;
+  if (_Utils.default.isEmpty(name)) {
+    msg = "请输入网址标题";
+  } else if (_Utils.default.isEmpty(link)) {
+    msg = "请输入网址链接";
+  }
+  _Utils.default.toast(msg);
+  return msg == undefined;
+};
 
+var checkShareAdd = function checkShareAdd(title, link) {
+  var msg;
+  if (_Utils.default.isEmpty(title)) {
+    msg = '请输入标题';
+  } else if (_Utils.default.isEmpty(link)) {
+    msg = '请输入链接';
+  }
+  _Utils.default.toast(msg);
+  return msg == undefined;
+};
+
+var checkCollectionAdd = function checkCollectionAdd(title, author, link) {
+  var msg;
+  if (_Utils.default.isEmpty(title)) {
+    msg = '请输入标题';
+  } else if (_Utils.default.isEmpty(author)) {
+    msg = '请输入作者';
+  } else if (_Utils.default.isEmpty(link)) {
+    msg = '请输入链接';
+  }
+  _Utils.default.toast(msg);
+  return msg == undefined;
+};
+
+var checkLogin = function checkLogin(account, pwd) {
+  var msg;
+  if (_Utils.default.isEmpty(account)) {
+    msg = '请输入账号';
+  } else if (_Utils.default.isEmpty(pwd)) {
+    msg = '请输入密码';
+  }
+  _Utils.default.toast(msg);
+  return msg == undefined;
+};
+
+var checkRegister = function checkRegister(account, pwd, repwd) {
+  var msg;
+  if (_Utils.default.isEmpty(account)) {
+    msg = '请输入账号';
+  } else if (_Utils.default.isEmpty(pwd)) {
+    msg = '请输入密码';
+  } else if (_Utils.default.isEmpty(repwd)) {
+    msg = '请再次输入密码';
+  } else if (pwd != repwd) {
+    msg = '两次输入的密码不一致';
+  }
+  _Utils.default.toast(msg);
+  return msg == undefined;
+};
 
 module.exports = {
   checkTodoAdd: checkTodoAdd,
-  checkTodoUpdate: checkTodoUpdate };
+  checkTodoUpdate: checkTodoUpdate,
+  checkWebsite: checkWebsite,
+  checkShareAdd: checkShareAdd,
+  checkCollectionAdd: checkCollectionAdd,
+  checkLogin: checkLogin,
+  checkRegister: checkRegister };
 
 /***/ }),
 
 /***/ 15:
-/*!*****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/deepClone.js ***!
-  \*****************************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/deepClone.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2597,9 +2661,9 @@ deepClone;exports.default = _default;
 /***/ }),
 
 /***/ 16:
-/*!************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/test.js ***!
-  \************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/test.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2839,9 +2903,9 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
 /***/ }),
 
 /***/ 17:
-/*!*******************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/queryParams.js ***!
-  \*******************************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/queryParams.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2908,9 +2972,9 @@ queryParams;exports.default = _default;
 /***/ }),
 
 /***/ 18:
-/*!*************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/route.js ***!
-  \*************************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/route.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9882,9 +9946,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 22:
-/*!******************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/timeFormat.js ***!
-  \******************************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/timeFormat.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9944,9 +10008,9 @@ timeFormat;exports.default = _default;
 /***/ }),
 
 /***/ 23:
-/*!****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/timeFrom.js ***!
-  \****************************************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/timeFrom.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10002,9 +10066,9 @@ timeFrom;exports.default = _default;
 /***/ }),
 
 /***/ 24:
-/*!*********************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/colorGradient.js ***!
-  \*********************************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/colorGradient.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10145,10 +10209,271 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
 
 /***/ }),
 
-/***/ 244:
+/***/ 25:
+/*!********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/guid.js ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 本算法来源于简书开源代码，详见：https://www.jianshu.com/p/fdbf293d0a85
+                                                                                                      * 全局唯一标识符（uuid，Globally Unique Identifier）,也称作 uuid(Universally Unique IDentifier) 
+                                                                                                      * 一般用于多个组件之间,给它一个唯一的标识符,或者v-for循环的时候,如果使用数组的index可能会导致更新列表出现问题
+                                                                                                      * 最可能的情况是左滑删除item或者对某条信息流"不喜欢"并去掉它的时候,会导致组件内的数据可能出现错乱
+                                                                                                      * v-for的时候,推荐使用后端返回的id而不是循环的index
+                                                                                                      * @param {Number} len uuid的长度
+                                                                                                      * @param {Boolean} firstU 将返回的首字母置为"u"
+                                                                                                      * @param {Nubmer} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
+                                                                                                      */
+function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;var firstU = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var radix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  var uuid = [];
+  radix = radix || chars.length;
+
+  if (len) {
+    // 如果指定uuid长度,只是取随机的字符,0|x为位运算,能去掉x的小数位,返回整数位
+    for (var i = 0; i < len; i++) {uuid[i] = chars[0 | Math.random() * radix];}
+  } else {
+    var r;
+    // rfc4122标准要求返回的uuid中,某些位为固定的字符
+    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+    uuid[14] = '4';
+
+    for (var _i = 0; _i < 36; _i++) {
+      if (!uuid[_i]) {
+        r = 0 | Math.random() * 16;
+        uuid[_i] = chars[_i == 19 ? r & 0x3 | 0x8 : r];
+      }
+    }
+  }
+  // 移除第一个字符,并用u替代,因为第一个字符为数值时,该guuid不能用作id或者class
+  if (firstU) {
+    uuid.shift();
+    return 'u' + uuid.join('');
+  } else {
+    return uuid.join('');
+  }
+}var _default =
+
+guid;exports.default = _default;
+
+/***/ }),
+
+/***/ 26:
+/*!*********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/color.js ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 为了让用户能够自定义主题，会逐步弃用此文件，各颜色通过css提供
+// 为了给某些特殊场景使用和向后兼容，无需删除此文件(2020-06-20)
+var color = {
+  primary: "#2979ff",
+  primaryDark: "#2b85e4",
+  primaryDisabled: "#a0cfff",
+  primaryLight: "#ecf5ff",
+  bgColor: "#f3f4f6",
+
+  info: "#909399",
+  infoDark: "#82848a",
+  infoDisabled: "#c8c9cc",
+  infoLight: "#f4f4f5",
+
+  warning: "#ff9900",
+  warningDark: "#f29100",
+  warningDisabled: "#fcbd71",
+  warningLight: "#fdf6ec",
+
+  error: "#fa3534",
+  errorDark: "#dd6161",
+  errorDisabled: "#fab6b6",
+  errorLight: "#fef0f0",
+
+  success: "#19be6b",
+  successDark: "#18b566",
+  successDisabled: "#71d5a1",
+  successLight: "#dbf1e1",
+
+  mainColor: "#303133",
+  contentColor: "#606266",
+  tipsColor: "#909399",
+  lightColor: "#c0c4cc",
+  borderColor: "#e4e7ed" };var _default =
+
+
+color;exports.default = _default;
+
+/***/ }),
+
+/***/ 27:
+/*!*************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/type2icon.js ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 根据主题type值,获取对应的图标
+                                                                                                      * @param String type 主题名称,primary|info|error|warning|success
+                                                                                                      * @param String fill 是否使用fill填充实体的图标  
+                                                                                                      */
+function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'success';var fill = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  // 如果非预置值,默认为success
+  if (['primary', 'info', 'error', 'warning', 'success'].indexOf(type) == -1) type = 'success';
+  var iconName = '';
+  // 目前(2019-12-12),info和primary使用同一个图标
+  switch (type) {
+    case 'primary':
+      iconName = 'info-circle';
+      break;
+    case 'info':
+      iconName = 'info-circle';
+      break;
+    case 'error':
+      iconName = 'close-circle';
+      break;
+    case 'warning':
+      iconName = 'error-circle';
+      break;
+    case 'success':
+      iconName = 'checkmark-circle';
+      break;
+    default:
+      iconName = 'checkmark-circle';}
+
+  // 是否是实体类型,加上-fill,在icon组件库中,实体的类名是后面加-fill的
+  if (fill) iconName += '-fill';
+  return iconName;
+}var _default =
+
+type2icon;exports.default = _default;
+
+/***/ }),
+
+/***/ 28:
+/*!***************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/randomArray.js ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 打乱数组
+function randomArray() {var array = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  // 原理是sort排序,Math.random()产生0<= x < 1之间的数,会导致x-0.05大于或者小于0
+  return array.sort(function () {return Math.random() - 0.5;});
+}var _default =
+
+randomArray;exports.default = _default;
+
+/***/ }),
+
+/***/ 29:
 /*!***********************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/util/emitter.js ***!
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/addUnit.js ***!
   \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
+function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
+  value = String(value);
+  // 用uView内置验证规则中的number判断是否为数值
+  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
+}
+
+/***/ }),
+
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 30:
+/*!**********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/random.js ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function random(min, max) {
+  if (min >= 0 && max > 0 && max >= min) {
+    var gab = max - min + 1;
+    return Math.floor(Math.random() * gab + min);
+  } else {
+    return 0;
+  }
+}var _default =
+
+random;exports.default = _default;
+
+/***/ }),
+
+/***/ 31:
+/*!********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/trim.js ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function trim(str) {var pos = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'both';
+  if (pos == 'both') {
+    return str.replace(/^\s+|\s+$/g, "");
+  } else if (pos == "left") {
+    return str.replace(/^\s*/, '');
+  } else if (pos == 'right') {
+    return str.replace(/(\s*$)/g, "");
+  } else if (pos == 'all') {
+    return str.replace(/\s+/g, "");
+  } else {
+    return str;
+  }
+}var _default =
+
+trim;exports.default = _default;
+
+/***/ }),
+
+/***/ 318:
+/*!*******************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/util/emitter.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10205,271 +10530,10 @@ function _broadcast(componentName, eventName, params) {
 
 /***/ }),
 
-/***/ 25:
-/*!************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/guid.js ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 本算法来源于简书开源代码，详见：https://www.jianshu.com/p/fdbf293d0a85
-                                                                                                      * 全局唯一标识符（uuid，Globally Unique Identifier）,也称作 uuid(Universally Unique IDentifier) 
-                                                                                                      * 一般用于多个组件之间,给它一个唯一的标识符,或者v-for循环的时候,如果使用数组的index可能会导致更新列表出现问题
-                                                                                                      * 最可能的情况是左滑删除item或者对某条信息流"不喜欢"并去掉它的时候,会导致组件内的数据可能出现错乱
-                                                                                                      * v-for的时候,推荐使用后端返回的id而不是循环的index
-                                                                                                      * @param {Number} len uuid的长度
-                                                                                                      * @param {Boolean} firstU 将返回的首字母置为"u"
-                                                                                                      * @param {Nubmer} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
-                                                                                                      */
-function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;var firstU = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var radix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-  var uuid = [];
-  radix = radix || chars.length;
-
-  if (len) {
-    // 如果指定uuid长度,只是取随机的字符,0|x为位运算,能去掉x的小数位,返回整数位
-    for (var i = 0; i < len; i++) {uuid[i] = chars[0 | Math.random() * radix];}
-  } else {
-    var r;
-    // rfc4122标准要求返回的uuid中,某些位为固定的字符
-    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
-    uuid[14] = '4';
-
-    for (var _i = 0; _i < 36; _i++) {
-      if (!uuid[_i]) {
-        r = 0 | Math.random() * 16;
-        uuid[_i] = chars[_i == 19 ? r & 0x3 | 0x8 : r];
-      }
-    }
-  }
-  // 移除第一个字符,并用u替代,因为第一个字符为数值时,该guuid不能用作id或者class
-  if (firstU) {
-    uuid.shift();
-    return 'u' + uuid.join('');
-  } else {
-    return uuid.join('');
-  }
-}var _default =
-
-guid;exports.default = _default;
-
-/***/ }),
-
-/***/ 26:
-/*!*************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/color.js ***!
-  \*************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 为了让用户能够自定义主题，会逐步弃用此文件，各颜色通过css提供
-// 为了给某些特殊场景使用和向后兼容，无需删除此文件(2020-06-20)
-var color = {
-  primary: "#2979ff",
-  primaryDark: "#2b85e4",
-  primaryDisabled: "#a0cfff",
-  primaryLight: "#ecf5ff",
-  bgColor: "#f3f4f6",
-
-  info: "#909399",
-  infoDark: "#82848a",
-  infoDisabled: "#c8c9cc",
-  infoLight: "#f4f4f5",
-
-  warning: "#ff9900",
-  warningDark: "#f29100",
-  warningDisabled: "#fcbd71",
-  warningLight: "#fdf6ec",
-
-  error: "#fa3534",
-  errorDark: "#dd6161",
-  errorDisabled: "#fab6b6",
-  errorLight: "#fef0f0",
-
-  success: "#19be6b",
-  successDark: "#18b566",
-  successDisabled: "#71d5a1",
-  successLight: "#dbf1e1",
-
-  mainColor: "#303133",
-  contentColor: "#606266",
-  tipsColor: "#909399",
-  lightColor: "#c0c4cc",
-  borderColor: "#e4e7ed" };var _default =
-
-
-color;exports.default = _default;
-
-/***/ }),
-
-/***/ 27:
-/*!*****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/type2icon.js ***!
-  \*****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 根据主题type值,获取对应的图标
-                                                                                                      * @param String type 主题名称,primary|info|error|warning|success
-                                                                                                      * @param String fill 是否使用fill填充实体的图标  
-                                                                                                      */
-function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'success';var fill = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  // 如果非预置值,默认为success
-  if (['primary', 'info', 'error', 'warning', 'success'].indexOf(type) == -1) type = 'success';
-  var iconName = '';
-  // 目前(2019-12-12),info和primary使用同一个图标
-  switch (type) {
-    case 'primary':
-      iconName = 'info-circle';
-      break;
-    case 'info':
-      iconName = 'info-circle';
-      break;
-    case 'error':
-      iconName = 'close-circle';
-      break;
-    case 'warning':
-      iconName = 'error-circle';
-      break;
-    case 'success':
-      iconName = 'checkmark-circle';
-      break;
-    default:
-      iconName = 'checkmark-circle';}
-
-  // 是否是实体类型,加上-fill,在icon组件库中,实体的类名是后面加-fill的
-  if (fill) iconName += '-fill';
-  return iconName;
-}var _default =
-
-type2icon;exports.default = _default;
-
-/***/ }),
-
-/***/ 28:
-/*!*******************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/randomArray.js ***!
-  \*******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 打乱数组
-function randomArray() {var array = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  // 原理是sort排序,Math.random()产生0<= x < 1之间的数,会导致x-0.05大于或者小于0
-  return array.sort(function () {return Math.random() - 0.5;});
-}var _default =
-
-randomArray;exports.default = _default;
-
-/***/ }),
-
-/***/ 29:
-/*!***************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/addUnit.js ***!
-  \***************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
-function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
-  value = String(value);
-  // 用uView内置验证规则中的number判断是否为数值
-  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
-}
-
-/***/ }),
-
-/***/ 3:
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
-/***/ 30:
-/*!**************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/random.js ***!
-  \**************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function random(min, max) {
-  if (min >= 0 && max > 0 && max >= min) {
-    var gab = max - min + 1;
-    return Math.floor(Math.random() * gab + min);
-  } else {
-    return 0;
-  }
-}var _default =
-
-random;exports.default = _default;
-
-/***/ }),
-
-/***/ 31:
-/*!************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/trim.js ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function trim(str) {var pos = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'both';
-  if (pos == 'both') {
-    return str.replace(/^\s+|\s+$/g, "");
-  } else if (pos == "left") {
-    return str.replace(/^\s*/, '');
-  } else if (pos == 'right') {
-    return str.replace(/(\s*$)/g, "");
-  } else if (pos == 'all') {
-    return str.replace(/\s+/g, "");
-  } else {
-    return str;
-  }
-}var _default =
-
-trim;exports.default = _default;
-
-/***/ }),
-
 /***/ 32:
-/*!*************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/toast.js ***!
-  \*************************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/toast.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10488,9 +10552,9 @@ toast;exports.default = _default;
 /***/ }),
 
 /***/ 33:
-/*!*****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/getParent.js ***!
-  \*****************************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/getParent.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10546,9 +10610,9 @@ function getParent(name, keys) {
 /***/ }),
 
 /***/ 34:
-/*!***************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/$parent.js ***!
-  \***************************************************************************************************************/
+/*!***********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/$parent.js ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10575,9 +10639,9 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 /***/ }),
 
 /***/ 35:
-/*!***********************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/sys.js ***!
-  \***********************************************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/sys.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10594,9 +10658,9 @@ function sys() {
 /***/ }),
 
 /***/ 36:
-/*!****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/debounce.js ***!
-  \****************************************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/debounce.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10634,9 +10698,9 @@ debounce;exports.default = _default;
 /***/ }),
 
 /***/ 37:
-/*!****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/function/throttle.js ***!
-  \****************************************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/throttle.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10677,9 +10741,9 @@ throttle;exports.default = _default;
 /***/ }),
 
 /***/ 38:
-/*!************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/config/config.js ***!
-  \************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/config/config.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10701,9 +10765,9 @@ var version = '1.8.3';var _default =
 /***/ }),
 
 /***/ 39:
-/*!************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/uview-ui/libs/config/zIndex.js ***!
-  \************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/config/zIndex.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10731,9 +10795,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 4:
-/*!***************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/pages.json ***!
-  \***************************************************************************/
+/*!***********************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/pages.json ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10742,16 +10806,17 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 46:
-/*!***********************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/http/ApiService.js ***!
-  \***********************************************************************************/
+/*!*******************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/http/ApiService.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {var _luchRequest = _interopRequireDefault(__webpack_require__(/*! luch-request */ 47));
 
-var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 60));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 60));
+var _DataManager = _interopRequireDefault(__webpack_require__(/*! @/manager/DataManager.js */ 61));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var http = new _luchRequest.default({
 
@@ -10764,24 +10829,36 @@ var http = new _luchRequest.default({
 
 
 
-var request = function request(method, path, params, showLoading) {
+var request = function request(method, path, params, showLoading, checkError) {
   if (showLoading) {
     uni.showLoading({
       title: '加载中' });
 
   }
+  var header = {};
+  if (!_Utils.default.isEmpty(_DataManager.default.getCookie())) {
+    header = {
+      'cookie': _DataManager.default.getCookie() };
+
+  }
+
   return new Promise(function (resolve, reject) {
     http.request({
       method: method,
+      header: header,
       url: path,
       params: params }).
     then(function (res) {
+      var cookie = res.header["Set-Cookie"];
+      if (!_Utils.default.isEmpty(cookie)) {
+        _DataManager.default.saveCookie(cookie);
+      }
       if (showLoading) uni.hideLoading();
       if (res.statusCode == 200) {
         if (res.data.errorCode == 0) {
           resolve(res.data.data);
         } else {
-          _Utils.default.toast(res.data.errorMsg);
+          if (checkError) _Utils.default.toast(res.data.errorMsg);
         }
       } else {
         reject();
@@ -10794,23 +10871,27 @@ var request = function request(method, path, params, showLoading) {
 };
 
 var get = function get(path) {
-  return request('GET', path, {}, true);
+  return request('GET', path, {}, true, true);
 };
 
 var getParams = function getParams(path, params) {
-  return request('GET', path, params, true);
+  return request('GET', path, params, true, true);
 };
 
 var getNoLoading = function getNoLoading(path) {
-  return request('GET', path, {}, false);
+  return request('GET', path, {}, false, true);
+};
+
+var getNoCheck = function getNoCheck(path) {
+  return request('GET', path, {}, false, false);
 };
 
 var post = function post(path, params) {
-  return request('POST', path, params, true);
+  return request('POST', path, params, true, true);
 };
 
 var postNoLoading = function postNoLoading(path, params) {
-  return request('POST', path, params, false);
+  return request('POST', path, params, false, true);
 };
 
 module.exports = {
@@ -10820,16 +10901,31 @@ module.exports = {
       password: pwd },
     true);
   },
+  register: function register(account, pwd, repwd) {
+    return post('user/register', {
+      username: account,
+      password: pwd,
+      repassword: repwd });
+
+  },
+  loginOut: function loginOut() {
+    return post('user/logout/json');
+  },
   getHomeData: function getHomeData() {
     return Promise.all([
     get('banner/json'),
     get('wxarticle/chapters/json'),
     get('article/top/json'),
-    get('article/list/1/json')]);
+    get('article/list/0/json')]);
 
   },
   getHomeArticles: function getHomeArticles(page) {
     return get("article/list/".concat(page, "/json"));
+  },
+  getChapterArticles: function getChapterArticles(cid, page, search) {
+    return getParams("wxarticle/list/".concat(cid, "/").concat(page, "/json"), {
+      k: search });
+
   },
   getProjectTree: function getProjectTree() {
     return get('project/tree/json');
@@ -10843,6 +10939,17 @@ module.exports = {
     return Promise.all([
     get('tree/json'),
     get('navi/json')]);
+
+  },
+  getSystemArticle: function getSystemArticle(cid, page) {
+    return get("article/list/".concat(page, "/json"), {
+      cid: cid });
+
+  },
+  getCoinInfo: function getCoinInfo() {
+    return Promise.all([
+    getNoCheck('lg/collect/list/0/json'),
+    getNoCheck('lg/coin/userinfo/json')]);
 
   },
   todoList: function todoList(filter) {
@@ -10879,15 +10986,81 @@ module.exports = {
   },
   todoDelete: function todoDelete(id) {
     return post("lg/todo/delete/".concat(id, "/json"));
+  },
+  websiteList: function websiteList() {
+    return get('lg/collect/usertools/json');
+  },
+  websiteAdd: function websiteAdd(name, link) {
+    return post('lg/collect/addtool/json', {
+      name: name,
+      link: link });
+
+  },
+  websiteDelete: function websiteDelete(id) {
+    return post('lg/collect/deletetool/json', {
+      id: id });
+
+  },
+  websiteUpdate: function websiteUpdate(id, name, link) {
+    return post('lg/collect/updatetool/json', {
+      id: id,
+      name: name,
+      link: link });
+
+  },
+  myShareList: function myShareList(page) {
+    return get("user/lg/private_articles/".concat(page, "/json"));
+  },
+  myShareAdd: function myShareAdd(title, link) {
+    return post('lg/user_article/add/json', {
+      title: title,
+      link: link });
+
+  },
+  myShareDelete: function myShareDelete(id) {
+    return post("lg/user_article/delete/".concat(id, "/json"));
+  },
+  squareShareList: function squareShareList(page) {
+    return get("user_article/list/".concat(page, "/json"));
+  },
+  userShareList: function userShareList(id, page) {
+    return get("user/".concat(id, "/share_articles/").concat(page, "/json"));
+  },
+  coinHistory: function coinHistory(page) {
+    return get("lg/coin/list/".concat(page, "/json"));
+  },
+  coinRank: function coinRank(page) {
+    return get("coin/rank/".concat(page, "/json"));
+  },
+  collectionList: function collectionList(page) {
+    return get("lg/collect/list/".concat(page, "/json"));
+  },
+  collectInnerArticle: function collectInnerArticle(id) {
+    return post("lg/collect/".concat(id, "/json"));
+  },
+  collectOuterArticle: function collectOuterArticle(title, author, link) {
+    return post("lg/collect/add/json", {
+      title: title,
+      author: author,
+      link: link });
+
+  },
+  unCollectInList: function unCollectInList(id, originId) {
+    return post("lg/uncollect/".concat(id, "/json"), {
+      originId: originId });
+
+  },
+  unCollectInArticle: function unCollectInArticle(id) {
+    return post("lg/uncollect_originId/".concat(id, "/json"));
   } };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
 /***/ 47:
-/*!******************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/luch-request.js ***!
-  \******************************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/luch-request.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10898,9 +11071,9 @@ _Request.default;exports.default = _default;
 /***/ }),
 
 /***/ 48:
-/*!******************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/core/Request.js ***!
-  \******************************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/core/Request.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11108,9 +11281,9 @@ Request = /*#__PURE__*/function () {
 /***/ }),
 
 /***/ 49:
-/*!**************************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/core/dispatchRequest.js ***!
-  \**************************************************************************************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/core/dispatchRequest.js ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11125,9 +11298,9 @@ function _default(config) {
 /***/ }),
 
 /***/ 50:
-/*!********************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/adapters/index.js ***!
-  \********************************************************************************************************************/
+/*!****************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/adapters/index.js ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11236,9 +11409,9 @@ function _default(config) {
 /***/ }),
 
 /***/ 51:
-/*!**********************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/helpers/buildURL.js ***!
-  \**********************************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/helpers/buildURL.js ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11316,9 +11489,9 @@ function buildURL(url, params) {
 /***/ }),
 
 /***/ 52:
-/*!***********************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/utils.js ***!
-  \***********************************************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/utils.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11462,9 +11635,9 @@ function isUndefined(val) {
 /***/ }),
 
 /***/ 53:
-/*!************************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/core/buildFullPath.js ***!
-  \************************************************************************************************************************/
+/*!********************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/core/buildFullPath.js ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11493,9 +11666,9 @@ function buildFullPath(baseURL, requestedURL) {
 /***/ }),
 
 /***/ 54:
-/*!***************************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/helpers/isAbsoluteURL.js ***!
-  \***************************************************************************************************************************/
+/*!***********************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/helpers/isAbsoluteURL.js ***!
+  \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11518,9 +11691,9 @@ function isAbsoluteURL(url) {
 /***/ }),
 
 /***/ 55:
-/*!*************************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/helpers/combineURLs.js ***!
-  \*************************************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/helpers/combineURLs.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11543,9 +11716,9 @@ function combineURLs(baseURL, relativeURL) {
 /***/ }),
 
 /***/ 56:
-/*!*****************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/core/settle.js ***!
-  \*****************************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/core/settle.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11570,9 +11743,9 @@ function settle(resolve, reject, response) {
 /***/ }),
 
 /***/ 57:
-/*!*****************************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/core/InterceptorManager.js ***!
-  \*****************************************************************************************************************************/
+/*!*************************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/core/InterceptorManager.js ***!
+  \*************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11632,9 +11805,9 @@ InterceptorManager;exports.default = _default;
 /***/ }),
 
 /***/ 58:
-/*!**********************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/core/mergeConfig.js ***!
-  \**********************************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/core/mergeConfig.js ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11746,9 +11919,9 @@ function _default(globalsConfig) {var config2 = arguments.length > 1 && argument
 /***/ }),
 
 /***/ 59:
-/*!*******************************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/node_modules/luch-request/src/lib/core/defaults.js ***!
-  \*******************************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/luch-request/src/lib/core/defaults.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11786,9 +11959,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 60:
-/*!*******************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/utils/Utils.js ***!
-  \*******************************************************************************/
+/*!***************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/utils/Utils.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11909,20 +12082,22 @@ var nowDate = function nowDate() {
 
 // 是否已经登录
 var isLogined = function isLogined() {
-  var login = !isEmpty(_DataManager.default.getUser());
+  console.log('isLogin1');
+  var login = !isEmpty(_DataManager.default.getUser()) && !isEmpty(_DataManager.default.getCookie());
+  console.log('isLogin2', _DataManager.default.getUser(), _DataManager.default.getCookie());
   if (!login) {
     uni.navigateTo({
-      url: '/pages/other/login/login' });
+      url: '/pages/other/login/login.vue' });
 
   }
   return login;
 };
 
 // 跳转文章页面
-var openLink = function openLink(link) {
+var openLink = function openLink(title, link) {
   if (!isEmpty(link)) {
-
-
+    uni.navigateTo({
+      url: "/pages/other/article/article?title=".concat(title, "&link=").concat(link) });
 
   }
 };
@@ -11943,9 +12118,9 @@ module.exports = {
 /***/ }),
 
 /***/ 61:
-/*!***************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/玩安卓/WanAndroid_UniApp/Core/manager/DataManager.js ***!
-  \***************************************************************************************/
+/*!***********************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/manager/DataManager.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11967,34 +12142,60 @@ var getUser = function getUser() {
   }
 };
 
-// 添加收藏
-var addCollection = function addCollection(id) {
-  var user = getUser();
-  if (user != null) {
-    if (user.collectIds.indexof(id) == -1) {
-      user.collectIds.push(id);
-      saveUser(user);
-    }
+var saveCookie = function saveCookie(cookie) {
+  globalData.cookie = cookie;
+  uni.setStorageSync('Core_Cookie', cookie);
+};
+
+var getCookie = function getCookie() {
+  if (globalData.cookie != null) {
+    return globalData.cookie;
+  } else {
+    globalData.cookie = uni.getStorageSync('Core_Cookie');
+    return globalData.cookie;
   }
 };
 
-// 移除收藏
-var removeCollection = function removeCollection(id) {
-  var user = getUser();
-  if (user != null) {
-    var index = user.collectIds.indexof(id);
-    if (index != -1) {
-      user.collectIds.splice(index, 1);
-      saveUser(user);
-    }
-  }
-};
 
 module.exports = {
   saveUser: saveUser,
   getUser: getUser,
-  addCollection: addCollection,
-  removeCollection: removeCollection };
+  saveCookie: saveCookie,
+  getCookie: getCookie };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 82:
+/*!**********************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/manager/BusManager.js ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
+
+  //--------------- 登录事件 ---------------//
+  emitLogin: function emitLogin() {
+    uni.$emit('loginEvent');
+  },
+  onLogin: function onLogin(func) {
+    uni.$on('loginEvent', func);
+  },
+  offLogin: function offLogin() {
+    uni.$off('loginEvent');
+  },
+
+  //--------------- 收藏事件 ---------------//
+  emitCollect: function emitCollect() {
+    uni.$emit('collectEvent');
+  },
+  onCollect: function onCollect(func) {
+    uni.$on('collectEvent', func);
+  },
+  offCollect: function offCollect() {
+    uni.$off('collectEvent');
+  } };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })

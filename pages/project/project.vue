@@ -24,6 +24,7 @@
 			self.getProjectTree()
 		},
 		onPullDownRefresh() {
+			self.page = 1
 			self.getProjectTree()
 		},
 		onReachBottom() {

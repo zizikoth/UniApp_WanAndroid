@@ -137,7 +137,8 @@
 			},
 			contentClick(index) {
 				this.data[index].show = false
-				this.$u.throttle(utils.openLink(this.data[index].link), 500)
+				let article = this.data[index]
+				this.$u.throttle(utils.openLink(this.title(article), article.link), 500)
 			},
 			optionClick(index, position) {
 				this.data[index].show = false

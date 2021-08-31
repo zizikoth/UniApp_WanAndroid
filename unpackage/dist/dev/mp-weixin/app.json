@@ -14,7 +14,14 @@
     "pages/mine/rank/rank",
     "pages/other/login/login",
     "pages/mine/todo/todo_update",
-    "pages/mine/todo/todo_add"
+    "pages/mine/todo/todo_add",
+    "pages/mine/website/website_edit",
+    "pages/home/chapter/chapter",
+    "pages/mine/my_share/share_add/share_add",
+    "pages/mine/share_square/user_share",
+    "pages/mine/collection/collection-add",
+    "pages/other/article/article",
+    "pages/system/system-article/system-article"
   ],
   "subPackages": [],
   "window": {

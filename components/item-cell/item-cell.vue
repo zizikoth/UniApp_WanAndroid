@@ -4,9 +4,8 @@
 			<text>{{title}}</text>
 			<u-icon name="arrow-right" size="28" color="#333333" />
 		</view>
-		<view v-show="showline" class="line" />
+		<view v-if="showline" class="line" />
 	</view>
-
 </template>
 
 <script>
@@ -37,21 +36,21 @@
 		flex-direction: column;
 		width: 100%;
 	}
-
+	
 	.item-cell-container {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		padding-left: 30rpx;
-		padding-right: 30rpx;
 		width: 100%;
+		padding-left: 20rpx;
+		padding-right: 20rpx;
 		height: 80rpx;
 		font-size: 26rpx;
 		color: #333333;
 		font-weight: bold;
 	}
-
+	
 	.item-cell-hover {
 		background-color: #F5F5F5;
 	}

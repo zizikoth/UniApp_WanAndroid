@@ -23,9 +23,9 @@
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
 	        justify-content: space-between;
-	padding-left: 30rpx;
-	padding-right: 30rpx;
-	width: calc(100% - 60rpx);
+	width: 100%;
+	padding-left: 20rpx;
+	padding-right: 20rpx;
 	height: 80rpx;
 	font-size: 26rpx;
 	color: #333333;

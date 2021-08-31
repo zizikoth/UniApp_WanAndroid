@@ -1,0 +1,25 @@
+
+.website-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+	height: 160rpx;
+}
+.website-text {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	margin-left: 30rpx;
+	margin-right: 30rpx;
+	font-size: 28rpx;
+	color: #666666;
+}
+

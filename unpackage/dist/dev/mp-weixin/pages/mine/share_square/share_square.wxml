@@ -1,1 +1,1 @@
-<view></view>
+<view cla="page"><article-list class="vue-ref" vue-id="6493733a-1" disable="{{false}}" type="more" data-ref="list" data-event-opts="{{[['^optionClick',[['showMore']]]]}}" bind:optionClick="__e" bind:__l="__l"></article-list><u-back-top vue-id="6493733a-2" scrollTop="{{scrollTop}}" top="1000" bind:__l="__l"></u-back-top></view>

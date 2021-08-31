@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<view class="card-container card">
+		<view class="card-container card" style="align-items: center;">
 			<image class="avatar" src="@/static/avatar.png" @click="login" />
 			<text class="name" @click="login">{{userName}}</text>
 			<view class="info-container">
@@ -26,6 +26,7 @@
 			<item-cell title="分享广场" @click="onItemClick" />
 			<item-cell title="关于我们" :showline="false" @click="onItemClick" />
 		</view>
+
 	</view>
 </template>
 
@@ -132,11 +133,7 @@
 		border-radius: 20rpx;
 		padding-top: 20rpx;
 		padding-bottom: 20rpx;
-		margin-bottom: 20rpx;
-		margin-top: 20rpx;
-		align-items: center;
-		margin-left: 30rpx;
-		margin-right: 30rpx;
+		margin: 30rpx;
 	}
 
 	.avatar {

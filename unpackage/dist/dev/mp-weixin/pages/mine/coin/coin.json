@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "积分",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "coin-list": "/components/coin-list/coin-list",
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top"
+  }
 }

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "博客",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "tab": "/components/tab/tab",
+    "article-list": "/components/article-list/article-list",
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top"
+  }
+}

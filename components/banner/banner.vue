@@ -30,7 +30,7 @@
 				this.position = 0
 			},
 			itemClick(item){
-				this.$u.throttle(utils.openLink(item.extra), 500)
+				this.$u.throttle(utils.openLink(item.title,item.extra), 500)
 			}
 		}
 	}

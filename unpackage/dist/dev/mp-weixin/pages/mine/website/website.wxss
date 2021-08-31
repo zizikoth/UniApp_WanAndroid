@@ -1,0 +1,7 @@
+
+.website-add {
+	position: fixed;
+	bottom: 60rpx;
+	right: 40rpx;
+}
+

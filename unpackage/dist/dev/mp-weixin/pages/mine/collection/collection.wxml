@@ -1,1 +1,1 @@
-<view></view>
+<view class="page"><article-list class="vue-ref" vue-id="ab74d24c-1" disable="{{false}}" type="delete" data-ref="list" data-event-opts="{{[['^optionClick',[['collectionDelete']]]]}}" bind:optionClick="__e" bind:__l="__l"></article-list><u-back-top vue-id="ab74d24c-2" scrollTop="{{scrollTop}}" top="1000" bind:__l="__l"></u-back-top><u-icon class="collection-add" vue-id="ab74d24c-3" name="plus-circle" color="#333333" size="80" data-event-opts="{{[['^click',[['collectionAdd']]]]}}" bind:click="__e" bind:__l="__l"></u-icon></view>

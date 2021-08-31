@@ -3,6 +3,8 @@
 		globalData: {
 			// 用户信息，不要直接使用，从DataManager中获取
 			userInfo: null,
+			// 用户信息Cookie，不要直接使用，从DataManager中获取
+			cookie:null,
 			// 判断是否页面需要刷新
 			refresh: {
 				// todo更新

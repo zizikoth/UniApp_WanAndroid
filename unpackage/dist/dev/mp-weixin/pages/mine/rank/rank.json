@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "排名",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "rank-list": "/components/rank-list/rank-list",
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top"
+  }
 }
