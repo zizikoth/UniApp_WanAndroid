@@ -73,6 +73,16 @@ module.exports = {
 			password: pwd
 		}, true)
 	},
+	register: (account, pwd, repwd) => {
+		return post('user/register', {
+			username: account,
+			password: pwd,
+			repassword: repwd
+		})
+	},
+	loginOut: () => {
+		return post('user/logout/json')
+	},
 	getHomeData: () => {
 		return Promise.all([
 			get('banner/json'),
@@ -192,8 +202,15 @@ module.exports = {
 	collectionList: (page) => {
 		return get(`lg/collect/list/${page}/json`)
 	},
-	collectInArticle: (id) => {
+	collectInnerArticle: (id) => {
 		return post(`lg/collect/${id}/json`)
+	},
+	collectOuterArticle: (title, author, link) => {
+		return post(`lg/collect/add/json`, {
+			title: title,
+			author: author,
+			link: link
+		})
 	},
 	unCollectInList: (id, originId) => {
 		return post(`lg/uncollect/${id}/json`, {

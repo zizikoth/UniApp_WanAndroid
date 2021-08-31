@@ -55,10 +55,51 @@ const checkShareAdd = function(title, link) {
 	return msg == undefined
 }
 
+const checkCollectionAdd = function(title, author, link) {
+	let msg
+	if (utils.isEmpty(title)) {
+		msg = '请输入标题'
+	} else if (utils.isEmpty(author)) {
+		msg = '请输入作者'
+	}else if (utils.isEmpty(link)) {
+		msg = '请输入链接'
+	}
+	utils.toast(msg)
+	return msg == undefined
+}
+
+const checkLogin = function(account, pwd) {
+	let msg
+	if (utils.isEmpty(account)) {
+		msg = '请输入账号'
+	} else if (utils.isEmpty(pwd)) {
+		msg = '请输入密码'
+	}
+	utils.toast(msg)
+	return msg == undefined
+}
+
+const checkRegister = function(account, pwd, repwd) {
+	let msg
+	if (utils.isEmpty(account)) {
+		msg = '请输入账号'
+	} else if (utils.isEmpty(pwd)) {
+		msg = '请输入密码'
+	} else if (utils.isEmpty(repwd)) {
+		msg = '请再次输入密码'
+	} else if (pwd != repwd) {
+		msg = '两次输入的密码不一致'
+	}
+	utils.toast(msg)
+	return msg == undefined
+}
 
 module.exports = {
 	checkTodoAdd,
 	checkTodoUpdate,
 	checkWebsite,
-	checkShareAdd
+	checkShareAdd,
+	checkCollectionAdd,
+	checkLogin,
+	checkRegister
 }

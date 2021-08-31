@@ -26,7 +26,6 @@
 			<item-cell title="分享广场" @click="onItemClick" />
 			<item-cell title="关于我们" :showline="false" @click="onItemClick" />
 		</view>
-
 	</view>
 </template>
 

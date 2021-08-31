@@ -132,16 +132,14 @@
 			"enablePullDownRefresh": false
 		}
 
-	}    ,{
-            "path" : "pages/mine/collection/collection-add/collection-add",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "新增",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	}, {
+		"path": "pages/mine/collection/collection-add",
+		"style": {
+			"navigationBarTitleText": "新增",
+			"enablePullDownRefresh": false
+		}
+
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "玩安卓",

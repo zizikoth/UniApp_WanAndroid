@@ -21,6 +21,13 @@
 			self = this
 			self.collectionList()
 		},
+		onShow() {
+			if (getApp().globalData.refresh.collectionAdd) {
+				getApp().globalData.refresh.collectionAdd = false
+				self.page = 0
+				self.collectionList()
+			}
+		},
 		onPullDownRefresh() {
 			self.page = 0
 			self.collectionList()
@@ -49,13 +56,13 @@
 							self.collectionList()
 						}
 						self.$refs.list.itemDelete(item.id)
-						
+
 					})
 				}
 			},
 			collectionAdd() {
 				uni.navigateTo({
-					url: 'collection-add/collection-add'
+					url: 'collection-add'
 				})
 			}
 		}
