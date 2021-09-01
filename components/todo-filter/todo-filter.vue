@@ -1,32 +1,38 @@
 <template>
 	<view class="filter-container">
 		<text class="filter-title">筛选</text>
+		<scroll-view :scroll-y="true" class="filter-scroll-container">
+			<text class="filter-label">完成状态</text>
+			<u-radio-group class="filter-group" v-model="filter.status" @change="statusChange" active-color="#333333">
+				<u-radio class="filter-item" v-for="(item,index) in statusList" :key="index" :name="item.id">
+					{{item.name}}
+				</u-radio>
+			</u-radio-group>
 
-		<text class="filter-label">完成状态</text>
-		<u-radio-group class="filter-group" v-model="filter.status" @change="statusChange" active-color="#333333">
-			<u-radio class="filter-item" v-for="(item,index) in statusList" :key="index" :name="item.id">{{item.name}}
-			</u-radio>
-		</u-radio-group>
+			<text class="filter-label">清单类型</text>
+			<u-radio-group class="filter-group" v-model="filter.type" @change="typeChange" active-color="#333333">
+				<u-radio class="filter-item" v-for="(item,index) in typeList" :key="index" :name="item.id">{{item.name}}
+				</u-radio>
+			</u-radio-group>
 
-		<text class="filter-label">清单类型</text>
-		<u-radio-group class="filter-group" v-model="filter.type" @change="typeChange" active-color="#333333">
-			<u-radio class="filter-item" v-for="(item,index) in typeList" :key="index" :name="item.id">{{item.name}}
-			</u-radio>
-		</u-radio-group>
+			<text class="filter-label">优先级别</text>
+			<u-radio-group class="filter-group" v-model="filter.priority" @change="priorityChange"
+				active-color="#333333">
+				<u-radio class="filter-item" v-for="(item,index) in priorityList" :key="index" :name="item.id">
+					{{item.name}}
+				</u-radio>
+			</u-radio-group>
 
-		<text class="filter-label">优先级别</text>
-		<u-radio-group class="filter-group" v-model="filter.priority" @change="priorityChange" active-color="#333333">
-			<u-radio class="filter-item" v-for="(item,index) in priorityList" :key="index" :name="item.id">{{item.name}}
-			</u-radio>
-		</u-radio-group>
+			<text class="filter-label">时间排序</text>
+			<u-radio-group class="filter-group" v-model="filter.orderby" @change="orderbyChange" active-color="#333333">
+				<u-radio class="filter-item" v-for="(item,index) in orderbyList" :key="index" :name="item.id">
+					{{item.name}}
+				</u-radio>
+			</u-radio-group>
 
-		<text class="filter-label">时间排序</text>
-		<u-radio-group class="filter-group" v-model="filter.orderby" @change="orderbyChange" active-color="#333333">
-			<u-radio class="filter-item" v-for="(item,index) in orderbyList" :key="index" :name="item.id">{{item.name}}
-			</u-radio>
-		</u-radio-group>
+			<text class="filter-submit" @click="submit">确定</text>
+		</scroll-view>
 
-		<text class="filter-submit" @click="submit">确定</text>
 	</view>
 </template>
 
@@ -141,6 +147,12 @@
 		align-items: center;
 	}
 
+	.filter-scroll-container {
+		display: flex;
+		width: 100%;
+		max-height: 1000rpx;
+	}
+
 	.filter-label {
 		display: flex;
 		padding-left: 20rpx;
@@ -153,6 +165,7 @@
 
 	.filter-group {
 		display: flex;
+		flex-direction: row;
 		margin-bottom: 30rpx;
 		margin-top: 20rpx;
 	}

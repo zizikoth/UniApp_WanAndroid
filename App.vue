@@ -36,6 +36,13 @@
 		display: flex;
 		flex-direction: column;
 	}
+	
+	/* 子组件剧中 */
+	.center{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
 	/* 单行 */
 	.lineOne {

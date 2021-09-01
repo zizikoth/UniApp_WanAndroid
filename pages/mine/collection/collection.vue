@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<article-list ref="list" :disable="false" type="delete" @optionClick="collectionDelete" />
-		<u-back-top :scrollTop="scrollTop" top="1000" />
+		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
 		<u-icon class="collection-add" name="plus-circle" color="#333333" size="80" @click="collectionAdd" />
 	</view>
 </template>

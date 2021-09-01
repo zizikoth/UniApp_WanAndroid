@@ -10470,66 +10470,6 @@ trim;exports.default = _default;
 
 /***/ }),
 
-/***/ 318:
-/*!*******************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/util/emitter.js ***!
-  \*******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 递归使用 call 方式this指向
-                                                                                                      * @param componentName // 需要找的组件的名称
-                                                                                                      * @param eventName // 事件名称
-                                                                                                      * @param params // 需要传递的参数
-                                                                                                      */
-function _broadcast(componentName, eventName, params) {
-  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
-  this.$children.map(function (child) {
-    if (componentName === child.$options.name) {
-      child.$emit.apply(child, [eventName].concat(params));
-    } else {
-      _broadcast.apply(child, [componentName, eventName].concat(params));
-    }
-  });
-}var _default =
-{
-  methods: {
-    /**
-              * 派发 (向上查找) (一个)
-              * @param componentName // 需要找的组件的名称
-              * @param eventName // 事件名称
-              * @param params // 需要传递的参数
-              */
-    dispatch: function dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
-      var name = parent.$options.name; // 获取当前组件实例的name
-      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
-      // 循环出当前名称的一样的组件实例
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
-        if (parent) {
-          name = parent.$options.name;
-        }
-      }
-      // 有节点表示当前找到了name一样的实例
-      if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
-      }
-    },
-    /**
-        * 广播 (向下查找) (广播多个)
-        * @param componentName // 需要找的组件的名称
-        * @param eventName // 事件名称
-        * @param params // 需要传递的参数
-        */
-    broadcast: function broadcast(componentName, eventName, params) {
-      _broadcast.call(this, componentName, eventName, params);
-    } } };exports.default = _default;
-
-/***/ }),
-
 /***/ 32:
 /*!*********************************************************************************************************!*\
   !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/toast.js ***!
@@ -10606,6 +10546,66 @@ function getParent(name, keys) {
 
   return {};
 }
+
+/***/ }),
+
+/***/ 338:
+/*!*******************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/util/emitter.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 递归使用 call 方式this指向
+                                                                                                      * @param componentName // 需要找的组件的名称
+                                                                                                      * @param eventName // 事件名称
+                                                                                                      * @param params // 需要传递的参数
+                                                                                                      */
+function _broadcast(componentName, eventName, params) {
+  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
+  this.$children.map(function (child) {
+    if (componentName === child.$options.name) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}var _default =
+{
+  methods: {
+    /**
+              * 派发 (向上查找) (一个)
+              * @param componentName // 需要找的组件的名称
+              * @param eventName // 事件名称
+              * @param params // 需要传递的参数
+              */
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
+      var name = parent.$options.name; // 获取当前组件实例的name
+      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
+      // 循环出当前名称的一样的组件实例
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+      // 有节点表示当前找到了name一样的实例
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    /**
+        * 广播 (向下查找) (广播多个)
+        * @param componentName // 需要找的组件的名称
+        * @param eventName // 事件名称
+        * @param params // 需要传递的参数
+        */
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    } } };exports.default = _default;
 
 /***/ }),
 
@@ -10857,15 +10857,18 @@ var request = function request(method, path, params, showLoading, checkError) {
       if (res.statusCode == 200) {
         if (res.data.errorCode == 0) {
           resolve(res.data.data);
+        } else if (res.data.errorCode == -1001) {
+          // 只要登录失效了 那么就清除缓存
+          _DataManager.default.clear();
+          if (checkError) {
+            _Utils.default.toast(res.data.errorMsg);
+            uni.navigateTo({
+              url: '/pages/other/login/login' });
+
+          }
         } else {
           if (checkError) {
             _Utils.default.toast(res.data.errorMsg);
-            // 需要登录进行操作
-            if (res.data.errorCode == -1001) {
-              uni.navigateTo({
-                url: '/pages/other/login/login' });
-
-            }
           }
         }
       } else {
@@ -10917,7 +10920,7 @@ module.exports = {
 
   },
   loginOut: function loginOut() {
-    return post('user/logout/json');
+    return get('user/logout/json');
   },
   getHomeData: function getHomeData() {
     return Promise.all([
@@ -12089,14 +12092,14 @@ var nowDate = function nowDate() {
 };
 
 // 是否已经登录
-var isLogined = function isLogined() {
+var isLogined = function isLogined() {var toLogin = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
   var isUserInfoExit = !isEmpty(_DataManager.default.getUser());
   var isCookieExit = !isEmpty(_DataManager.default.getCookie());
   var login = isUserInfoExit && isCookieExit;
 
 
 
-  if (!login) {
+  if (!login && toLogin) {
     uni.navigateTo({
       url: '/pages/other/login/login' });
 
@@ -12145,7 +12148,7 @@ var saveUser = function saveUser(user) {
 
 // 获取用户信息
 var getUser = function getUser() {
-  if (globalData.userInfo != null) {
+  if (globalData.userInfo != null && globalData.userInfo != undefined) {
     return globalData.userInfo;
   } else {
     globalData.userInfo = uni.getStorageSync('Core_User');
@@ -12159,11 +12162,21 @@ var saveCookie = function saveCookie(cookie) {
 };
 
 var getCookie = function getCookie() {
-  if (globalData.cookie != null) {
+  if (globalData.cookie != null && globalData.cookie != undefined) {
     return globalData.cookie;
   } else {
     globalData.cookie = uni.getStorageSync('Core_Cookie');
     return globalData.cookie;
+  }
+};
+
+var clear = function clear() {
+  try {
+    globalData.userInfo = null;
+    globalData.cookie = null;
+    uni.clearStorageSync();
+  } catch (e) {
+    console.log("缓存清理失败", e);
   }
 };
 
@@ -12172,7 +12185,8 @@ module.exports = {
   saveUser: saveUser,
   getUser: getUser,
   saveCookie: saveCookie,
-  getCookie: getCookie };
+  getCookie: getCookie,
+  clear: clear };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

@@ -2,7 +2,7 @@
 	<view>
 		<tab class="sticky" ref="tab" @tabChange="onTabChange" />
 		<article-list ref="list" />
-		<u-back-top :scrollTop="scrollTop" top="1000" />
+		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
 	</view>
 </template>
 

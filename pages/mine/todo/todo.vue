@@ -109,6 +109,7 @@
 				self.$refs.dialog.setFilter(self.filter)
 			},
 			submit(filter) {
+				self.showFilter = false
 				self.filter = filter
 				self.filter.page = 1
 				self.todoList()

@@ -50,7 +50,7 @@
 		color: #333333;
 		font-weight: bold;
 	}
-	
+
 	.item-cell-hover {
 		background-color: #F5F5F5;
 	}

@@ -80,7 +80,7 @@ var components
 try {
   components = {
     uSwipeAction: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-swipe-action/u-swipe-action */ "node-modules/uview-ui/components/u-swipe-action/u-swipe-action").then(__webpack_require__.bind(null, /*! uview-ui/components/u-swipe-action/u-swipe-action.vue */ 334))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-swipe-action/u-swipe-action */ "node-modules/uview-ui/components/u-swipe-action/u-swipe-action").then(__webpack_require__.bind(null, /*! uview-ui/components/u-swipe-action/u-swipe-action.vue */ 348))
     }
   }
 } catch (e) {

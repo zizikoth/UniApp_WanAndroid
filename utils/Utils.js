@@ -113,14 +113,14 @@ const nowDate = function() {
 }
 
 // 是否已经登录
-const isLogined = function() {
+const isLogined = function(toLogin = true) {
 	let isUserInfoExit = !isEmpty(dataManager.getUser())
 	let isCookieExit = !isEmpty(dataManager.getCookie())
 	let login = isUserInfoExit && isCookieExit
 	// #ifdef H5
 	login = isUserInfoExit
 	// #endif
-	if (!login) {
+	if (!login && toLogin) {
 		uni.navigateTo({
 			url: '/pages/other/login/login'
 		})

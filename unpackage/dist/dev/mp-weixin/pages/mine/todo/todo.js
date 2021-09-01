@@ -96,16 +96,16 @@ var components
 try {
   components = {
     todoList: function() {
-      return __webpack_require__.e(/*! import() | components/todo-list/todo-list */ "components/todo-list/todo-list").then(__webpack_require__.bind(null, /*! @/components/todo-list/todo-list.vue */ 264))
+      return __webpack_require__.e(/*! import() | components/todo-list/todo-list */ "components/todo-list/todo-list").then(__webpack_require__.bind(null, /*! @/components/todo-list/todo-list.vue */ 284))
     },
     uPopup: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-popup/u-popup */ "node-modules/uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! uview-ui/components/u-popup/u-popup.vue */ 271))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-popup/u-popup */ "node-modules/uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! uview-ui/components/u-popup/u-popup.vue */ 291))
     },
     todoFilter: function() {
-      return __webpack_require__.e(/*! import() | components/todo-filter/todo-filter */ "components/todo-filter/todo-filter").then(__webpack_require__.bind(null, /*! @/components/todo-filter/todo-filter.vue */ 278))
+      return __webpack_require__.e(/*! import() | components/todo-filter/todo-filter */ "components/todo-filter/todo-filter").then(__webpack_require__.bind(null, /*! @/components/todo-filter/todo-filter.vue */ 298))
     },
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 285))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 305))
     }
   }
 } catch (e) {
@@ -273,6 +273,7 @@ var self;var _default = { onLoad: function onLoad() {self = this;self.todoList()
       self.$refs.dialog.setFilter(self.filter);
     },
     submit: function submit(filter) {
+      self.showFilter = false;
       self.filter = filter;
       self.filter.page = 1;
       self.todoList();

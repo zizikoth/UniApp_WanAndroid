@@ -3334,6 +3334,18 @@ u-dropdown {
   -webkit-flex-direction: column;
           flex-direction: column;
 }
+/* 子组件剧中 */
+.center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
 /* 单行 */
 .lineOne {
   overflow: hidden;

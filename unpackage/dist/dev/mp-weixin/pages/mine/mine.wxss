@@ -13,6 +13,13 @@
 	padding-bottom: 20rpx;
 	margin: 30rpx;
 }
+.login-out {
+	position: fixed;
+	right: 50rpx;
+	width: 40rpx;
+	height: 40rpx;
+	color: #000000;
+}
 .avatar {
 	display: -webkit-box;
 	display: -webkit-flex;

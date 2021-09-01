@@ -1,7 +1,7 @@
 <template>
 	<view cla="page">
 		<article-list ref="list" :disable="false" type="more" @optionClick="showMore" />
-		<u-back-top :scrollTop="scrollTop" top="1000" />
+		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
 	</view>
 </template>
 

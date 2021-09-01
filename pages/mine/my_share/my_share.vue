@@ -11,7 +11,7 @@
 		</view>
 
 		<article-list ref="list" :disable="false" type="delete" @optionClick="myShareDelete" />
-		<u-back-top :scrollTop="scrollTop" top="1000" />
+		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
 
 		<view class="float-btn card">
 			<u-icon class="share-add" name="plus-circle" color="#333333" size="80" @click="myShareAdd" />

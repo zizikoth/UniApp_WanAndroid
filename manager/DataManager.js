@@ -8,7 +8,7 @@ const saveUser = function(user) {
 
 // 获取用户信息
 const getUser = function() {
-	if (globalData.userInfo != null) {
+	if (globalData.userInfo != null && globalData.userInfo != undefined) {
 		return globalData.userInfo
 	} else {
 		globalData.userInfo = uni.getStorageSync('Core_User')
@@ -22,11 +22,21 @@ const saveCookie = function(cookie) {
 }
 
 const getCookie = function() {
-	if (globalData.cookie != null) {
+	if (globalData.cookie != null && globalData.cookie != undefined) {
 		return globalData.cookie
 	} else {
 		globalData.cookie = uni.getStorageSync('Core_Cookie')
 		return globalData.cookie
+	}
+}
+
+const clear = function() {
+	try {
+		globalData.userInfo = null
+		globalData.cookie = null
+		uni.clearStorageSync()
+	} catch (e) {
+		console.log("缓存清理失败", e)
 	}
 }
 
@@ -35,5 +45,6 @@ module.exports = {
 	saveUser,
 	getUser,
 	saveCookie,
-	getCookie
+	getCookie,
+	clear
 }

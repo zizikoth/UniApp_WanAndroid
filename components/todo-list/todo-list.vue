@@ -6,10 +6,10 @@
 			<view class="todo-box">
 				<view class="todo-container"
 					:style="
-				item.type == 1 ? 'background:rgba(255,67,101,0.1);-moz-box-shadow: 0 0 20rpx rgba(255,67,101,0.1);-webkit-box-shadow: 0 0 20rpx rgba(255,67,101,0.1);box-shadow: 0 0 20rpx rgba(255,67,101,0.1)':
-				item.type == 2 ? 'background:rgba(245,224,43,0.1);-moz-box-shadow: 0 0 20rpx rgba(245,224,43,0.1);-webkit-box-shadow: 0 0 20rpx rgba(245,224,43,0.1);box-shadow: 0 0 20rpx rgba(245,224,43,0.1)':
-				item.type == 3 ? 'background:rgba(148,226,255,0.1);-moz-box-shadow: 0 0 20rpx rgba(148,226,255,0.1);-webkit-box-shadow: 0 0 20rpx rgba(148,226,255,0.1);box-shadow: 0 0 20rpx rgba(148,226,255,0.1)':
-				'background:rgba(179,135,118,0.1);-moz-box-shadow: 0 0 20rpx rgba(179,135,118,0.1);-webkit-box-shadow: 0 0 20rpx rgba(179,135,118,0.1);box-shadow: 0 0 20rpx rgba(179,135,118,0.1)'">
+				item.type == 1 ? 'background:rgba(255,67,101,0.3);-moz-box-shadow: 0 0 20rpx rgba(255,67,101,0.3);-webkit-box-shadow: 0 0 20rpx rgba(255,67,101,0.3);box-shadow: 0 0 20rpx rgba(255,67,101,0.3)':
+				item.type == 2 ? 'background:rgba(245,224,43,0.3);-moz-box-shadow: 0 0 20rpx rgba(245,224,43,0.3);-webkit-box-shadow: 0 0 20rpx rgba(245,224,43,0.3);box-shadow: 0 0 20rpx rgba(245,224,43,0.3)':
+				item.type == 3 ? 'background:rgba(148,226,255,0.3);-moz-box-shadow: 0 0 20rpx rgba(148,226,255,0.3);-webkit-box-shadow: 0 0 20rpx rgba(148,226,255,0.3);box-shadow: 0 0 20rpx rgba(148,226,255,0.3)':
+				'background:rgba(179,135,118,0.3);-moz-box-shadow: 0 0 20rpx rgba(179,135,118,0.3);-webkit-box-shadow: 0 0 20rpx rgba(179,135,118,0.3);box-shadow: 0 0 20rpx rgba(179,135,118,0.3)'">
 					<view class="todo-top">
 						<text class="todo-label">{{label(item)}}</text>
 						<text class="todo-title">{{item.title}}</text>

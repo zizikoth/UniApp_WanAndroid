@@ -27,6 +27,13 @@
 	-webkit-align-items: center;
 	        align-items: center;
 }
+.filter-scroll-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	max-height: 1000rpx;
+}
 .filter-label {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -42,6 +49,10 @@
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
 	margin-bottom: 30rpx;
 	margin-top: 20rpx;
 }

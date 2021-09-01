@@ -228,7 +228,7 @@
 		display: flex;
 		flex-direction: column;
 		width: calc(100% - 60rpx);
-		padding: 30rpx;
+		margin: 30rpx;
 	}
 
 	.article-item-content-pic-box {

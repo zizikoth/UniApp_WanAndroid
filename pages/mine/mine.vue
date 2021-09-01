@@ -1,8 +1,11 @@
 <template>
 	<view class="page">
 		<view class="card-container card" style="align-items: center;">
-			<image class="avatar" src="@/static/avatar.png" @click="login" />
-			<text class="name" @click="login">{{userName}}</text>
+			<view style="display: flex;flex-direction: column; align-items: center;">
+				<image class="avatar" src="@/static/avatar.png" @click="login" />
+				<text class="name" @click="login">{{userName}}</text>
+			</view>
+			<image class="login-out" src="@/static/icon_login_out.png" @click="showLoginOut" />
 			<view class="info-container">
 				<view class="info-item" @click="onItemClick('收藏')">
 					<text class="info-item-num">{{collectNum}}</text>
@@ -23,9 +26,13 @@
 			<item-cell title="未完清单" @click="onItemClick" />
 			<item-cell title="网址收藏" @click="onItemClick" />
 			<item-cell title="我的分享" @click="onItemClick" />
-			<item-cell title="分享广场" @click="onItemClick" />
-			<item-cell title="关于我们" :showline="false" @click="onItemClick" />
+			<item-cell title="分享广场" @click="onItemClick" :showline="false" />
 		</view>
+
+
+		<u-mask class="center" :show="show" @click="show = false">
+			<tip-mask content="是否退出登录" @positive="loginOut" />
+		</u-mask>
 
 	</view>
 </template>
@@ -40,9 +47,10 @@
 		data() {
 			return {
 				userName: '请登录',
-				collectNum: '0',
-				coinNum: '0',
-				rankNum: '0'
+				collectNum: 0,
+				coinNum: 0,
+				rankNum: 0,
+				show: false,
 			}
 		},
 		onLoad() {
@@ -69,6 +77,25 @@
 			},
 			login() {
 				utils.isLogined()
+			},
+			showLoginOut() {
+				if (utils.isLogined(false)) {
+					self.show = true
+				} else {
+					utils.toast("请先登录")
+				}
+			},
+			loginOut() {
+				api.loginOut().then(res => {
+					dataManager.clear()
+					self.userName = '请登录',
+						self.collectNum = 0,
+						self.coinNum = 0,
+						self.rankNum = 0,
+						uni.navigateTo({
+							url: '../other/login/login'
+						})
+				})
 			},
 			onItemClick(title) {
 				if (utils.isLogined()) {
@@ -112,12 +139,6 @@
 							})
 							break;
 						}
-						case "关于我们": {
-							uni.navigateTo({
-								url: 'about_us/about_us'
-							})
-							break;
-						}
 					}
 				}
 			}
@@ -134,6 +155,14 @@
 		padding-top: 20rpx;
 		padding-bottom: 20rpx;
 		margin: 30rpx;
+	}
+
+	.login-out {
+		position: fixed;
+		right: 50rpx;
+		width: 40rpx;
+		height: 40rpx;
+		color: #000000;
 	}
 
 	.avatar {

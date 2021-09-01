@@ -42,15 +42,18 @@ const request = function(method, path, params, showLoading, checkError) {
 			if (res.statusCode == 200) {
 				if (res.data.errorCode == 0) {
 					resolve(res.data.data)
+				} else if (res.data.errorCode == -1001) {
+					// 只要登录失效了 那么就清除缓存
+					dataManager.clear()
+					if (checkError) {
+						utils.toast(res.data.errorMsg)
+						uni.navigateTo({
+							url: '/pages/other/login/login'
+						})
+					}
 				} else {
 					if (checkError) {
 						utils.toast(res.data.errorMsg)
-						// 需要登录进行操作
-						if (res.data.errorCode == -1001) {
-							uni.navigateTo({
-								url: '/pages/other/login/login'
-							})
-						}
 					}
 				}
 			} else {
@@ -102,7 +105,7 @@ module.exports = {
 		})
 	},
 	loginOut: () => {
-		return post('user/logout/json')
+		return get('user/logout/json')
 	},
 	getHomeData: () => {
 		return Promise.all([

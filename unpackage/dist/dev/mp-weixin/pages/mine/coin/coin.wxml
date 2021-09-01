@@ -1,1 +1,1 @@
-<view class="page"><coin-list class="vue-ref" vue-id="ad5d4a8c-1" data-ref="list" bind:__l="__l"></coin-list><u-back-top vue-id="ad5d4a8c-2" scrollTop="{{scrollTop}}" top="1000" bind:__l="__l"></u-back-top></view>
+<view class="page"><coin-list class="vue-ref" vue-id="ad5d4a8c-1" data-ref="list" bind:__l="__l"></coin-list><u-back-top vue-id="ad5d4a8c-2" scrollTop="{{scrollTop}}" top="1000" bottom="150" bind:__l="__l"></u-back-top></view>
