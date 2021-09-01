@@ -39,7 +39,7 @@
 		},
 		methods: {
 			itemClick(item) {
-				utils.openLink(item.name, item.link)
+				utils.openLink(-1,item.name, item.link)
 			},
 			itemOptionClick(item, option) {
 				switch (option.text) {

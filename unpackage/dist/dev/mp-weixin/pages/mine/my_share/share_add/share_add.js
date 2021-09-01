@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uInput: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-input/u-input.vue */ 333))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-input/u-input.vue */ 335))
     }
   }
 } catch (e) {
@@ -189,7 +189,7 @@ var _Checker = _interopRequireDefault(__webpack_require__(/*! @/utils/Checker.js
 //
 //
 //
-var self;var _default = { onLoad: function onLoad() {self = this;}, data: function data() {return { title: '', link: '' };}, methods: { submit: function submit() {console.log(self.title, self.link);if (_Checker.default.checkShareAdd(self.title, self.link)) {_ApiService.default.myShareAdd(self.title, self.link).then(function (res) {getApp().globalData.refresh.shareAdd = true;
+var self;var _default = { onLoad: function onLoad() {self = this;}, data: function data() {return { title: '', link: '' };}, methods: { submit: function submit() {console.log(self.title, self.link);if (_Checker.default.checkShareAdd(self.title, self.link)) {_ApiService.default.myShareAdd(self.title, self.link).then(function (res) {getApp().globalData.refresh.shareRefresh = true;
           uni.navigateBack({});
         });
       }

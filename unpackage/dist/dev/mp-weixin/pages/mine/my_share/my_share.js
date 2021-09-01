@@ -96,13 +96,13 @@ var components
 try {
   components = {
     articleList: function() {
-      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 230))
+      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 232))
     },
     uBackTop: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 237))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 239))
     },
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 305))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 307))
     }
   }
 } catch (e) {
@@ -203,7 +203,7 @@ var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 
 //
 //
 //
-var self;var _default = { data: function data() {return { coinInfo: '积分：0', levelInfo: '等级：0', rankInfo: '排名：0', page: 1, enableLoadMore: false, scrollTop: 0 };}, onLoad: function onLoad() {self = this;self.myShareList();}, onShow: function onShow() {if (getApp().globalData.refresh.shareAdd) {getApp().globalData.refresh.shareAdd = false;self.page = 1;self.myShareList();
+var self;var _default = { data: function data() {return { coinInfo: '积分：0', levelInfo: '等级：0', rankInfo: '排名：0', page: 1, enableLoadMore: false, scrollTop: 0 };}, onLoad: function onLoad() {self = this;self.myShareList();}, onShow: function onShow() {if (getApp().globalData.refresh.shareRefresh) {getApp().globalData.refresh.shareRefresh = false;self.page = 1;self.myShareList();
     }
   },
   onPullDownRefresh: function onPullDownRefresh() {

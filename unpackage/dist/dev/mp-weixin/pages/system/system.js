@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uSubsection: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-subsection/u-subsection */ "node-modules/uview-ui/components/u-subsection/u-subsection").then(__webpack_require__.bind(null, /*! uview-ui/components/u-subsection/u-subsection.vue */ 249))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-subsection/u-subsection */ "node-modules/uview-ui/components/u-subsection/u-subsection").then(__webpack_require__.bind(null, /*! uview-ui/components/u-subsection/u-subsection.vue */ 251))
     },
     flexWrap: function() {
-      return __webpack_require__.e(/*! import() | components/flex-wrap/flex-wrap */ "components/flex-wrap/flex-wrap").then(__webpack_require__.bind(null, /*! @/components/flex-wrap/flex-wrap.vue */ 256))
+      return __webpack_require__.e(/*! import() | components/flex-wrap/flex-wrap */ "components/flex-wrap/flex-wrap").then(__webpack_require__.bind(null, /*! @/components/flex-wrap/flex-wrap.vue */ 258))
     }
   }
 } catch (e) {
@@ -246,7 +246,7 @@ var self;var _default = { data: function data() {return { tabs: [{ name: '体系
       if (item.isTitle == undefined) {
         if (item.cid == undefined) {
           // 页面导航
-          _Utils.default.openLink(item.title, item.link);
+          _Utils.default.openLink(-1, item.title, item.link);
         } else {
           // 体系文章
           uni.navigateTo({

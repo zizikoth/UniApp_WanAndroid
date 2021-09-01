@@ -34,7 +34,7 @@
 				console.log(self.title, self.link)
 				if (checker.checkShareAdd(self.title, self.link)) {
 					api.myShareAdd(self.title, self.link).then(res => {
-						getApp().globalData.refresh.shareAdd = true
+						getApp().globalData.refresh.shareRefresh = true
 						uni.navigateBack({})
 					})
 				}

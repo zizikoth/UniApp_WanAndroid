@@ -129,10 +129,10 @@ const isLogined = function(toLogin = true) {
 }
 
 // 跳转文章页面
-const openLink = function(title, link) {
+const openLink = function(id, title, link) {
 	if (!isEmpty(link)) {
 		uni.navigateTo({
-			url: `/pages/other/article/article?title=${title}&link=${link}`
+			url: `/pages/other/article/article?id=${id}&title=${title}&link=${link}`
 		})
 	}
 }

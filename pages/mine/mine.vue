@@ -63,6 +63,9 @@
 				if (!utils.isEmpty(name)) self.userName = name
 				self.getCoinInfo()
 			})
+			bus.onCollect(function() {
+				self.getCoinInfo()
+			})
 		},
 		onUnload() {
 			bus.offLogin()

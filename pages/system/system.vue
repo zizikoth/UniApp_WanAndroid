@@ -88,7 +88,7 @@
 				if (item.isTitle == undefined) {
 					if (item.cid == undefined) {
 						// 页面导航
-						utils.openLink(item.title, item.link)
+						utils.openLink(-1, item.title, item.link)
 					} else {
 						// 体系文章
 						uni.navigateTo({

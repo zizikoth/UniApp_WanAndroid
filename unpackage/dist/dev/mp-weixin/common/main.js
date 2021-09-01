@@ -107,9 +107,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       // 网站更新
       websiteRefresh: false,
       // 我的分享新增
-      shareAdd: false,
+      shareRefresh: false,
       // 收藏新增
-      collectionAdd: true } } };exports.default = _default;
+      collectionRefresh: true } } };exports.default = _default;
 
 /***/ }),
 /* 8 */

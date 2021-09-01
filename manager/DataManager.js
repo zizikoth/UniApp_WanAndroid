@@ -16,17 +16,38 @@ const getUser = function() {
 	}
 }
 
+// 存储用户登录Cookie
 const saveCookie = function(cookie) {
 	globalData.cookie = cookie
 	uni.setStorageSync('Core_Cookie', cookie)
 }
-
+// 获取用户登录Cookie
 const getCookie = function() {
 	if (globalData.cookie != null && globalData.cookie != undefined) {
 		return globalData.cookie
 	} else {
 		globalData.cookie = uni.getStorageSync('Core_Cookie')
 		return globalData.cookie
+	}
+}
+
+const isCollected = function(id) {
+	let index = getUser().collectIds.indexOf(Number(id))
+	return index != -1
+}
+
+const addCollection = function(id) {
+	if (!isCollected(id)) {
+		getUser().collectIds.push(Number(id))
+		saveUser(getUser())
+	}
+}
+
+const removeCollection = function(id) {
+	let index = getUser().collectIds.indexOf(Number(id))
+	if (index != -1) {
+		getUser().collectIds.splice(index, 1)
+		saveUser(getUser())
 	}
 }
 
@@ -46,5 +67,8 @@ module.exports = {
 	getUser,
 	saveCookie,
 	getCookie,
+	isCollected,
+	addCollection,
+	removeCollection,
 	clear
 }

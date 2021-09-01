@@ -96,13 +96,13 @@ var components
 try {
   components = {
     articleList: function() {
-      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 230))
+      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 232))
     },
     uBackTop: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 237))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 239))
     },
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 305))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 307))
     }
   }
 } catch (e) {
@@ -183,8 +183,8 @@ var self;var _default = { data: function data() {return { page: 0, enableLoadMor
     self.collectionList();
   },
   onShow: function onShow() {
-    if (getApp().globalData.refresh.collectionAdd) {
-      getApp().globalData.refresh.collectionAdd = false;
+    if (getApp().globalData.refresh.collectionRefresh) {
+      getApp().globalData.refresh.collectionRefresh = false;
       self.page = 0;
       self.collectionList();
     }

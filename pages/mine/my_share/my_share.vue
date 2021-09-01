@@ -14,7 +14,7 @@
 		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
 
 		<view class="float-btn card">
-			<u-icon class="share-add" name="plus-circle" color="#333333" size="80" @click="myShareAdd" />
+			<u-icon name="plus-circle" color="#333333" size="80" @click="myShareAdd" />
 		</view>
 
 	</view>
@@ -39,8 +39,8 @@
 			self.myShareList()
 		},
 		onShow() {
-			if (getApp().globalData.refresh.shareAdd) {
-				getApp().globalData.refresh.shareAdd = false
+			if (getApp().globalData.refresh.shareRefresh) {
+				getApp().globalData.refresh.shareRefresh = false
 				self.page = 1
 				self.myShareList()
 			}

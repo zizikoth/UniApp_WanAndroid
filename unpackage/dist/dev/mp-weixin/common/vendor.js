@@ -10549,7 +10549,36 @@ function getParent(name, keys) {
 
 /***/ }),
 
-/***/ 338:
+/***/ 34:
+/*!***********************************************************************************************************!*\
+  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/$parent.js ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = $parent; // 获取父组件的参数，因为支付宝小程序不支持provide/inject的写法
+// this.$parent在非H5中，可以准确获取到父组件，但是在H5中，需要多次this.$parent.$parent.xxx
+// 这里默认值等于undefined有它的含义，因为最顶层元素(组件)的$parent就是undefined，意味着不传name
+// 值(默认为undefined)，就是查找最顶层的$parent
+function $parent() {var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+  var parent = this.$parent;
+  // 通过while历遍，这里主要是为了H5需要多层解析的问题
+  while (parent) {
+    // 父组件
+    if (parent.$options && parent.$options.name !== name) {
+      // 如果组件的name不相等，继续上一级寻找
+      parent = parent.$parent;
+    } else {
+      return parent;
+    }
+  }
+  return false;
+}
+
+/***/ }),
+
+/***/ 340:
 /*!*******************************************************************************************************!*\
   !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/util/emitter.js ***!
   \*******************************************************************************************************/
@@ -10606,35 +10635,6 @@ function _broadcast(componentName, eventName, params) {
     broadcast: function broadcast(componentName, eventName, params) {
       _broadcast.call(this, componentName, eventName, params);
     } } };exports.default = _default;
-
-/***/ }),
-
-/***/ 34:
-/*!***********************************************************************************************************!*\
-  !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/function/$parent.js ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = $parent; // 获取父组件的参数，因为支付宝小程序不支持provide/inject的写法
-// this.$parent在非H5中，可以准确获取到父组件，但是在H5中，需要多次this.$parent.$parent.xxx
-// 这里默认值等于undefined有它的含义，因为最顶层元素(组件)的$parent就是undefined，意味着不传name
-// 值(默认为undefined)，就是查找最顶层的$parent
-function $parent() {var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
-  var parent = this.$parent;
-  // 通过while历遍，这里主要是为了H5需要多层解析的问题
-  while (parent) {
-    // 父组件
-    if (parent.$options && parent.$options.name !== name) {
-      // 如果组件的name不相等，继续上一级寻找
-      parent = parent.$parent;
-    } else {
-      return parent;
-    }
-  }
-  return false;
-}
 
 /***/ }),
 
@@ -12108,10 +12108,10 @@ var isLogined = function isLogined() {var toLogin = arguments.length > 0 && argu
 };
 
 // 跳转文章页面
-var openLink = function openLink(title, link) {
+var openLink = function openLink(id, title, link) {
   if (!isEmpty(link)) {
     uni.navigateTo({
-      url: "/pages/other/article/article?title=".concat(title, "&link=").concat(link) });
+      url: "/pages/other/article/article?id=".concat(id, "&title=").concat(title, "&link=").concat(link) });
 
   }
 };
@@ -12156,17 +12156,38 @@ var getUser = function getUser() {
   }
 };
 
+// 存储用户登录Cookie
 var saveCookie = function saveCookie(cookie) {
   globalData.cookie = cookie;
   uni.setStorageSync('Core_Cookie', cookie);
 };
-
+// 获取用户登录Cookie
 var getCookie = function getCookie() {
   if (globalData.cookie != null && globalData.cookie != undefined) {
     return globalData.cookie;
   } else {
     globalData.cookie = uni.getStorageSync('Core_Cookie');
     return globalData.cookie;
+  }
+};
+
+var isCollected = function isCollected(id) {
+  var index = getUser().collectIds.indexOf(Number(id));
+  return index != -1;
+};
+
+var addCollection = function addCollection(id) {
+  if (!isCollected(id)) {
+    getUser().collectIds.push(Number(id));
+    saveUser(getUser());
+  }
+};
+
+var removeCollection = function removeCollection(id) {
+  var index = getUser().collectIds.indexOf(Number(id));
+  if (index != -1) {
+    getUser().collectIds.splice(index, 1);
+    saveUser(getUser());
   }
 };
 
@@ -12186,6 +12207,9 @@ module.exports = {
   getUser: getUser,
   saveCookie: saveCookie,
   getCookie: getCookie,
+  isCollected: isCollected,
+  addCollection: addCollection,
+  removeCollection: removeCollection,
   clear: clear };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

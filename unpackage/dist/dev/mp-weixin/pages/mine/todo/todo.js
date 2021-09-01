@@ -96,16 +96,16 @@ var components
 try {
   components = {
     todoList: function() {
-      return __webpack_require__.e(/*! import() | components/todo-list/todo-list */ "components/todo-list/todo-list").then(__webpack_require__.bind(null, /*! @/components/todo-list/todo-list.vue */ 284))
+      return __webpack_require__.e(/*! import() | components/todo-list/todo-list */ "components/todo-list/todo-list").then(__webpack_require__.bind(null, /*! @/components/todo-list/todo-list.vue */ 286))
     },
     uPopup: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-popup/u-popup */ "node-modules/uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! uview-ui/components/u-popup/u-popup.vue */ 291))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-popup/u-popup */ "node-modules/uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! uview-ui/components/u-popup/u-popup.vue */ 293))
     },
     todoFilter: function() {
-      return __webpack_require__.e(/*! import() | components/todo-filter/todo-filter */ "components/todo-filter/todo-filter").then(__webpack_require__.bind(null, /*! @/components/todo-filter/todo-filter.vue */ 298))
+      return __webpack_require__.e(/*! import() | components/todo-filter/todo-filter */ "components/todo-filter/todo-filter").then(__webpack_require__.bind(null, /*! @/components/todo-filter/todo-filter.vue */ 300))
     },
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 305))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 307))
     }
   }
 } catch (e) {

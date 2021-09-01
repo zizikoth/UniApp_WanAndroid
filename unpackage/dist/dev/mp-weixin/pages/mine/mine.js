@@ -96,13 +96,13 @@ var components
 try {
   components = {
     itemCell: function() {
-      return __webpack_require__.e(/*! import() | components/item-cell/item-cell */ "components/item-cell/item-cell").then(__webpack_require__.bind(null, /*! @/components/item-cell/item-cell.vue */ 263))
+      return __webpack_require__.e(/*! import() | components/item-cell/item-cell */ "components/item-cell/item-cell").then(__webpack_require__.bind(null, /*! @/components/item-cell/item-cell.vue */ 265))
     },
     uMask: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-mask/u-mask */ "node-modules/uview-ui/components/u-mask/u-mask").then(__webpack_require__.bind(null, /*! uview-ui/components/u-mask/u-mask.vue */ 270))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-mask/u-mask */ "node-modules/uview-ui/components/u-mask/u-mask").then(__webpack_require__.bind(null, /*! uview-ui/components/u-mask/u-mask.vue */ 272))
     },
     tipMask: function() {
-      return __webpack_require__.e(/*! import() | components/tip-mask/tip-mask */ "components/tip-mask/tip-mask").then(__webpack_require__.bind(null, /*! @/components/tip-mask/tip-mask.vue */ 277))
+      return __webpack_require__.e(/*! import() | components/tip-mask/tip-mask */ "components/tip-mask/tip-mask").then(__webpack_require__.bind(null, /*! @/components/tip-mask/tip-mask.vue */ 279))
     }
   }
 } catch (e) {
@@ -246,7 +246,10 @@ var _BusManager = _interopRequireDefault(__webpack_require__(/*! @/manager/BusMa
 //
 //
 //
-var self;var _default = { data: function data() {return { userName: '请登录', collectNum: 0, coinNum: 0, rankNum: 0, show: false };}, onLoad: function onLoad() {self = this;var name = _DataManager.default.getUser().nickname;if (!_Utils.default.isEmpty(name)) self.userName = name;self.getCoinInfo();_BusManager.default.onLogin(function () {var name = _DataManager.default.getUser().nickname;if (!_Utils.default.isEmpty(name)) self.userName = name;self.getCoinInfo();});}, onUnload: function onUnload() {_BusManager.default.offLogin();}, methods: { getCoinInfo: function getCoinInfo() {_ApiService.default.getCoinInfo().then(function (res) {self.collectNum = res[0].total;self.coinNum = res[1].coinCount;self.rankNum = res[1].rank;});}, login: function login() {_Utils.default.isLogined();}, showLoginOut: function showLoginOut() {if (_Utils.default.isLogined(false)) {self.show = true;
+var self;var _default = { data: function data() {return { userName: '请登录', collectNum: 0, coinNum: 0, rankNum: 0, show: false };}, onLoad: function onLoad() {self = this;var name = _DataManager.default.getUser().nickname;if (!_Utils.default.isEmpty(name)) self.userName = name;self.getCoinInfo();_BusManager.default.onLogin(function () {var name = _DataManager.default.getUser().nickname;if (!_Utils.default.isEmpty(name)) self.userName = name;self.getCoinInfo();});_BusManager.default.onCollect(function () {self.getCoinInfo();});}, onUnload: function onUnload() {_BusManager.default.offLogin();}, methods: { getCoinInfo: function getCoinInfo() {_ApiService.default.getCoinInfo().then(function (res) {self.collectNum = res[0].total;self.coinNum = res[1].coinCount;self.rankNum = res[1].rank;});}, login: function login() {_Utils.default.isLogined();},
+    showLoginOut: function showLoginOut() {
+      if (_Utils.default.isLogined(false)) {
+        self.show = true;
       } else {
         _Utils.default.toast("请先登录");
       }

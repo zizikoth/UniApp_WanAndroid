@@ -14,9 +14,9 @@
 				// 网站更新
 				websiteRefresh: false,
 				// 我的分享新增
-				shareAdd: false,
+				shareRefresh: false,
 				// 收藏新增
-				collectionAdd: true
+				collectionRefresh: true
 			}
 		}
 	}

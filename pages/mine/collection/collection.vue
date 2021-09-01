@@ -22,8 +22,8 @@
 			self.collectionList()
 		},
 		onShow() {
-			if (getApp().globalData.refresh.collectionAdd) {
-				getApp().globalData.refresh.collectionAdd = false
+			if (getApp().globalData.refresh.collectionRefresh) {
+				getApp().globalData.refresh.collectionRefresh = false
 				self.page = 0
 				self.collectionList()
 			}

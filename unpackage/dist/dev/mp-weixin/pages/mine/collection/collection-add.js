@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uInput: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-input/u-input.vue */ 333))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-input/u-input.vue */ 335))
     }
   }
 } catch (e) {
@@ -197,7 +197,7 @@ var _BusManager = _interopRequireDefault(__webpack_require__(/*! @/manager/BusMa
 //
 //
 //
-var self;var _default = { onLoad: function onLoad(params) {self = this;}, data: function data() {return { title: '', author: '', link: '' };}, methods: { submit: function submit() {if (_Checker.default.checkCollectionAdd(self.title, self.author, self.link)) {_ApiService.default.collectOuterArticle(self.title, self.author, self.link).then(function (res) {getApp().globalData.refresh.collectionAdd = true;_BusManager.default.emitCollect();uni.navigateBack({});
+var self;var _default = { onLoad: function onLoad(params) {self = this;}, data: function data() {return { title: '', author: '', link: '' };}, methods: { submit: function submit() {if (_Checker.default.checkCollectionAdd(self.title, self.author, self.link)) {_ApiService.default.collectOuterArticle(self.title, self.author, self.link).then(function (res) {getApp().globalData.refresh.collectionRefresh = true;_BusManager.default.emitCollect();uni.navigateBack({});
         });
       }
     } } };exports.default = _default;

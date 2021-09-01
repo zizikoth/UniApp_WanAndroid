@@ -40,7 +40,7 @@
 				if (checker.checkCollectionAdd(self.title, self.author, self.link)) {
 					api.collectOuterArticle(self.title, self.author, self.link)
 						.then(res => {
-							getApp().globalData.refresh.collectionAdd = true
+							getApp().globalData.refresh.collectionRefresh = true
 							bus.emitCollect()
 							uni.navigateBack({})
 						})
