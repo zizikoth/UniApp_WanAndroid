@@ -12,7 +12,11 @@
 
 		<article-list ref="list" :disable="false" type="delete" @optionClick="myShareDelete" />
 		<u-back-top :scrollTop="scrollTop" top="1000" />
-		<u-icon class="share-add" name="plus-circle" color="#333333" size="80" @click="myShareAdd" />
+
+		<view class="float-btn card">
+			<u-icon class="share-add" name="plus-circle" color="#333333" size="80" @click="myShareAdd" />
+		</view>
+
 	</view>
 </template>
 <script>
@@ -120,9 +124,15 @@
 		align-items: center;
 	}
 
-	.share-add {
+	.float-btn {
+		display: flex;
 		position: fixed;
 		bottom: 60rpx;
 		right: 40rpx;
+		width: 90rpx;
+		height: 90rpx;
+		align-items: center;
+		justify-content: center;
+		border-radius: 90rpx;
 	}
 </style>

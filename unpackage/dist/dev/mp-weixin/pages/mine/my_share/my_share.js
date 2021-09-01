@@ -177,6 +177,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));
 var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 60));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
@@ -195,11 +199,11 @@ var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 
 //
 //
 //
-var self;var _default = { data: function data() {return { coinInfo: '积分：0', levelInfo: '等级：0', rankInfo: '排名：0', page: 1, enableLoadMore: false, scrollTop: 0 };}, onLoad: function onLoad() {self = this;self.myShareList();}, onShow: function onShow() {
-    if (getApp().globalData.refresh.shareAdd) {
-      getApp().globalData.refresh.shareAdd = false;
-      self.page = 1;
-      self.myShareList();
+//
+//
+//
+//
+var self;var _default = { data: function data() {return { coinInfo: '积分：0', levelInfo: '等级：0', rankInfo: '排名：0', page: 1, enableLoadMore: false, scrollTop: 0 };}, onLoad: function onLoad() {self = this;self.myShareList();}, onShow: function onShow() {if (getApp().globalData.refresh.shareAdd) {getApp().globalData.refresh.shareAdd = false;self.page = 1;self.myShareList();
     }
   },
   onPullDownRefresh: function onPullDownRefresh() {

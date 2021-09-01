@@ -30,17 +30,7 @@
 		"path": "pages/mine/todo/todo",
 		"style": {
 			"navigationBarTitleText": "未完清单",
-			"enablePullDownRefresh": true,
-			"app-plus": {
-				"titleNView": {
-					"buttons": [{
-						"text": "\ue639",
-						"fontSrc": "/static/font/iconfont.ttf",
-						"color": "#333333",
-						"fontSize": "50rpx"
-					}]
-				}
-			}
+			"enablePullDownRefresh": true
 		}
 	}, {
 		"path": "pages/mine/website/website",

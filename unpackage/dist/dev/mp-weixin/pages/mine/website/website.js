@@ -178,6 +178,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 60));
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
@@ -187,10 +190,10 @@ var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiServi
 //
 //
 //
-var self;var _default = { onPullDownRefresh: function onPullDownRefresh() {self.websiteList();}, onLoad: function onLoad() {self = this;self.websiteList();
-  },
-  onShow: function onShow() {
-    if (getApp().globalData.refresh.websiteRefresh) {
+//
+//
+//
+var self;var _default = { onPullDownRefresh: function onPullDownRefresh() {self.websiteList();}, onLoad: function onLoad() {self = this;self.websiteList();}, onShow: function onShow() {if (getApp().globalData.refresh.websiteRefresh) {
       getApp().globalData.refresh.websiteRefresh = false;
       self.websiteList();
     }

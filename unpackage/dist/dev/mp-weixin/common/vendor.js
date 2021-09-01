@@ -10858,7 +10858,15 @@ var request = function request(method, path, params, showLoading, checkError) {
         if (res.data.errorCode == 0) {
           resolve(res.data.data);
         } else {
-          if (checkError) _Utils.default.toast(res.data.errorMsg);
+          if (checkError) {
+            _Utils.default.toast(res.data.errorMsg);
+            // 需要登录进行操作
+            if (res.data.errorCode == -1001) {
+              uni.navigateTo({
+                url: '/pages/other/login/login' });
+
+            }
+          }
         }
       } else {
         reject();
@@ -12082,12 +12090,15 @@ var nowDate = function nowDate() {
 
 // 是否已经登录
 var isLogined = function isLogined() {
-  console.log('isLogin1');
-  var login = !isEmpty(_DataManager.default.getUser()) && !isEmpty(_DataManager.default.getCookie());
-  console.log('isLogin2', _DataManager.default.getUser(), _DataManager.default.getCookie());
+  var isUserInfoExit = !isEmpty(_DataManager.default.getUser());
+  var isCookieExit = !isEmpty(_DataManager.default.getCookie());
+  var login = isUserInfoExit && isCookieExit;
+
+
+
   if (!login) {
     uni.navigateTo({
-      url: '/pages/other/login/login.vue' });
+      url: '/pages/other/login/login' });
 
   }
   return login;

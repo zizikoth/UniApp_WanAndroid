@@ -5,7 +5,11 @@
 			<todo-filter ref="dialog" @submit="submit" />
 		</u-popup>
 
-		<u-icon class="todo-add" name="plus-circle" color="#333333" size="80" @click="todoAdd" />
+		<view class="float-btn card">
+			<u-icon class="todo-add" name="more-circle" color="#333333" size="80" @click="todoFilter" />
+			<u-icon class="todo-add" name="plus-circle" color="#333333" size="80" @click="todoAdd" />
+		</view>
+
 	</view>
 </template>
 
@@ -38,9 +42,6 @@
 		},
 		onReachBottom() {
 			if (self.enableLoadMore) self.todoList()
-		},
-		onNavigationBarButtonTap() {
-			self.showFilter = true
 		},
 		data() {
 			return {
@@ -108,10 +109,12 @@
 				self.$refs.dialog.setFilter(self.filter)
 			},
 			submit(filter) {
-				self.showFilter = false
 				self.filter = filter
 				self.filter.page = 1
 				self.todoList()
+			},
+			todoFilter() {
+				self.showFilter = true
 			},
 			todoAdd() {
 				uni.navigateTo({
@@ -123,9 +126,18 @@
 </script>
 
 <style>
-	.todo-add {
+	.float-btn {
+		display: flex;
+		flex-direction: column;
 		position: fixed;
 		bottom: 60rpx;
 		right: 40rpx;
+		width: 90rpx;
+		height: 180rpx;
+		padding-top: 10rpx;
+		padding-bottom: 10rpx;
+		align-items: center;
+		justify-content: space-around;
+		border-radius: 100rpx;
 	}
 </style>

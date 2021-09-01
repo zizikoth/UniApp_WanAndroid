@@ -114,12 +114,15 @@ const nowDate = function() {
 
 // 是否已经登录
 const isLogined = function() {
-	console.log('isLogin1')
-	let login = !isEmpty(dataManager.getUser()) && !isEmpty(dataManager.getCookie())
-	console.log('isLogin2',dataManager.getUser(), dataManager.getCookie())
+	let isUserInfoExit = !isEmpty(dataManager.getUser())
+	let isCookieExit = !isEmpty(dataManager.getCookie())
+	let login = isUserInfoExit && isCookieExit
+	// #ifdef H5
+	login = isUserInfoExit
+	// #endif
 	if (!login) {
 		uni.navigateTo({
-			url: '/pages/other/login/login.vue'
+			url: '/pages/other/login/login'
 		})
 	}
 	return login

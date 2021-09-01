@@ -1,7 +1,24 @@
 
-.todo-add {
+.float-btn {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
 	position: fixed;
 	bottom: 60rpx;
 	right: 40rpx;
+	width: 90rpx;
+	height: 180rpx;
+	padding-top: 10rpx;
+	padding-bottom: 10rpx;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+	border-radius: 100rpx;
 }
 

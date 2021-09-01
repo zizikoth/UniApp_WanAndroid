@@ -174,6 +174,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -185,11 +189,11 @@ var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiServi
 //
 //
 //
-var self;var _default = { onLoad: function onLoad() {self = this;self.todoList();}, onShow: function onShow() {if (getApp().globalData.refresh.todoUpdate) {getApp().globalData.refresh.todoUpdate = false;self.filter.page = 1;self.todoList();
-    } else if (getApp().globalData.refresh.todoAdd) {
-      getApp().globalData.refresh.todoAdd = false;
-      self.filter.page = 1;
-      self.filter.type = '';
+//
+//
+//
+//
+var self;var _default = { onLoad: function onLoad() {self = this;self.todoList();}, onShow: function onShow() {if (getApp().globalData.refresh.todoUpdate) {getApp().globalData.refresh.todoUpdate = false;self.filter.page = 1;self.todoList();} else if (getApp().globalData.refresh.todoAdd) {getApp().globalData.refresh.todoAdd = false;self.filter.page = 1;self.filter.type = '';
       self.filter.priority = '';
       self.filter.status = '';
       self.filter.orderby = '4';
@@ -202,9 +206,6 @@ var self;var _default = { onLoad: function onLoad() {self = this;self.todoList()
   },
   onReachBottom: function onReachBottom() {
     if (self.enableLoadMore) self.todoList();
-  },
-  onNavigationBarButtonTap: function onNavigationBarButtonTap() {
-    self.showFilter = true;
   },
   data: function data() {
     return {
@@ -272,10 +273,12 @@ var self;var _default = { onLoad: function onLoad() {self = this;self.todoList()
       self.$refs.dialog.setFilter(self.filter);
     },
     submit: function submit(filter) {
-      self.showFilter = false;
       self.filter = filter;
       self.filter.page = 1;
       self.todoList();
+    },
+    todoFilter: function todoFilter() {
+      self.showFilter = true;
     },
     todoAdd: function todoAdd() {
       uni.navigateTo({

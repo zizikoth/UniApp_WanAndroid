@@ -43,7 +43,15 @@ const request = function(method, path, params, showLoading, checkError) {
 				if (res.data.errorCode == 0) {
 					resolve(res.data.data)
 				} else {
-					if (checkError) utils.toast(res.data.errorMsg)
+					if (checkError) {
+						utils.toast(res.data.errorMsg)
+						// 需要登录进行操作
+						if (res.data.errorCode == -1001) {
+							uni.navigateTo({
+								url: '/pages/other/login/login'
+							})
+						}
+					}
 				}
 			} else {
 				reject()

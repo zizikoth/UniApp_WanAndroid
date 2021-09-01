@@ -2,7 +2,10 @@
 	<view class="page">
 		<website-list ref="list" @itemClick="itemClick" @itemOptionClick="itemOptionClick" />
 
-		<u-icon class="website-add" name="plus-circle" color="#333333" size="80" @click="websiteAdd" />
+		<view class="float-btn card">
+			<u-icon class="website-add" name="plus-circle" color="#333333" size="80" @click="websiteAdd" />
+		</view>
+
 	</view>
 </template>
 
@@ -36,7 +39,7 @@
 		},
 		methods: {
 			itemClick(item) {
-				utils.openLink(item.name,item.link)
+				utils.openLink(item.name, item.link)
 			},
 			itemOptionClick(item, option) {
 				switch (option.text) {
@@ -63,9 +66,15 @@
 </script>
 
 <style>
-	.website-add {
+	.float-btn {
+		display: flex;
 		position: fixed;
 		bottom: 60rpx;
 		right: 40rpx;
+		width: 90rpx;
+		height: 90rpx;
+		align-items: center;
+		justify-content: center;
+		border-radius: 90rpx;
 	}
 </style>
