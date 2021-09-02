@@ -3,7 +3,7 @@
 		<banner ref="banner" />
 		<grid-view ref="grid" @itemClick="onChapterClick" />
 		<article-list ref="list" />
-		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
+		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150" />
 	</view>
 </template>
 
@@ -52,8 +52,10 @@
 					// 轮播图
 					self.$refs.banner.setBanners(res[0].map((item) => {
 						return {
+							id: item.id,
+							title:item.title,
 							image: item.imagePath,
-							extra: item.url
+							link: item.url
 						}
 					}))
 					// 公众号
@@ -62,7 +64,7 @@
 						return {
 							image: utils.getAvatar(item.id),
 							title: item.name,
-							extra: item.id
+							id: item.id
 						}
 					})
 					self.chapters = self.chapters.concat(res[1])
@@ -70,7 +72,7 @@
 						chapters.push({
 							image: utils.getAvatar(0),
 							title: '更多',
-							extra: -1
+							id: -1
 						})
 					}
 					self.$refs.grid.setData(chapters)

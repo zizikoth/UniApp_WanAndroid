@@ -12,7 +12,7 @@
 		name: "grid-view",
 		data() {
 			return {
-				// icon,title,extra
+				// icon,title,id
 				data: []
 			};
 		},
@@ -21,7 +21,7 @@
 				this.data = data
 			},
 			itemClick(data) {
-				this.$emit("itemClick", data.extra)
+				this.$emit("itemClick", data.id)
 			}
 		}
 	}

@@ -1,8 +1,15 @@
 <template>
 	<view class="page">
-		<web-view :src="link" />
+		<web-view :src="link">
+			<!-- #ifdef MP-WEIXIN -->
+			<cover-image v-if="!collected && delayShow" class="float-btn card" src="@/static/icon_collect.png"
+				@click="collect" />
+			<cover-image v-if="collected && delayShow" class="float-btn card" src="@/static/icon_collected.png"
+				@click="collect" />
+			<!-- #endif -->
+		</web-view>
 
-		<!-- #ifdef H5 -->
+		<!-- #ifndef MP-WEIXIN -->
 		<view class="float-btn card" @click="collect">
 			<u-icon :name="collected?'heart-fill':'heart'" color="#f56767" size="60" />
 		</view>
@@ -23,7 +30,8 @@
 				id: 0,
 				title: '',
 				link: '',
-				collected: false
+				collected: false,
+				delayShow: false
 			}
 		},
 
@@ -37,6 +45,9 @@
 			self.collected = dataManager.isCollected(self.id)
 			console.log(self.id, params.title, params.link)
 			console.log("collected = " + self.collected, dataManager.getUser())
+			setTimeout(function() {
+				self.delayShow = true
+			}, 800)
 		},
 		methods: {
 			collect() {

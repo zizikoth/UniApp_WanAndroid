@@ -146,7 +146,8 @@ var _default = { name: "banner", data: function data() {return { // image title
       this.position = 0;
     },
     itemClick: function itemClick(item) {
-      this.$u.throttle(_Utils.default.openLink(item.title, item.extra), 500);
+      console.log(item);
+      _Utils.default.openLink(item.id, item.title, item.link);
     } } };exports.default = _default;
 
 /***/ }),

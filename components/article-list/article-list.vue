@@ -138,7 +138,9 @@
 			contentClick(index) {
 				this.data[index].show = false
 				let article = this.data[index]
-				this.$u.throttle(utils.openLink(article.id,this.title(article), article.link), 500)
+				// 如果有原始id那么就使用原始id 不然就使用当前id
+				let id = utils.isEmpty(article.originId) ? article.id : article.originId
+				utils.openLink(id, this.title(article), article.link)
 			},
 			optionClick(index, position) {
 				this.data[index].show = false

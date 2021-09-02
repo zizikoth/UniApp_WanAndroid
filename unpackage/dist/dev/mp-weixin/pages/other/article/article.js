@@ -145,6 +145,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
 var _DataManager = _interopRequireDefault(__webpack_require__(/*! @/manager/DataManager.js */ 61));
 var _BusManager = _interopRequireDefault(__webpack_require__(/*! @/manager/BusManager.js */ 82));
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
@@ -161,14 +168,18 @@ var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiServi
 //
 //
 //
-var self;var _default = { data: function data() {return { id: 0, title: '', link: '', collected: false };}, onLoad: function onLoad(params) {self = this;self.id = params.id;
-    self.link = params.link;
-    uni.setNavigationBarTitle({
-      title: params.title });
-
-    self.collected = _DataManager.default.isCollected(self.id);
-    console.log(self.id, params.title, params.link);
+//
+//
+//
+//
+//
+//
+//
+var self;var _default = { data: function data() {return { id: 0, title: '', link: '', collected: false, delayShow: false };}, onLoad: function onLoad(params) {self = this;self.id = params.id;self.link = params.link;uni.setNavigationBarTitle({ title: params.title });self.collected = _DataManager.default.isCollected(self.id);console.log(self.id, params.title, params.link);
     console.log("collected = " + self.collected, _DataManager.default.getUser());
+    setTimeout(function () {
+      self.delayShow = true;
+    }, 800);
   },
   methods: {
     collect: function collect() {

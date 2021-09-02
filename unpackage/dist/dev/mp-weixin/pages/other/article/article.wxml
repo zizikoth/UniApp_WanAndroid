@@ -1,1 +1,1 @@
-<view class="page"><web-view src="{{link}}"></web-view></view>
+<view class="page"><web-view src="{{link}}"><block wx:if="{{!collected&&delayShow}}"><cover-image class="float-btn card" src="/static/icon_collect.png" data-event-opts="{{[['tap',[['collect',['$event']]]]]}}" bindtap="__e"></cover-image></block><block wx:if="{{collected&&delayShow}}"><cover-image class="float-btn card" src="/static/icon_collected.png" data-event-opts="{{[['tap',[['collect',['$event']]]]]}}" bindtap="__e"></cover-image></block></web-view></view>

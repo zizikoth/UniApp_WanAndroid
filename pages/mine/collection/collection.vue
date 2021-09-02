@@ -1,8 +1,11 @@
 <template>
 	<view class="page">
 		<article-list ref="list" :disable="false" type="delete" @optionClick="collectionDelete" />
-		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
-		<u-icon class="collection-add" name="plus-circle" color="#333333" size="80" @click="collectionAdd" />
+		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150" />
+
+		<view class="float-btn card">
+			<u-icon name="plus-circle" color="#333333" size="80" @click="collectionAdd" />
+		</view>
 	</view>
 </template>
 
@@ -70,9 +73,15 @@
 </script>
 
 <style>
-	.collection-add {
+	.float-btn {
+		display: flex;
 		position: fixed;
 		bottom: 60rpx;
 		right: 40rpx;
+		width: 90rpx;
+		height: 90rpx;
+		align-items: center;
+		justify-content: center;
+		border-radius: 90rpx;
 	}
 </style>

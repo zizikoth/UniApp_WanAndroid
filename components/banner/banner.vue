@@ -3,8 +3,8 @@
 		<swiper class="banner-box" :circular="true" :indicator-dots="true" :autoplay="true" :interval="4000"
 			previous-margin="40rpx" next-margin="40rpx" indicator-color="#46485F" indicator-active-color="#F58F98"
 			:duration="1000" @change="change" :current="position">
-			<swiper-item v-for="(item,index) in data" :key="index">
-				<image class="banner-image" :src="item.image" mode="aspectFill" @click="itemClick(item)" />
+			<swiper-item v-for="(item,index) in data" :key="index" @click="itemClick(item)">
+				<image class="banner-image" :src="item.image" mode="aspectFill" />
 			</swiper-item>
 		</swiper>
 	</view>
@@ -29,8 +29,9 @@
 				this.data = data
 				this.position = 0
 			},
-			itemClick(item){
-				this.$u.throttle(utils.openLink(item.title,item.extra), 500)
+			itemClick(item) {
+				console.log(item)
+				utils.openLink(item.id, item.title, item.link)
 			}
 		}
 	}
@@ -57,6 +58,4 @@
 		height: 360rpx;
 		border-radius: 20rpx;
 	}
-
-
 </style>

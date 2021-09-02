@@ -128,7 +128,7 @@ var _default =
   name: "grid-view",
   data: function data() {
     return {
-      // icon,title,extra
+      // icon,title,id
       data: [] };
 
   },
@@ -137,7 +137,7 @@ var _default =
       this.data = data;
     },
     itemClick: function itemClick(data) {
-      this.$emit("itemClick", data.extra);
+      this.$emit("itemClick", data.id);
     } } };exports.default = _default;
 
 /***/ }),

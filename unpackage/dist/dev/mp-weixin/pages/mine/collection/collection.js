@@ -96,13 +96,13 @@ var components
 try {
   components = {
     articleList: function() {
-      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 232))
+      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 224))
     },
     uBackTop: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 239))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 231))
     },
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 307))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 285))
     }
   }
 } catch (e) {
@@ -168,6 +168,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -176,10 +179,10 @@ var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiServi
 //
 //
 //
-var self;var _default = { data: function data() {return { page: 0, enableLoadMore: false, scrollTop: 0 };
-  },
-  onLoad: function onLoad() {
-    self = this;
+//
+//
+//
+var self;var _default = { data: function data() {return { page: 0, enableLoadMore: false, scrollTop: 0 };}, onLoad: function onLoad() {self = this;
     self.collectionList();
   },
   onShow: function onShow() {
