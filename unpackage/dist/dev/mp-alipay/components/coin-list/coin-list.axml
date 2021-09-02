@@ -1,0 +1,1 @@
+<view><view class="coin-container" a:for="{{list}}" a:for-item="item" a:for-index="index" a:key="id"><text class="coin-text">{{item.userName}}</text><text class="coin-text">{{item.reason}}</text><text class="coin-text">{{item.desc}}</text><view class="line"></view></view></view>

@@ -2,6 +2,8 @@
 	<view class="page">
 		<website-list ref="list" @itemClick="itemClick" @itemOptionClick="itemOptionClick" />
 
+		<empty-view v-show="empty" />
+
 		<view class="float-btn card">
 			<u-icon class="website-add" name="plus-circle" color="#333333" size="80" @click="websiteAdd" />
 		</view>
@@ -14,9 +16,6 @@
 	import api from '@/http/ApiService.js'
 	var self
 	export default {
-		onPullDownRefresh() {
-			self.websiteList()
-		},
 		onLoad() {
 			self = this
 			self.websiteList()
@@ -27,19 +26,24 @@
 				self.websiteList()
 			}
 		},
+		onPullDownRefresh() {
+			self.websiteList()
+		},
 		data() {
 			return {
-				websiteList() {
-					api.websiteList().then(res => {
-						uni.stopPullDownRefresh()
-						self.$refs.list.setData(res)
-					})
-				}
+				empty: false,
 			}
 		},
 		methods: {
+			websiteList() {
+				api.websiteList().then(res => {
+					uni.stopPullDownRefresh()
+					self.empty = utils.isEmptyList(res)
+					self.$refs.list.setData(res)
+				})
+			},
 			itemClick(item) {
-				utils.openLink(-1,item.name, item.link)
+				utils.openLink(-1, item.name, item.link)
 			},
 			itemOptionClick(item, option) {
 				switch (option.text) {
@@ -52,6 +56,7 @@
 					case "删除":
 						api.websiteDelete(item.id).then(res => {
 							self.$refs.list.websiteDelete(item.id)
+							self.empty = self.$refs.list.isEmpty()
 						})
 						break;
 				}

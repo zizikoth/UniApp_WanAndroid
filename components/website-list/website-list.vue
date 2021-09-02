@@ -67,8 +67,8 @@
 				this.list[index].show = false
 				this.$emit("itemOptionClick", this.list[index], this.list[index].options[position])
 			},
-			isLastOne() {
-				return this.list.length == 1
+			isEmpty() {
+				return this.list.length == 0
 			},
 			websiteDelete(id) {
 				let index = this.list.findIndex(item => {

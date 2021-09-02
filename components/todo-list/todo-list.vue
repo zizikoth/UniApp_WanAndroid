@@ -99,8 +99,8 @@
 				this.list[index].show = false
 				this.$emit("itemClick", this.list[index])
 			},
-			isLastOne() {
-				return this.list.length == 1
+			isEmpty() {
+				return this.list.length == 0
 			},
 			todoDelete(id) {
 				let index = this.list.findIndex(item => {

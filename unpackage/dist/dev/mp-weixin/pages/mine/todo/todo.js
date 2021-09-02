@@ -98,6 +98,9 @@ try {
     todoList: function() {
       return __webpack_require__.e(/*! import() | components/todo-list/todo-list */ "components/todo-list/todo-list").then(__webpack_require__.bind(null, /*! @/components/todo-list/todo-list.vue */ 286))
     },
+    emptyView: function() {
+      return __webpack_require__.e(/*! import() | components/empty-view/empty-view */ "components/empty-view/empty-view").then(__webpack_require__.bind(null, /*! @/components/empty-view/empty-view.vue */ 321))
+    },
     uPopup: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-popup/u-popup */ "node-modules/uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! uview-ui/components/u-popup/u-popup.vue */ 293))
     },
@@ -178,6 +181,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -193,10 +199,10 @@ var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiServi
 //
 //
 //
-var self;var _default = { onLoad: function onLoad() {self = this;self.todoList();}, onShow: function onShow() {if (getApp().globalData.refresh.todoUpdate) {getApp().globalData.refresh.todoUpdate = false;self.filter.page = 1;self.todoList();} else if (getApp().globalData.refresh.todoAdd) {getApp().globalData.refresh.todoAdd = false;self.filter.page = 1;self.filter.type = '';
-      self.filter.priority = '';
-      self.filter.status = '';
-      self.filter.orderby = '4';
+//
+//
+//
+var self;var _default = { onLoad: function onLoad() {self = this;self.todoList();}, onShow: function onShow() {if (getApp().globalData.refresh.todoUpdate) {getApp().globalData.refresh.todoUpdate = false;self.filter.page = 1;self.todoList();} else if (getApp().globalData.refresh.todoAdd) {getApp().globalData.refresh.todoAdd = false;self.filter.page = 1;self.filter.type = '';self.filter.priority = '';self.filter.status = '';self.filter.orderby = '4';
       self.todoList();
     }
   },
@@ -223,13 +229,15 @@ var self;var _default = { onLoad: function onLoad() {self = this;self.todoList()
 
       showFilter: false,
       data: [],
-      enableLoadMore: false };
+      enableLoadMore: false,
+      empty: false };
 
   },
   methods: {
     todoList: function todoList() {
       _ApiService.default.todoList(self.filter).then(function (res) {
         uni.stopPullDownRefresh();
+        self.empty = res.total == 0;
         // 判断是否可以继续加载下一页
         res.curPage == 1 ? self.data = res.datas :
         self.data = self.data.concat(res.datas);
@@ -258,11 +266,10 @@ var self;var _default = { onLoad: function onLoad() {self = this;self.todoList()
           break;
         case '删除':
           _ApiService.default.todoDelete(item.id).then(function (res) {
-            if (self.$refs.list.isLastOne()) {
+            self.$refs.list.todoDelete(item.id);
+            if (self.$refs.list.isEmpty()) {
               self.filter.page = 1;
               self.todoList();
-            } else {
-              self.$refs.list.todoDelete(item.id);
             }
           });
           break;}

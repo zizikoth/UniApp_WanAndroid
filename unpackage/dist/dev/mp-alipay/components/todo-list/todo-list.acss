@@ -1,0 +1,106 @@
+
+.todo-box {
+	position: relative;
+}
+.todo-top {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.todo-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	width: calc(100% - 60rpx);
+	border-radius: 20rpx;
+	padding: 20rpx;
+	margin-bottom: 20rpx;
+	margin-top: 20rpx;
+	margin-left: 30rpx;
+	margin-right: 30rpx;
+}
+.todo-title {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-right: 100rpx;
+	margin-left: 20rpx;
+	color: #333333;
+	text-align: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	font-size: 30rpx;
+}
+.todo-content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	color: #666666;
+	width: 100%;
+	margin-top: 20rpx;
+	font-size: 26rpx;
+}
+.todo-bottom {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	margin-top: 20rpx;
+}
+.todo-text {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	color: #666666;
+	font-size: 26rpx;
+}
+.todo-label {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	border-radius: 20rpx;
+	color: #FFFFFF;
+	width: 80rpx;
+	height: 35rpx;
+	font-size: 25rpx;
+	text-align: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	background-color: #83AF9B;
+}
+.todo-complete {
+	position: absolute;
+	width: 80rpx;
+	height: 80rpx;
+	right: 40rpx;
+	bottom: 60rpx;
+}
+

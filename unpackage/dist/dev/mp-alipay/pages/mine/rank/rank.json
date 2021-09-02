@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "排名",
+  "pullRefresh": true,
+  "usingComponents": {
+    "rank-list": "/components/rank-list/rank-list",
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top"
+  }
+}

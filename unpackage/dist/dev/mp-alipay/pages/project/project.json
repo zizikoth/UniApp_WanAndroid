@@ -1,7 +1,9 @@
 {
   "defaultTitle": "项目",
-  "pullRefresh": false,
+  "pullRefresh": true,
   "usingComponents": {
-    "u-tabs": "/components/u-tabs/u-tabs"
+    "tab": "/components/tab/tab",
+    "article-list": "/components/article-list/article-list",
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top"
   }
 }

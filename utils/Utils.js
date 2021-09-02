@@ -117,9 +117,11 @@ const isLogined = function(toLogin = true) {
 	let isUserInfoExit = !isEmpty(dataManager.getUser())
 	let isCookieExit = !isEmpty(dataManager.getCookie())
 	let login = isUserInfoExit && isCookieExit
-	// #ifdef H5
+
+	// #ifndef MP-WEIXIN
 	login = isUserInfoExit
 	// #endif
+	
 	if (!login && toLogin) {
 		uni.navigateTo({
 			url: '/pages/other/login/login'

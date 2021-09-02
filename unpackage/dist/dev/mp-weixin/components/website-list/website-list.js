@@ -80,7 +80,7 @@ var components
 try {
   components = {
     uSwipeAction: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-swipe-action/u-swipe-action */ "node-modules/uview-ui/components/u-swipe-action/u-swipe-action").then(__webpack_require__.bind(null, /*! uview-ui/components/u-swipe-action/u-swipe-action.vue */ 350))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-swipe-action/u-swipe-action */ "node-modules/uview-ui/components/u-swipe-action/u-swipe-action").then(__webpack_require__.bind(null, /*! uview-ui/components/u-swipe-action/u-swipe-action.vue */ 357))
     }
   }
 } catch (e) {
@@ -206,8 +206,8 @@ var _default =
       this.list[index].show = false;
       this.$emit("itemOptionClick", this.list[index], this.list[index].options[position]);
     },
-    isLastOne: function isLastOne() {
-      return this.list.length == 1;
+    isEmpty: function isEmpty() {
+      return this.list.length == 0;
     },
     websiteDelete: function websiteDelete(id) {
       var index = this.list.findIndex(function (item) {

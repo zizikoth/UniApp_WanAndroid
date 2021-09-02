@@ -111,6 +111,9 @@ try {
     websiteList: function() {
       return __webpack_require__.e(/*! import() | components/website-list/website-list */ "components/website-list/website-list").then(__webpack_require__.bind(null, /*! @/components/website-list/website-list.vue */ 314))
     },
+    emptyView: function() {
+      return __webpack_require__.e(/*! import() | components/empty-view/empty-view */ "components/empty-view/empty-view").then(__webpack_require__.bind(null, /*! @/components/empty-view/empty-view.vue */ 321))
+    },
     uIcon: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 307))
     }
@@ -181,6 +184,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 60));
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
@@ -193,22 +198,24 @@ var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiServi
 //
 //
 //
-var self;var _default = { onPullDownRefresh: function onPullDownRefresh() {self.websiteList();}, onLoad: function onLoad() {self = this;self.websiteList();}, onShow: function onShow() {if (getApp().globalData.refresh.websiteRefresh) {
-      getApp().globalData.refresh.websiteRefresh = false;
-      self.websiteList();
-    }
+//
+//
+var self;var _default = { onLoad: function onLoad() {self = this;self.websiteList();}, onShow: function onShow() {if (getApp().globalData.refresh.websiteRefresh) {getApp().globalData.refresh.websiteRefresh = false;self.websiteList();}}, onPullDownRefresh: function onPullDownRefresh() {
+    self.websiteList();
   },
   data: function data() {
     return {
-      websiteList: function websiteList() {
-        _ApiService.default.websiteList().then(function (res) {
-          uni.stopPullDownRefresh();
-          self.$refs.list.setData(res);
-        });
-      } };
+      empty: false };
 
   },
   methods: {
+    websiteList: function websiteList() {
+      _ApiService.default.websiteList().then(function (res) {
+        uni.stopPullDownRefresh();
+        self.empty = _Utils.default.isEmptyList(res);
+        self.$refs.list.setData(res);
+      });
+    },
     itemClick: function itemClick(item) {
       _Utils.default.openLink(-1, item.name, item.link);
     },
@@ -223,6 +230,7 @@ var self;var _default = { onPullDownRefresh: function onPullDownRefresh() {self.
         case "删除":
           _ApiService.default.websiteDelete(item.id).then(function (res) {
             self.$refs.list.websiteDelete(item.id);
+            self.empty = self.$refs.list.isEmpty();
           });
           break;}
 

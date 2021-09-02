@@ -3,7 +3,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "article-list": "/components/article-list/article-list",
-    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top",
+    "empty-view": "/components/empty-view/empty-view",
     "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon"
   }
 }

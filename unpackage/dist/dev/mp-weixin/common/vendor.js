@@ -10578,7 +10578,7 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 
 /***/ }),
 
-/***/ 340:
+/***/ 347:
 /*!*******************************************************************************************************!*\
   !*** /Users/memo/Documents/Android/Memo/WanAndroid_Uniapp/node_modules/uview-ui/libs/util/emitter.js ***!
   \*******************************************************************************************************/
@@ -12096,6 +12096,8 @@ var isLogined = function isLogined() {var toLogin = arguments.length > 0 && argu
   var isUserInfoExit = !isEmpty(_DataManager.default.getUser());
   var isCookieExit = !isEmpty(_DataManager.default.getCookie());
   var login = isUserInfoExit && isCookieExit;
+
+
 
 
 

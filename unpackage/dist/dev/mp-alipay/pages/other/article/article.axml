@@ -1,0 +1,1 @@
+<view class="page"><web-view src="{{link}}"></web-view><view data-event-opts="{{[['tap',[['collect',['$event']]]]]}}" class="float-btn card" onTap="__e"><u-icon vue-id="7e58dd47-1" name="{{collected?'heart-fill':'heart'}}" color="#f56767" size="60" onVueInit="__l"></u-icon></view></view>

@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "我的分享",
+  "pullRefresh": true,
+  "usingComponents": {
+    "article-list": "/components/article-list/article-list",
+    "empty-view": "/components/empty-view/empty-view",
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top",
+    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon"
+  }
+}

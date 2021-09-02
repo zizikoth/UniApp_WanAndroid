@@ -1,5 +1,9 @@
 {
   "defaultTitle": "我的",
   "pullRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "item-cell": "/components/item-cell/item-cell",
+    "u-mask": "/node-modules/uview-ui/components/u-mask/u-mask",
+    "tip-mask": "/components/tip-mask/tip-mask"
+  }
 }

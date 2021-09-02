@@ -1,12 +1,14 @@
 <template>
-	<view class="tip-container">
-		<view class="tip-title">{{title}}</view>
-		<view class="tip-content">{{content}}</view>
-		<view class="tip-line-h" />
-		<view class="tip-tap-container">
-			<text class="tip-tap-text" @click="onNegative">{{negative}}</text>
-			<view class="tip-line-v" />
-			<text class="tip-tap-text" @click="onPositive">{{positive}}</text>
+	<view class="tip-box">
+		<view class="tip-container">
+			<view class="tip-title">{{title}}</view>
+			<view class="tip-content">{{content}}</view>
+			<view class="tip-line-h" />
+			<view class="tip-tap-container">
+				<text class="tip-tap-text" @click="onNegative">{{negative}}</text>
+				<view class="tip-line-v" />
+				<text class="tip-tap-text" @click="onPositive">{{positive}}</text>
+			</view>
 		</view>
 	</view>
 </template>
@@ -50,15 +52,23 @@
 </script>
 
 <style>
+	.tip-box {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.tip-container {
 		display: flex;
 		flex-direction: column;
 		width: 500rpx;
+		height: auto;
 		border-radius: 20rpx;
 		background: #ffffff;
 		align-items: center;
 		justify-content: center;
-		align-self: center;
 	}
 
 	.tip-title {
@@ -111,5 +121,4 @@
 		align-items: center;
 		justify-content: center;
 	}
-
 </style>

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "网址收藏",
+  "pullRefresh": true,
+  "usingComponents": {
+    "website-list": "/components/website-list/website-list",
+    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon"
+  }
+}

@@ -1,6 +1,9 @@
 <template>
 	<view class="page">
 		<todo-list ref="list" @itemOptionClick="onItemOptionClick" />
+
+		<empty-view v-show="empty" />
+
 		<u-popup v-model="showFilter" mode="bottom" :safe-area-inset-bottom="true" border-radius="14" @open="open">
 			<todo-filter ref="dialog" @submit="submit" />
 		</u-popup>
@@ -59,13 +62,15 @@
 				},
 				showFilter: false,
 				data: [],
-				enableLoadMore: false
+				enableLoadMore: false,
+				empty: false
 			}
 		},
 		methods: {
 			todoList() {
 				api.todoList(self.filter).then(res => {
 					uni.stopPullDownRefresh()
+					self.empty = res.total == 0
 					// 判断是否可以继续加载下一页
 					res.curPage == 1 ? self.data = res.datas :
 						self.data = self.data.concat(res.datas)
@@ -94,11 +99,10 @@
 						break;
 					case '删除':
 						api.todoDelete(item.id).then(res => {
-							if (self.$refs.list.isLastOne()) {
+							self.$refs.list.todoDelete(item.id)
+							if (self.$refs.list.isEmpty()) {
 								self.filter.page = 1
 								self.todoList()
-							} else {
-								self.$refs.list.todoDelete(item.id)
 							}
 						})
 						break;

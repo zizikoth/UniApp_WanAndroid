@@ -1,0 +1,1 @@
+<view><view class="wrap-container"><view data-event-opts="{{[['tap',[['itemClick',['$0'],[[['data','',index]]]]]]]}}" class="{{(item.isTitle?'wrap-title':'wrap-item')}}" onTap="__e" a:for="{{data}}" a:for-item="item" a:for-index="index" a:key="index">{{''+item.title+''}}</view></view></view>

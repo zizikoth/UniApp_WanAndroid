@@ -30,7 +30,7 @@
 		</view>
 
 
-		<u-mask class="center" :show="show" @click="show = false">
+		<u-mask class="tip-mask" :show="show" @click="show = false">
 			<tip-mask content="是否退出登录" @positive="loginOut" />
 		</u-mask>
 
@@ -215,5 +215,13 @@
 		display: flex;
 		font-size: 25rpx;
 		color: #999999;
+	}
+
+	.tip-mask {
+		display: flex;
+		align-content: center;
+		align-self: center;
+		align-items: center;
+		justify-content: center;
 	}
 </style>

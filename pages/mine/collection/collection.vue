@@ -1,7 +1,8 @@
 <template>
 	<view class="page">
 		<article-list ref="list" :disable="false" type="delete" @optionClick="collectionDelete" />
-		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150" />
+
+		<empty-view v-show="empty" />
 
 		<view class="float-btn card">
 			<u-icon name="plus-circle" color="#333333" size="80" @click="collectionAdd" />
@@ -17,7 +18,7 @@
 			return {
 				page: 0,
 				enableLoadMore: false,
-				scrollTop: 0
+				empty: false,
 			}
 		},
 		onLoad() {
@@ -38,13 +39,11 @@
 		onReachBottom() {
 			if (self.enableLoadMore) self.collectionList()
 		},
-		onPageScroll(e) {
-			self.scrollTop = e.scrollTop
-		},
 		methods: {
 			collectionList() {
 				api.collectionList(self.page).then(res => {
 					uni.stopPullDownRefresh()
+					self.empty = res.total == 0
 					res.curPage == 1 ? self.$refs.list.setData(res.datas) :
 						self.$refs.list.addData(res.datas)
 					self.enableLoadMore = res.over == false
@@ -54,12 +53,11 @@
 			collectionDelete(item, option) {
 				if (option.text == '删除') {
 					api.unCollectInList(item.id, item.originId).then(res => {
-						if (self.$refs.list.isLastOne()) {
+						self.$refs.list.itemDelete(item.id)
+						if (self.$refs.list.isEmpty()) {
 							self.page = 0
 							self.collectionList()
 						}
-						self.$refs.list.itemDelete(item.id)
-
 					})
 				}
 			},

@@ -11,7 +11,10 @@
 		</view>
 
 		<article-list ref="list" :disable="false" type="delete" @optionClick="myShareDelete" />
-		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150"/>
+
+		<empty-view v-show="empty" />
+
+		<u-back-top :scrollTop="scrollTop" top="1000" bottom="150" />
 
 		<view class="float-btn card">
 			<u-icon name="plus-circle" color="#333333" size="80" @click="myShareAdd" />
@@ -31,7 +34,8 @@
 				rankInfo: '排名：0',
 				page: 1,
 				enableLoadMore: false,
-				scrollTop: 0
+				scrollTop: 0,
+				empty: false
 			}
 		},
 		onLoad() {
@@ -62,6 +66,7 @@
 					self.levelInfo = '等级：' + res.coinInfo.level
 					self.rankInfo = '排名：' + res.coinInfo.rank
 					uni.stopPullDownRefresh()
+					self.empty = res.shareArticles.total == 0
 					res.shareArticles.curPage == 1 ? self.$refs.list.setData(res.shareArticles.datas) :
 						self.$refs.list.addData(res.shareArticles.datas)
 					self.enableLoadMore = res.shareArticles.over == false
@@ -76,11 +81,11 @@
 			myShareDelete(item, option) {
 				if (option.text == '删除') {
 					api.myShareDelete(item.id).then(res => {
-						if (self.$refs.list.isLastOne()) {
+						self.$refs.list.itemDelete(item.id)
+						if (self.$refs.list.isEmpty()) {
 							self.page = 1
 							self.myShareList()
 						}
-						self.$refs.list.itemDelete(item.id)
 					})
 				}
 			}

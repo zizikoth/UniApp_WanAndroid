@@ -1,0 +1,1 @@
+<view><u-tabs vue-id="0b2c71ac-1" list="{{tabs}}" is-scroll="{{true}}" current="{{position}}" inactive-color="#999999" activeColor="#333333" bold="{{bold}}" show-bar="{{true}}" bar-width="80" data-event-opts="{{[['^change',[['change']]]]}}" onChange="__e" onVueInit="__l"></u-tabs></view>

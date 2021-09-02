@@ -94,7 +94,7 @@ var components
 try {
   components = {
     rankList: function() {
-      return __webpack_require__.e(/*! import() | components/rank-list/rank-list */ "components/rank-list/rank-list").then(__webpack_require__.bind(null, /*! @/components/rank-list/rank-list.vue */ 328))
+      return __webpack_require__.e(/*! import() | components/rank-list/rank-list */ "components/rank-list/rank-list").then(__webpack_require__.bind(null, /*! @/components/rank-list/rank-list.vue */ 335))
     },
     uBackTop: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 239))

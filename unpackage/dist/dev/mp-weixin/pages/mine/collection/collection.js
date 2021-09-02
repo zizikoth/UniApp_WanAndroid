@@ -96,13 +96,13 @@ var components
 try {
   components = {
     articleList: function() {
-      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 224))
+      return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 232))
     },
-    uBackTop: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 231))
+    emptyView: function() {
+      return __webpack_require__.e(/*! import() | components/empty-view/empty-view */ "components/empty-view/empty-view").then(__webpack_require__.bind(null, /*! @/components/empty-view/empty-view.vue */ 321))
     },
     uIcon: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 285))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 307))
     }
   }
 } catch (e) {
@@ -171,6 +171,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -182,8 +183,8 @@ var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiServi
 //
 //
 //
-var self;var _default = { data: function data() {return { page: 0, enableLoadMore: false, scrollTop: 0 };}, onLoad: function onLoad() {self = this;
-    self.collectionList();
+//
+var self;var _default = { data: function data() {return { page: 0, enableLoadMore: false, empty: false };}, onLoad: function onLoad() {self = this;self.collectionList();
   },
   onShow: function onShow() {
     if (getApp().globalData.refresh.collectionRefresh) {
@@ -199,13 +200,11 @@ var self;var _default = { data: function data() {return { page: 0, enableLoadMor
   onReachBottom: function onReachBottom() {
     if (self.enableLoadMore) self.collectionList();
   },
-  onPageScroll: function onPageScroll(e) {
-    self.scrollTop = e.scrollTop;
-  },
   methods: {
     collectionList: function collectionList() {
       _ApiService.default.collectionList(self.page).then(function (res) {
         uni.stopPullDownRefresh();
+        self.empty = res.total == 0;
         res.curPage == 1 ? self.$refs.list.setData(res.datas) :
         self.$refs.list.addData(res.datas);
         self.enableLoadMore = res.over == false;
@@ -215,12 +214,11 @@ var self;var _default = { data: function data() {return { page: 0, enableLoadMor
     collectionDelete: function collectionDelete(item, option) {
       if (option.text == '删除') {
         _ApiService.default.unCollectInList(item.id, item.originId).then(function (res) {
-          if (self.$refs.list.isLastOne()) {
+          self.$refs.list.itemDelete(item.id);
+          if (self.$refs.list.isEmpty()) {
             self.page = 0;
             self.collectionList();
           }
-          self.$refs.list.itemDelete(item.id);
-
         });
       }
     },

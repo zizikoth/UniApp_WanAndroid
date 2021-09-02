@@ -1,0 +1,1 @@
+<view class="page"><rank-list vue-id="46f89db0-1" ref="__r" data-ref="list" onVueInit="__l"></rank-list><u-back-top vue-id="46f89db0-2" scrollTop="{{scrollTop}}" top="1000" bottom="150" onVueInit="__l"></u-back-top></view>

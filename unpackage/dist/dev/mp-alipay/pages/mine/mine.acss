@@ -1,1 +1,91 @@
-/* required by usingComponents */
+
+.card-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	width: calc(100% - 60rpx);
+	border-radius: 20rpx;
+	padding-top: 20rpx;
+	padding-bottom: 20rpx;
+	margin: 30rpx;
+}
+.login-out {
+	position: fixed;
+	right: 50rpx;
+	width: 40rpx;
+	height: 40rpx;
+	color: #000000;
+}
+.avatar {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 160rpx;
+	margin-bottom: 20rpx;
+	margin-top: 20rpx;
+	height: 160rpx;
+	border-radius: 160rpx;
+	border: solid 6rpx #eeeeee;
+}
+.name {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #333333;
+}
+.info-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+	margin-bottom: 20rpx;
+	margin-top: 20rpx;
+	width: 100%;
+}
+.info-item {
+	height: 80rpx;
+	width: 200rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+}
+.info-item-num {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #333333;
+}
+.info-item-name {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 25rpx;
+	color: #999999;
+}
+

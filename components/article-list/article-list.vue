@@ -124,8 +124,8 @@
 			close(index) {
 				this.data[index].show = false
 			},
-			isLastOne() {
-				return this.data.length == 1
+			isEmpty() {
+				return this.data.length == 0
 			},
 			itemDelete(id) {
 				let index = this.data.findIndex(item => {

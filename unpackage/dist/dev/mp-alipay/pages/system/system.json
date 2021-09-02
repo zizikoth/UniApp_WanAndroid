@@ -1,5 +1,8 @@
 {
   "defaultTitle": "体系",
   "pullRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "u-subsection": "/node-modules/uview-ui/components/u-subsection/u-subsection",
+    "flex-wrap": "/components/flex-wrap/flex-wrap"
+  }
 }

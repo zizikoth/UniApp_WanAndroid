@@ -98,6 +98,9 @@ try {
     articleList: function() {
       return __webpack_require__.e(/*! import() | components/article-list/article-list */ "components/article-list/article-list").then(__webpack_require__.bind(null, /*! @/components/article-list/article-list.vue */ 232))
     },
+    emptyView: function() {
+      return __webpack_require__.e(/*! import() | components/empty-view/empty-view */ "components/empty-view/empty-view").then(__webpack_require__.bind(null, /*! @/components/empty-view/empty-view.vue */ 321))
+    },
     uBackTop: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-back-top/u-back-top */ "node-modules/uview-ui/components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! uview-ui/components/u-back-top/u-back-top.vue */ 239))
     },
@@ -181,6 +184,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _ApiService = _interopRequireDefault(__webpack_require__(/*! @/http/ApiService.js */ 46));
 var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 60));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
@@ -203,9 +209,10 @@ var _Utils = _interopRequireDefault(__webpack_require__(/*! @/utils/Utils.js */ 
 //
 //
 //
-var self;var _default = { data: function data() {return { coinInfo: '积分：0', levelInfo: '等级：0', rankInfo: '排名：0', page: 1, enableLoadMore: false, scrollTop: 0 };}, onLoad: function onLoad() {self = this;self.myShareList();}, onShow: function onShow() {if (getApp().globalData.refresh.shareRefresh) {getApp().globalData.refresh.shareRefresh = false;self.page = 1;self.myShareList();
-    }
-  },
+//
+//
+//
+var self;var _default = { data: function data() {return { coinInfo: '积分：0', levelInfo: '等级：0', rankInfo: '排名：0', page: 1, enableLoadMore: false, scrollTop: 0, empty: false };}, onLoad: function onLoad() {self = this;self.myShareList();}, onShow: function onShow() {if (getApp().globalData.refresh.shareRefresh) {getApp().globalData.refresh.shareRefresh = false;self.page = 1;self.myShareList();}},
   onPullDownRefresh: function onPullDownRefresh() {
     self.page = 1;
     self.myShareList();
@@ -223,6 +230,7 @@ var self;var _default = { data: function data() {return { coinInfo: '积分：0'
         self.levelInfo = '等级：' + res.coinInfo.level;
         self.rankInfo = '排名：' + res.coinInfo.rank;
         uni.stopPullDownRefresh();
+        self.empty = res.shareArticles.total == 0;
         res.shareArticles.curPage == 1 ? self.$refs.list.setData(res.shareArticles.datas) :
         self.$refs.list.addData(res.shareArticles.datas);
         self.enableLoadMore = res.shareArticles.over == false;
@@ -237,11 +245,11 @@ var self;var _default = { data: function data() {return { coinInfo: '积分：0'
     myShareDelete: function myShareDelete(item, option) {
       if (option.text == '删除') {
         _ApiService.default.myShareDelete(item.id).then(function (res) {
-          if (self.$refs.list.isLastOne()) {
+          self.$refs.list.itemDelete(item.id);
+          if (self.$refs.list.isEmpty()) {
             self.page = 1;
             self.myShareList();
           }
-          self.$refs.list.itemDelete(item.id);
         });
       }
     } } };exports.default = _default;

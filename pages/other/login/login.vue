@@ -28,7 +28,7 @@
 				</view>
 			</swiper-item>
 
-			<swiper-item>
+			<swiper-item style="display: flex;height: 800rpx;">
 				<view class="login-container">
 					<text class="label">账号</text>
 					<view style="height: 80rpx; margin-top: 30rpx;margin-bottom: 30rpx;">
