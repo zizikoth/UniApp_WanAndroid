@@ -55,8 +55,10 @@
 		},
 		onLoad() {
 			self = this
-			let name = dataManager.getUser().nickname
-			if (!utils.isEmpty(name)) self.userName = name
+			if(utils.isLogined()){
+				let name = dataManager.getUser().nickname
+				if (!utils.isEmpty(name)) self.userName = name
+			}
 			self.getCoinInfo()
 			bus.onLogin(function() {
 				let name = dataManager.getUser().nickname
